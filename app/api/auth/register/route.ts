@@ -57,9 +57,9 @@ export async function POST(req: NextRequest) {
           cookieStore.set("refreshToken", parsed.refreshToken, options);
         }
 
-        // if (parsed.sessionId) {
-        //   cookieStore.set("sessionId", parsed.sessionId, options);
-        // }
+        if (parsed.sessionId) {
+          cookieStore.set("sessionId", parsed.sessionId, options);
+        }
       }
 
       // Якщо cookies успішно встановились —

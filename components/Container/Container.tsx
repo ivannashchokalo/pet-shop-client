@@ -4,7 +4,7 @@ interface ContainerProps {
 
 export default function Container({ children }: ContainerProps) {
   return (
-    <div style={{ minWidth: 1200, margin: "0 auto", padding: "0 16px" }}>
+    <div style={{ minWidth: 1200, margin: "0 auto", padding: "0 64px" }}>
       {children}
     </div>
   );

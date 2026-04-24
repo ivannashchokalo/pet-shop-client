@@ -1,13 +1,9 @@
 import Link from "next/link";
 import Container from "../Container/Container";
-import FavoritesBadge from "../FavoritesBadge/FavoritesBadge";
 import AuthNavigation from "../AuthNavigation/AuthNavigation";
-import { cookies } from "next/headers";
+import FavoritesLink from "../FavoritesLink/FavoritesLink";
 
 export default async function Header() {
-  const cookieStore = await cookies();
-  const isLogged = cookieStore.get("accessToken");
-
   return (
     <header style={{ padding: "25px 0" }}>
       <Container>
@@ -28,14 +24,7 @@ export default async function Header() {
               </li>
             </ul>
           </nav>
-          {isLogged && (
-            <Link
-              href="/favorites"
-              style={{ marginLeft: "auto", marginRight: 50 }}
-            >
-              <FavoritesBadge />
-            </Link>
-          )}
+          <FavoritesLink />
           <AuthNavigation />
         </div>
       </Container>

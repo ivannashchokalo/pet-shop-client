@@ -5,14 +5,15 @@ import { Animal, AnimalId } from "@/types/animal";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import { useState } from "react";
-import Modal from "../Modal/Modal";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import {
   addToFavorites,
-  getFavorites,
+  // getFavorites,
   removeFromFavorites,
 } from "@/lib/usersService";
+import { useRouter } from "next/navigation";
+import { useAuthStore } from "@/stores/authStore";
+import { getMe } from "@/lib/auth";
 
 interface AnimalsListProps {
   animals: Animal[];
@@ -22,19 +23,21 @@ export default function AnimalsList({ animals }: AnimalsListProps) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const from = `${pathname}?${searchParams.toString()}`;
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const router = useRouter();
+  const user = useAuthStore((state) => state.user);
+  const setUser = useAuthStore((state) => state.setUser);
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
 
   const queryClient = useQueryClient();
 
-  const { data: favorites } = useQuery({
-    queryKey: ["favorites"],
-    queryFn: getFavorites,
-  });
+  // const { data: favorites } = useQuery({
+  //   queryKey: ["favorites"],
+  //   queryFn: getFavorites,
+  // });
 
   const addMutation = useMutation({
     mutationFn: addToFavorites,
-    onSuccess: () => {
+    onSuccess: async () => {
       queryClient.invalidateQueries({
         queryKey: ["favorites"],
       });
@@ -42,24 +45,39 @@ export default function AnimalsList({ animals }: AnimalsListProps) {
       queryClient.invalidateQueries({
         queryKey: ["animals"],
       });
+      queryClient.invalidateQueries({
+        queryKey: ["favoriteAnimals"],
+      });
+      const updatedUser = await getMe();
+      setUser(updatedUser);
     },
   });
 
   const removeMutation = useMutation({
     mutationFn: removeFromFavorites,
-    onSuccess: () => {
+    onSuccess: async () => {
       queryClient.invalidateQueries({
         queryKey: ["favorites"],
       });
-
       queryClient.invalidateQueries({
         queryKey: ["animals"],
       });
+      queryClient.invalidateQueries({
+        queryKey: ["favoriteAnimals"],
+      });
+      const updatedUser = await getMe();
+      setUser(updatedUser);
     },
   });
 
   const handleFavoriteClick = (animalId: AnimalId) => {
-    const isFavorite = favorites?.includes(animalId);
+    console.log(isAuthenticated);
+    if (!isAuthenticated) {
+      console.log(from);
+      router.push(`/sign-in?from=${encodeURIComponent(from)}`);
+      return;
+    }
+    const isFavorite = user?.favorites.includes(animalId);
 
     if (isFavorite) {
       removeMutation.mutate(animalId);
@@ -78,7 +96,7 @@ export default function AnimalsList({ animals }: AnimalsListProps) {
         }}
       >
         {animals.map((animal) => {
-          const isFavorite = favorites?.includes(animal._id);
+          const isFavorite = user?.favorites.includes(animal._id);
 
           return (
             <li key={animal._id}>
@@ -124,29 +142,18 @@ export default function AnimalsList({ animals }: AnimalsListProps) {
                 {isFavorite ? "-" : "+"}
               </button>
 
-              <button type="button" onClick={() => setIsModalOpen(true)}>
+              <button
+                type="button"
+                onClick={() =>
+                  router.push(`/animals/reserve/${animal._id}?from=${from}`)
+                }
+              >
                 Reserve
               </button>
             </li>
           );
         })}
       </ul>
-
-      {isModalOpen && (
-        <Modal>
-          <div
-            style={{
-              backgroundColor: "yellow",
-              width: 500,
-              minHeight: 700,
-            }}
-          >
-            <button type="button" onClick={() => setIsModalOpen(false)}>
-              Close
-            </button>
-          </div>
-        </Modal>
-      )}
     </>
   );
 }

@@ -30,6 +30,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: `Browse ${categoryTitle.toLowerCase()} available for purchase.`,
     };
   }
+
+  // if (slug.length > 2) {
+  //   notFound();
+  // }
   const id = slug[1];
   const animal = await fetchAnimalById(id);
 

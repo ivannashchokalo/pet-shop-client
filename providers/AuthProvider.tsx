@@ -21,7 +21,6 @@ export default function AuthProvider({ children }: AuthProviderProps) {
       if (response.success) {
         const user = await getMe();
         if (user) setUser(user);
-        console.log(user);
       } else {
         clearIsAuthenticated();
       }

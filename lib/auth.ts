@@ -35,3 +35,9 @@ export const getMe = async () => {
   const { data } = await nextServer.get<User>("/auth/me");
   return data;
 };
+
+export const refreshSession = async () => {
+  const { data } = await nextServer.post("/auth/refresh");
+
+  return data;
+};

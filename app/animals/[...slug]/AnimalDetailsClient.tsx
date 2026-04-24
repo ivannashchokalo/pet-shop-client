@@ -5,8 +5,10 @@ import { fetchAnimalById } from "@/lib/animalsClient";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import { useParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function AnimalDetailsClient() {
+  const router = useRouter();
   const { slug } = useParams<{ slug: string[] }>();
   const id = slug[1];
 
@@ -27,6 +29,10 @@ export default function AnimalDetailsClient() {
       <h1>{data?.name}</h1>
       <p>{data?.breed}</p>
       <p>{data?.description}</p>
+      <button
+        type="button"
+        onClick={() => router.push(`/animals/reserve/${data?._id}`)}
+      ></button>
     </div>
   );
 }
