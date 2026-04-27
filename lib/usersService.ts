@@ -1,7 +1,7 @@
 import { AnimalId } from "@/types/animal";
 import { nextServer } from "./api";
 
-export const getFavorites = async () => {
+export const fetchFavorites = async () => {
   const { data } = await nextServer.get("users/favorites");
   return data.favorites;
 };
@@ -18,13 +18,12 @@ export const removeFromFavorites = async (animalId: AnimalId) => {
   return data;
 };
 
-export const getFavoriteAnimals = async () => {
+export const fetchFavoriteAnimals = async () => {
   const { data } = await nextServer.get("users/favorites/animals");
   return data;
 };
 
 export const clearFavorites = async () => {
   const { data } = await nextServer.delete("/users/favorites/animals");
-  console.log(data);
   return data;
 };

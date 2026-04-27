@@ -1,4 +1,4 @@
-import { fetchAnimalById, fetchAnimals } from "@/lib/animalsClient";
+import { fetchAnimalById } from "@/lib/animalsClient";
 import {
   dehydrate,
   HydrationBoundary,

@@ -1,50 +1,70 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { createPortal } from "react-dom";
 
 interface ModalProps {
   children: React.ReactNode;
-  onClose: () => void;
+  onClose?: () => void;
   redirectPath?: string;
 }
 export default function Modal({ children, onClose, redirectPath }: ModalProps) {
   const router = useRouter();
   const [mounted, setMounted] = useState(false);
 
+  // const close = onClose ?? (() => router.back()); - цей варіан кожен рендер створює нову фекцію () => router.back() іерезапускає юзЕф, який залежить від close
+
+  // useCallback каже не створюй нову функцію,
+  //поки dependencies не змінились
+  const close = useCallback(() => {
+    if (onClose) {
+      onClose();
+      return;
+    }
+
+    router.back();
+  }, [onClose, router]);
+
   useEffect(() => {
     setMounted(true);
   }, []);
 
+  //! або
+  // if (typeof window === "undefined") {
+  //   return null;
+  // }
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.code === "Escape") {
-        onClose();
+        close();
         // router.back();
       }
     };
 
     document.addEventListener("keydown", handleKeyDown);
+    document.body.style.overflow = "hidden";
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "auto";
     };
-  }, [onClose]);
+  }, [close]);
 
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (e.target === e.currentTarget) onClose();
+    if (e.target === e.currentTarget) close();
     // router.back();
   };
 
   const handleModalClose = () => {
-    onClose();
+    close();
     if (redirectPath) {
       router.push(redirectPath);
     }
   };
 
-  if (!mounted) return null;
+  if (!mounted) return null; // нічого не рендеримо і не чіпаємо document.body, поки компонент не змонтується
 
   return createPortal(
     <div

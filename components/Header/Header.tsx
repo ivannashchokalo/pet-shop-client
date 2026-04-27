@@ -2,6 +2,7 @@ import Link from "next/link";
 import Container from "../Container/Container";
 import AuthNavigation from "../AuthNavigation/AuthNavigation";
 import FavoritesLink from "../FavoritesLink/FavoritesLink";
+import ProfileLink from "../ProfileLink/ProfileLink";
 
 export default async function Header() {
   return (
@@ -24,7 +25,9 @@ export default async function Header() {
               </li>
             </ul>
           </nav>
+
           <FavoritesLink />
+          <ProfileLink />
           <AuthNavigation />
         </div>
       </Container>

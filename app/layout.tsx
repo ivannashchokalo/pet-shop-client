@@ -31,8 +31,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  reserve,
 }: Readonly<{
   children: React.ReactNode;
+  reserve: React.ReactNode;
 }>) {
   return (
     <html lang="en">
@@ -46,7 +48,10 @@ export default function RootLayout({
         <TanstackQueryProvider>
           <AuthProvider>
             <Header />
-            <main style={{ flexGrow: 1 }}>{children}</main>
+            <main style={{ flexGrow: 1 }}>
+              {children}
+              {reserve}
+            </main>
             <Toaster />
             <Footer />
           </AuthProvider>

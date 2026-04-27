@@ -14,6 +14,9 @@ import {
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/stores/authStore";
 import { getMe } from "@/lib/auth";
+import { useState } from "react";
+import Modal from "../Modal/Modal";
+import SignInForm from "../SignInForm/SignInForm";
 
 interface AnimalsListProps {
   animals: Animal[];
@@ -27,13 +30,9 @@ export default function AnimalsList({ animals }: AnimalsListProps) {
   const user = useAuthStore((state) => state.user);
   const setUser = useAuthStore((state) => state.setUser);
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
   const queryClient = useQueryClient();
-
-  // const { data: favorites } = useQuery({
-  //   queryKey: ["favorites"],
-  //   queryFn: getFavorites,
-  // });
 
   const addMutation = useMutation({
     mutationFn: addToFavorites,
@@ -71,10 +70,9 @@ export default function AnimalsList({ animals }: AnimalsListProps) {
   });
 
   const handleFavoriteClick = (animalId: AnimalId) => {
-    console.log(isAuthenticated);
     if (!isAuthenticated) {
-      console.log(from);
-      router.push(`/sign-in?from=${encodeURIComponent(from)}`);
+      setIsLoginModalOpen(true);
+      // router.push(`/sign-in?from=${encodeURIComponent(from)}`);
       return;
     }
     const isFavorite = user?.favorites.includes(animalId);
@@ -154,6 +152,11 @@ export default function AnimalsList({ animals }: AnimalsListProps) {
           );
         })}
       </ul>
+      {isLoginModalOpen && (
+        <Modal onClose={() => setIsLoginModalOpen(false)}>
+          <SignInForm onModalClose={() => setIsLoginModalOpen(false)} />
+        </Modal>
+      )}
     </>
   );
 }

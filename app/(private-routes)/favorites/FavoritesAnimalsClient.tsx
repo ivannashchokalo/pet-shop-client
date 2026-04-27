@@ -1,13 +1,13 @@
 "use client";
 
 import AnimalsList from "@/components/AnimalsList/AnimalsList";
-import { clearFavorites, getFavoriteAnimals } from "@/lib/usersService";
+import { clearFavorites, fetchFavoriteAnimals } from "@/lib/usersService";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 export default function FavoritesAnimalsClient() {
   const { data } = useQuery({
     queryKey: ["favoriteAnimals"],
-    queryFn: getFavoriteAnimals,
+    queryFn: fetchFavoriteAnimals,
   });
 
   const queryClient = useQueryClient();
