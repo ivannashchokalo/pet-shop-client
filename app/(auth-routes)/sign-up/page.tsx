@@ -11,14 +11,10 @@ import { toast } from "sonner";
 import * as Yup from "yup";
 
 interface FormValues {
+  name: string;
   email: string;
   password: string;
 }
-
-const initialValues: FormValues = {
-  email: "",
-  password: "",
-};
 
 const RegisterSchema = Yup.object({
   email: Yup.string().email("Invalid email").required("Email is required!"),
@@ -46,6 +42,12 @@ export default function SignUp() {
     },
   });
 
+  const initialValues: FormValues = {
+    name: "",
+    email: "",
+    password: "",
+  };
+
   return (
     <Formik
       initialValues={initialValues}
@@ -53,6 +55,7 @@ export default function SignUp() {
       validationSchema={RegisterSchema}
     >
       <Form>
+        <Field type="text" name="name" />
         <Field type="email" name="email" />
         <Field type="password" name="password" />
 

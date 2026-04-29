@@ -5,7 +5,7 @@ import { Animal, AnimalId } from "@/types/animal";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   addToFavorites,
   // getFavorites,
@@ -17,6 +17,7 @@ import { getMe } from "@/lib/auth";
 import { useState } from "react";
 import Modal from "../Modal/Modal";
 import SignInForm from "../SignInForm/SignInForm";
+import { fetchUserRequests } from "@/lib/requestsClient";
 
 interface AnimalsListProps {
   animals: Animal[];
@@ -31,8 +32,12 @@ export default function AnimalsList({ animals }: AnimalsListProps) {
   const setUser = useAuthStore((state) => state.setUser);
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-
   const queryClient = useQueryClient();
+
+  const { data: userRequests } = useQuery({
+    queryKey: ["user-requests"],
+    queryFn: fetchUserRequests,
+  });
 
   const addMutation = useMutation({
     mutationFn: addToFavorites,
@@ -72,7 +77,6 @@ export default function AnimalsList({ animals }: AnimalsListProps) {
   const handleFavoriteClick = (animalId: AnimalId) => {
     if (!isAuthenticated) {
       setIsLoginModalOpen(true);
-      // router.push(`/sign-in?from=${encodeURIComponent(from)}`);
       return;
     }
     const isFavorite = user?.favorites.includes(animalId);
@@ -95,6 +99,9 @@ export default function AnimalsList({ animals }: AnimalsListProps) {
       >
         {animals.map((animal) => {
           const isFavorite = user?.favorites.includes(animal._id);
+          const isReserved = userRequests?.some(
+            (request) => request.animalId._id === animal._id,
+          );
 
           return (
             <li key={animal._id}>
@@ -145,8 +152,9 @@ export default function AnimalsList({ animals }: AnimalsListProps) {
                 onClick={() =>
                   router.push(`/animals/reserve/${animal._id}?from=${from}`)
                 }
+                disabled={isReserved}
               >
-                Reserve
+                {isReserved ? "Reserved" : "Reserve"}
               </button>
             </li>
           );

@@ -18,9 +18,9 @@ export default function Animals() {
               color: "white",
               fontSize: 40,
             }}
-            href="/animals/cat"
+            href="/animals/dog"
           >
-            Cats
+            Dogs
           </Link>
         </li>
         <li>
@@ -36,9 +36,9 @@ export default function Animals() {
               color: "white",
               fontSize: 40,
             }}
-            href="/animals/dog"
+            href="/animals/cat"
           >
-            Dogs
+            Cats
           </Link>
         </li>
       </ul>
