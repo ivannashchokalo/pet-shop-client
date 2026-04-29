@@ -8,3 +8,5 @@ export interface User {
   createdAt: string;
   updatedAt: string;
 }
+
+export type UserName = User["name"];

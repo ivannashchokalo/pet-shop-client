@@ -4,7 +4,7 @@ import { login } from "@/lib/auth";
 import { useAuthStore } from "@/stores/authStore";
 import { User } from "@/types/user";
 import { useMutation } from "@tanstack/react-query";
-import { Field, Form, Formik } from "formik";
+import { Field, Form, Formik, FormikHelpers } from "formik";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { toast } from "sonner";
 import * as Yup from "yup";
@@ -51,6 +51,23 @@ export default function SignInForm({
     },
   });
 
+  const handleSubmit = (
+    data: FormValues,
+    actions: FormikHelpers<FormValues>,
+  ) => {
+    mutate(data);
+    actions.resetForm();
+
+    if (!onModalClose) {
+      router.push("/");
+    }
+  };
+
+  const handleForgotPasswordClick = () => {
+    onModalClose?.();
+    router.push("/request-reset-email");
+  };
+
   const hadleSignUpClick = () => {
     onModalClose?.();
 
@@ -66,15 +83,19 @@ export default function SignInForm({
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={(data) => mutate(data)}
+      onSubmit={handleSubmit}
       validationSchema={LoginSchema}
     >
       <Form>
         <Field type="email" name="email" />
         <Field type="password" name="password" />
 
+        <button type="button" onClick={handleForgotPasswordClick}>
+          Forgot password?
+        </button>
+
         <button type="submit" disabled={isPending}>
-          {isPending ? "Loading..." : "Submit"}
+          {isPending ? "Loading..." : "Login"}
         </button>
         <p>
           Don&apos;t have an account?{" "}

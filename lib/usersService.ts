@@ -1,5 +1,15 @@
 import { AnimalId } from "@/types/animal";
 import { nextServer } from "./api";
+import { User, UserName } from "@/types/user";
+
+export interface ChangePasswordPayload {
+  oldPassword: string;
+  newPassword: string;
+}
+
+interface ChangeNamePayload {
+  name: UserName;
+}
 
 export const fetchFavorites = async () => {
   const { data } = await nextServer.get("users/favorites");
@@ -25,5 +35,21 @@ export const fetchFavoriteAnimals = async () => {
 
 export const clearFavorites = async () => {
   const { data } = await nextServer.delete("/users/favorites/animals");
+  return data;
+};
+
+export const changePassword = async (body: ChangePasswordPayload) => {
+  const { data } = await nextServer.patch(
+    "/profile/settings/change-password",
+    body,
+  );
+  return data;
+};
+
+export const changeName = async (body: ChangeNamePayload) => {
+  const { data } = await nextServer.patch<User>(
+    "/profile/settings/change-name",
+    body,
+  );
   return data;
 };

@@ -11,6 +11,15 @@ interface RegisterPayload {
   password: string;
 }
 
+interface ResetPasswordBody {
+  password: string;
+  token: string;
+}
+
+interface RequestResetEmailPayload {
+  email: string;
+}
+
 export const login = async (body: LoginPayload) => {
   const { data } = await nextServer.post("/auth/login", body);
   return data;
@@ -38,6 +47,15 @@ export const getMe = async () => {
 
 export const refreshSession = async () => {
   const { data } = await nextServer.post("/auth/refresh");
+  return data;
+};
 
+export const requestResetEmail = async (body: RequestResetEmailPayload) => {
+  const { data } = await nextServer.post("/auth/request-reset-email", body);
+  return data;
+};
+
+export const resetPassword = async (body: ResetPasswordBody) => {
+  const { data } = await nextServer.post("/auth/reset-password", body);
   return data;
 };

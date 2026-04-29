@@ -35,6 +35,7 @@ export default function ProfilePageClient() {
 
   return (
     <>
+      <Link href="/profile/settings">Edit profile</Link>
       <p>Name: {user?.name}</p>
       <p>Email: {user?.email}</p>
 
@@ -86,8 +87,6 @@ export default function ProfilePageClient() {
       ) : (
         <p>No orders</p>
       )}
-      <button type="button">Change Name</button>
-      <button type="button">Change Password</button>
     </>
   );
 }
