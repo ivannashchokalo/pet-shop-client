@@ -1,6 +1,6 @@
 "use client";
 
-import { useAuthStore } from "@/stores/authStore";
+import { useAuthStore } from "@/lib/stores/authStore";
 import Link from "next/link";
 
 export default function ProfileLink() {

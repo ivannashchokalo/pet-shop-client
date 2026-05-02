@@ -1,7 +1,10 @@
 "use client";
 
 import AnimalsList from "@/components/AnimalsList/AnimalsList";
-import { clearFavorites, fetchFavoriteAnimals } from "@/lib/usersService";
+import {
+  clearFavorites,
+  fetchFavoriteAnimals,
+} from "@/lib/api/client/usersService";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 export default function FavoritesAnimalsClient() {

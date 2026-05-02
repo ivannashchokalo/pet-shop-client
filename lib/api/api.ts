@@ -1,5 +1,5 @@
 import axios from "axios";
-import { refreshSession } from "./auth";
+import { refreshSession } from "./client/auth";
 
 export const nextServer = axios.create({
   baseURL: "http://localhost:3001/api",

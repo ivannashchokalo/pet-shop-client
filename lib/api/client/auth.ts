@@ -1,5 +1,5 @@
 import { User } from "@/types/user";
-import { nextServer } from "./api";
+import { nextServer } from "../api";
 
 interface LoginPayload {
   email: string;

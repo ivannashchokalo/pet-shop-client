@@ -1,6 +1,6 @@
 "use client";
 import AnimalsList from "@/components/AnimalsList/AnimalsList";
-import { fetchAnimals } from "@/lib/animalsClient";
+import { fetchAnimals } from "@/lib/api/client/animalsClient";
 import { useQuery } from "@tanstack/react-query";
 import { useParams, usePathname, useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";

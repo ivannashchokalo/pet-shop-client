@@ -1,4 +1,4 @@
-import { fetchAnimalById } from "@/lib/animalsClient";
+import { fetchAnimalById } from "@/lib/api/client/animalsClient";
 import {
   dehydrate,
   HydrationBoundary,
@@ -10,7 +10,10 @@ import { Metadata } from "next";
 import AnimalDetailsClient from "./AnimalDetailsClient";
 import { notFound } from "next/navigation";
 import AnimalsByCategoryClient from "./AnimalsByCategoryClient";
-import { serverFetchAnimalById, serverFetchAnimals } from "@/lib/animalsServer";
+import {
+  serverFetchAnimalById,
+  serverFetchAnimals,
+} from "@/lib/api/server/animalsServer";
 
 interface Props {
   params: Promise<{

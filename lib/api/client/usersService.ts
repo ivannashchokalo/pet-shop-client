@@ -1,6 +1,6 @@
 import { AnimalId } from "@/types/animal";
-import { nextServer } from "./api";
 import { User, UserName } from "@/types/user";
+import { nextServer } from "../api";
 
 export interface ChangePasswordPayload {
   oldPassword: string;

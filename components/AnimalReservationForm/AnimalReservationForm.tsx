@@ -1,12 +1,12 @@
 "use client";
 
-import { createRequest } from "@/lib/requestsClient";
+import { createRequest } from "@/lib/api/client/requestsClient";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Field, Form, Formik, FormikHelpers } from "formik";
 import { useState } from "react";
 import * as Yup from "yup";
 import Link from "next/link";
-import { useAuthStore } from "@/stores/authStore";
+import { useAuthStore } from "@/lib/stores/authStore";
 
 interface FormValues {
   customerName: string;

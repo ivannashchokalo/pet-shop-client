@@ -10,14 +10,14 @@ import {
   addToFavorites,
   // getFavorites,
   removeFromFavorites,
-} from "@/lib/usersService";
+} from "@/lib/api/client/usersService";
 import { useRouter } from "next/navigation";
-import { useAuthStore } from "@/stores/authStore";
-import { getMe } from "@/lib/auth";
+import { useAuthStore } from "@/lib/stores/authStore";
+import { getMe } from "@/lib/api/client/auth";
 import { useState } from "react";
 import Modal from "../Modal/Modal";
 import SignInForm from "../SignInForm/SignInForm";
-import { fetchUserRequests } from "@/lib/requestsClient";
+import { fetchUserRequests } from "@/lib/api/client/requestsClient";
 
 interface AnimalsListProps {
   animals: Animal[];

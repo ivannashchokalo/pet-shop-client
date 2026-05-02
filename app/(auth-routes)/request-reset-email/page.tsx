@@ -1,6 +1,6 @@
 "use client";
 
-import { requestResetEmail } from "@/lib/auth";
+import { requestResetEmail } from "@/lib/api/client/auth";
 import { useMutation } from "@tanstack/react-query";
 import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";

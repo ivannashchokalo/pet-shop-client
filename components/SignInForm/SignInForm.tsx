@@ -1,7 +1,7 @@
 "use client";
 
-import { login } from "@/lib/auth";
-import { useAuthStore } from "@/stores/authStore";
+import { login } from "@/lib/api/client/auth";
+import { useAuthStore } from "@/lib/stores/authStore";
 import { User } from "@/types/user";
 import { useMutation } from "@tanstack/react-query";
 import { Field, Form, Formik, FormikHelpers } from "formik";

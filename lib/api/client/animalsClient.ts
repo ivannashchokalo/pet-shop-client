@@ -1,5 +1,5 @@
 import { Animal, AnimalId } from "@/types/animal";
-import { nextServer } from "./api";
+import { nextServer } from "../api";
 
 export interface FetchAnimalsRequest {
   page: number;

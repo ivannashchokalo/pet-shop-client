@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import { nextServer } from "./api";
+import { nextServer } from "../api";
 
 export const fetchUserRequestsServer = async () => {
   const cookieStore = await cookies();

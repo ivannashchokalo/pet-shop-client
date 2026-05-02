@@ -1,8 +1,8 @@
 "use client";
 
 import { ApiError } from "@/app/api/api";
-import { register } from "@/lib/auth";
-import { useAuthStore } from "@/stores/authStore";
+import { register } from "@/lib/api/client/auth";
+import { useAuthStore } from "@/lib/stores/authStore";
 import { User } from "@/types/user";
 import { useMutation } from "@tanstack/react-query";
 import { Field, Form, Formik } from "formik";

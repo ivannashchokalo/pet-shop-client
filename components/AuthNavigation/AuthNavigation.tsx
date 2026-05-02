@@ -1,7 +1,7 @@
 "use client";
 
-import { logout } from "@/lib/auth";
-import { useAuthStore } from "@/stores/authStore";
+import { logout } from "@/lib/api/client/auth";
+import { useAuthStore } from "@/lib/stores/authStore";
 import { useMutation } from "@tanstack/react-query";
 import Link from "next/link";
 import { usePathname } from "next/navigation";

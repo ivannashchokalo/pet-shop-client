@@ -1,6 +1,6 @@
 "use client";
 
-import { resetPassword } from "@/lib/auth";
+import { resetPassword } from "@/lib/api/client/auth";
 import { useMutation } from "@tanstack/react-query";
 import { Field, Form, Formik } from "formik";
 import { useSearchParams, useRouter } from "next/navigation";

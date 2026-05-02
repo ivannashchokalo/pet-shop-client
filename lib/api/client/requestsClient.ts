@@ -1,5 +1,5 @@
 import { CreateRequest, Request } from "@/types/request";
-import { nextServer } from "./api";
+import { nextServer } from "../api";
 
 interface CreateUserRedponse {
   request: Request[];

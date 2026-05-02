@@ -1,7 +1,10 @@
 "use client";
 
-import { deleteUserRequest, fetchUserRequests } from "@/lib/requestsClient";
-import { useAuthStore } from "@/stores/authStore";
+import {
+  deleteUserRequest,
+  fetchUserRequests,
+} from "@/lib/api/client/requestsClient";
+import { useAuthStore } from "@/lib/stores/authStore";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import Image from "next/image";
 import Link from "next/link";
@@ -35,7 +38,6 @@ export default function ProfilePageClient() {
 
   return (
     <>
-      <Link href="/profile/settings">Edit profile</Link>
       <p>Name: {user?.name}</p>
       <p>Email: {user?.email}</p>
 
@@ -87,6 +89,7 @@ export default function ProfilePageClient() {
       ) : (
         <p>No orders</p>
       )}
+      <Link href="/profile/settings">Settings</Link>
     </>
   );
 }

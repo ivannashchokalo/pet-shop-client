@@ -1,7 +1,7 @@
 import { Animal, AnimalId } from "@/types/animal";
-import { nextServer } from "./api";
 import { cookies } from "next/headers";
-import { FetchAnimalsRequest } from "./animalsClient";
+import { FetchAnimalsRequest } from "../client/animalsClient";
+import { nextServer } from "../api";
 
 export const serverFetchAnimals = async (page = 1, type = "", search = "") => {
   const cookieStore = await cookies();
