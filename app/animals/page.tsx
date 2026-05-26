@@ -4,7 +4,7 @@ export default function Animals() {
   return (
     <div>
       <h1>Animals</h1>
-      <ul style={{ display: "flex", gap: "20px" }}>
+      <ul style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
         <li>
           <Link
             style={{
@@ -39,6 +39,42 @@ export default function Animals() {
             href="/animals/cat"
           >
             Cats
+          </Link>
+        </li>
+        <li>
+          <Link
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: 400,
+              height: 500,
+              backgroundColor: "teal",
+              borderRadius: "15px",
+              color: "white",
+              fontSize: 40,
+            }}
+            href="/animals/bird"
+          >
+            Bird
+          </Link>
+        </li>
+        <li>
+          <Link
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: 400,
+              height: 500,
+              backgroundColor: "teal",
+              borderRadius: "15px",
+              color: "white",
+              fontSize: 40,
+            }}
+            href="/animals/rodent"
+          >
+            Rodent
           </Link>
         </li>
       </ul>

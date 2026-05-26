@@ -1,4 +1,3 @@
-import { fetchAnimalById } from "@/lib/api/client/animalsClient";
 import {
   dehydrate,
   HydrationBoundary,
@@ -14,6 +13,7 @@ import {
   serverFetchAnimalById,
   serverFetchAnimals,
 } from "@/lib/api/server/animalsServer";
+import FiltersSidebar from "@/components/FiltersSidebar/FiltersSidebar";
 
 interface Props {
   params: Promise<{
@@ -34,11 +34,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  // if (slug.length > 2) {
-  //   notFound();
-  // }
   const id = slug[1];
-  const animal = await fetchAnimalById(id);
+  const animal = await serverFetchAnimalById(id);
 
   return {
     title: `${animal.name} | Animal Details`,
@@ -61,26 +58,38 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 interface AnimalsProps {
   params: Promise<{ slug: string[] }>;
+  searchParams: Promise<{
+    page?: string;
+  }>;
 }
 
-export default async function AnimalsByCategory({ params }: AnimalsProps) {
+export default async function AnimalsByCategory({
+  params,
+  searchParams,
+}: AnimalsProps) {
   const queryClient = new QueryClient();
   const { slug } = await params;
   const category = slug[0];
 
+  if (slug.length > 2) {
+    notFound();
+  }
+
   if (slug.length == 1) {
     const type = category;
-    const page = 1;
-    const search = "";
+    const { page: pageParam } = await searchParams;
+
+    const page = Number(pageParam) || 1;
 
     await queryClient.prefetchQuery({
-      queryKey: ["animals", { page: 1, type, search: "" }],
-      queryFn: () => serverFetchAnimals(page, type, search),
+      queryKey: ["animals", { page, type }],
+      queryFn: () => serverFetchAnimals(page, type),
     });
 
     return (
       <Section>
         <Container>
+          <FiltersSidebar type={type} />
           <HydrationBoundary state={dehydrate(queryClient)}>
             <AnimalsByCategoryClient />
           </HydrationBoundary>

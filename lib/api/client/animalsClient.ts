@@ -9,13 +9,12 @@ export interface FetchAnimalsRequest {
   animals: Animal[];
 }
 
-export const fetchAnimals = async (page = 1, type = "", search = "") => {
+export const fetchAnimals = async (page: number, type: string) => {
   const { data } = await nextServer.get<FetchAnimalsRequest>("/animals", {
     params: {
       page,
       perPage: 12,
       type,
-      search,
     },
   });
 
@@ -24,5 +23,16 @@ export const fetchAnimals = async (page = 1, type = "", search = "") => {
 
 export const fetchAnimalById = async (id: AnimalId) => {
   const { data } = await nextServer.get<Animal>(`/animals/${id}`);
+  return data;
+};
+
+export const fetchFilters = async (type: string) => {
+  const { data } = await nextServer.get("/animals/filters", {
+    params: {
+      type,
+    },
+  });
+
+  console.log(data);
   return data;
 };
