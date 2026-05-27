@@ -4,6 +4,8 @@ import { api, ApiError } from "../api";
 export async function GET(req: NextRequest) {
   const page = req.nextUrl.searchParams.get("page");
   const type = req.nextUrl.searchParams.get("type");
+  const breed = req.nextUrl.searchParams.get("breed");
+
   const search = req.nextUrl.searchParams.get("search");
 
   try {
@@ -11,6 +13,7 @@ export async function GET(req: NextRequest) {
       params: {
         page,
         type,
+        breed,
         search,
         perPage: 12,
       },

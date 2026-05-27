@@ -40,7 +40,6 @@ export const createRequest = async (body: CreateRequest) => {
 
 export const fetchUserRequests = async () => {
   const { data } = await nextServer.get<UserRequest[]>("/users/requests");
-  console.log(data);
   return data;
 };
 

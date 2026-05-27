@@ -9,15 +9,22 @@ export interface FetchAnimalsRequest {
   animals: Animal[];
 }
 
-export const fetchAnimals = async (page: number, type: string) => {
+export const fetchAnimals = async (
+  page: number,
+  type: string,
+  breed: string,
+  search: string,
+) => {
   const { data } = await nextServer.get<FetchAnimalsRequest>("/animals", {
     params: {
       page,
       perPage: 12,
       type,
+      breed,
+      search,
     },
   });
-
+  console.log(data);
   return data;
 };
 
@@ -32,7 +39,5 @@ export const fetchFilters = async (type: string) => {
       type,
     },
   });
-
-  console.log(data);
   return data;
 };

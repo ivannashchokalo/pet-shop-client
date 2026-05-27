@@ -60,6 +60,8 @@ interface AnimalsProps {
   params: Promise<{ slug: string[] }>;
   searchParams: Promise<{
     page?: string;
+    breed?: string;
+    search?: string;
   }>;
 }
 
@@ -77,13 +79,14 @@ export default async function AnimalsByCategory({
 
   if (slug.length == 1) {
     const type = category;
-    const { page: pageParam } = await searchParams;
+
+    const { page: pageParam, breed = "", search = "" } = await searchParams;
 
     const page = Number(pageParam) || 1;
 
     await queryClient.prefetchQuery({
-      queryKey: ["animals", { page, type }],
-      queryFn: () => serverFetchAnimals(page, type),
+      queryKey: ["animals", { page, type, breed, search }],
+      queryFn: () => serverFetchAnimals(page, type, breed, search),
     });
 
     return (
