@@ -15,10 +15,11 @@ export default function AnimalsByCategoryClient() {
   const page = Number(searchParams.get("page")) || 1;
   const search = searchParams.get("search") || "";
   const breed = searchParams.get("breed") || "";
+  const sex = searchParams.get("sex") || "";
 
   const { data } = useQuery({
-    queryKey: ["animals", { page, type, breed, search }],
-    queryFn: () => fetchAnimals(page, type, breed, search),
+    queryKey: ["animals", { page, type, breed, sex, search }],
+    queryFn: () => fetchAnimals(page, type, breed, sex, search),
     refetchOnMount: false,
   });
 

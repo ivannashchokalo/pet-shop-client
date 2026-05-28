@@ -5,6 +5,7 @@ export async function GET(req: NextRequest) {
   const page = req.nextUrl.searchParams.get("page");
   const type = req.nextUrl.searchParams.get("type");
   const breed = req.nextUrl.searchParams.get("breed");
+  const sex = req.nextUrl.searchParams.get("sex");
 
   const search = req.nextUrl.searchParams.get("search");
 
@@ -14,6 +15,7 @@ export async function GET(req: NextRequest) {
         page,
         type,
         breed,
+        sex,
         search,
         perPage: 12,
       },

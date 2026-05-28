@@ -13,6 +13,7 @@ export const fetchAnimals = async (
   page: number,
   type: string,
   breed: string,
+  sex: string,
   search: string,
 ) => {
   const { data } = await nextServer.get<FetchAnimalsRequest>("/animals", {
@@ -21,9 +22,11 @@ export const fetchAnimals = async (
       perPage: 12,
       type,
       breed,
+      sex,
       search,
     },
   });
+
   console.log(data);
   return data;
 };

@@ -7,6 +7,7 @@ export const serverFetchAnimals = async (
   page: number,
   type: string,
   breed: string,
+  sex: string,
   search: string,
 ) => {
   const cookieStore = await cookies();
@@ -16,6 +17,7 @@ export const serverFetchAnimals = async (
       perPage: 12,
       type,
       breed,
+      sex,
       search,
     },
     headers: {

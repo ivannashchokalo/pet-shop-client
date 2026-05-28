@@ -3,6 +3,7 @@
 import { fetchFilters } from "@/lib/api/client/animalsClient";
 import { useQuery } from "@tanstack/react-query";
 import BreedSelect from "../CustomSelect/BreedSelect";
+import SexRadioGroup from "../SexRadioGroup/SexRadioGroup";
 
 interface FiltersSidebarProps {
   type: string;
@@ -17,8 +18,9 @@ export default function FiltersSidebar({ type }: FiltersSidebarProps) {
   const breeds = data?.breeds ?? [];
 
   return (
-    <aside>
+    <aside style={{ width: "300px" }}>
       <BreedSelect breeds={breeds} />
+      <SexRadioGroup />
     </aside>
   );
 }
