@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import BreedSelect from "../CustomSelect/BreedSelect";
 import SexRadioGroup from "../SexRadioGroup/SexRadioGroup";
 import PriceSortSelect from "../PriceSortSelect/PriceSortSelect";
+import AgeSortSelect from "../AgeSortSelect/AgeSortSelect";
 
 interface FiltersSidebarProps {
   type: string;
@@ -22,6 +23,7 @@ export default function FiltersSidebar({ type }: FiltersSidebarProps) {
     <aside style={{ width: "300px" }}>
       <BreedSelect breeds={breeds} />
       <PriceSortSelect />
+      <AgeSortSelect />
       <SexRadioGroup />
     </aside>
   );
