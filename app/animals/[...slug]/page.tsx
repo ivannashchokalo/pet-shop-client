@@ -62,6 +62,8 @@ interface AnimalsProps {
     page?: string;
     breed?: string;
     sex?: string;
+    sortBy?: string;
+    sortOrder?: string;
     search?: string;
   }>;
 }
@@ -85,14 +87,20 @@ export default async function AnimalsByCategory({
       page: pageParam,
       breed = "",
       sex = "",
+      sortBy = "",
+      sortOrder = "",
       search = "",
     } = await searchParams;
 
     const page = Number(pageParam) || 1;
 
     await queryClient.prefetchQuery({
-      queryKey: ["animals", { page, type, breed, sex, search }],
-      queryFn: () => serverFetchAnimals(page, type, breed, sex, search),
+      queryKey: [
+        "animals",
+        { page, type, breed, sex, sortBy, sortOrder, search },
+      ],
+      queryFn: () =>
+        serverFetchAnimals(page, type, breed, sex, sortBy, sortOrder, search),
     });
 
     return (

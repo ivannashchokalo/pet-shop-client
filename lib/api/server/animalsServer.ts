@@ -8,6 +8,8 @@ export const serverFetchAnimals = async (
   type: string,
   breed: string,
   sex: string,
+  sortBy: string,
+  sortOrder: string,
   search: string,
 ) => {
   const cookieStore = await cookies();
@@ -16,9 +18,11 @@ export const serverFetchAnimals = async (
       page,
       perPage: 12,
       type,
-      breed,
-      sex,
-      search,
+      ...(breed && { breed }), // щоб у запит не потрапляли пусті значення
+      ...(sex && { sex }),
+      ...(search && { search }),
+      ...(sortBy && { sortBy }),
+      ...(sortOrder && { sortOrder }),
     },
     headers: {
       Cookie: cookieStore.toString(),

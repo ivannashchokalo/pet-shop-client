@@ -1,13 +1,9 @@
+import { SelectOption } from "../../types/selectOptions";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Select from "react-select";
 
 interface BreedSelectProps {
   breeds: string[];
-}
-
-interface BreedOption {
-  value: string;
-  label: string;
 }
 
 export default function BreedSelect({ breeds }: BreedSelectProps) {
@@ -16,7 +12,7 @@ export default function BreedSelect({ breeds }: BreedSelectProps) {
   const pathname = usePathname();
   const breed = searchParams.get("breed")?.split(",") ?? [];
 
-  const breedOptions: BreedOption[] = breeds.map((breed) => ({
+  const breedOptions: SelectOption[] = breeds.map((breed) => ({
     value: breed,
     label: breed,
   }));
@@ -25,7 +21,7 @@ export default function BreedSelect({ breeds }: BreedSelectProps) {
     breed.includes(option.value),
   );
 
-  const handleBreedChange = (options: BreedOption[]) => {
+  const handleBreedChange = (options: SelectOption[]) => {
     const params = new URLSearchParams(searchParams);
 
     if (options.length > 0) {
@@ -42,11 +38,12 @@ export default function BreedSelect({ breeds }: BreedSelectProps) {
       options={breedOptions}
       value={selectedBreed}
       onChange={(options) =>
-        handleBreedChange((options as BreedOption[]) ?? [])
+        handleBreedChange((options as SelectOption[]) ?? [])
       }
       isClearable
       isMulti
       isSearchable
+      placeholder="Select breeds"
     />
   );
 }
