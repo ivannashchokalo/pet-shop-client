@@ -8,7 +8,8 @@ export async function GET(req: NextRequest) {
   const sex = req.nextUrl.searchParams.get("sex");
   const sortBy = req.nextUrl.searchParams.get("sortBy");
   const sortOrder = req.nextUrl.searchParams.get("sortOrder");
-
+  const minPrice = req.nextUrl.searchParams.get("minPrice");
+  const maxPrice = req.nextUrl.searchParams.get("maxPrice");
   const search = req.nextUrl.searchParams.get("search");
 
   try {
@@ -21,6 +22,8 @@ export async function GET(req: NextRequest) {
         sortBy,
         sortOrder,
         search,
+        minPrice,
+        maxPrice,
         perPage: 12,
       },
     });

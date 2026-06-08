@@ -2,10 +2,11 @@
 
 import { fetchFilters } from "@/lib/api/client/animalsClient";
 import { useQuery } from "@tanstack/react-query";
-import BreedSelect from "../CustomSelect/BreedSelect";
+import BreedSelect from "../ BreedSelect/BreedSelect";
 import SexRadioGroup from "../SexRadioGroup/SexRadioGroup";
 import PriceSortSelect from "../PriceSortSelect/PriceSortSelect";
 import AgeSortSelect from "../AgeSortSelect/AgeSortSelect";
+import PriceRangeFilter from "../PriceFilter/PriceFilter";
 
 interface FiltersSidebarProps {
   type: string;
@@ -25,6 +26,7 @@ export default function FiltersSidebar({ type }: FiltersSidebarProps) {
       <PriceSortSelect />
       <AgeSortSelect />
       <SexRadioGroup />
+      {data?.price && <PriceRangeFilter price={data.price} />}
     </aside>
   );
 }

@@ -58,7 +58,7 @@ export default function ProfilePageClient() {
                 href={`/animals/${request.animalId.type}/${request.animalId._id}`}
               >
                 <p>
-                  Animal:{" "}
+                  Animal:
                   {`${request.animalId.type} - ${request.animalId.name}`}
                 </p>
                 <Image

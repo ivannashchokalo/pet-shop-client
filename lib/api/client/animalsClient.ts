@@ -17,6 +17,8 @@ export const fetchAnimals = async (
   sortBy: string,
   sortOrder: string,
   search: string,
+  minPrice: string,
+  maxPrice: string,
 ) => {
   const { data } = await nextServer.get<FetchAnimalsRequest>("/animals", {
     params: {
@@ -28,7 +30,21 @@ export const fetchAnimals = async (
       ...(search && { search }),
       ...(sortBy && { sortBy }),
       ...(sortOrder && { sortOrder }),
+      ...(minPrice && { minPrice }),
+      ...(maxPrice && { maxPrice }),
     },
+  });
+
+  console.log({
+    page,
+    type,
+    breed,
+    sex,
+    sortBy,
+    sortOrder,
+    search,
+    minPrice,
+    maxPrice,
   });
   return data;
 };

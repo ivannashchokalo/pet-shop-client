@@ -11,6 +11,8 @@ export const serverFetchAnimals = async (
   sortBy: string,
   sortOrder: string,
   search: string,
+  minPrice: string,
+  maxPrice: string,
 ) => {
   const cookieStore = await cookies();
   const { data } = await nextServer.get<FetchAnimalsRequest>("/animals", {
@@ -23,6 +25,8 @@ export const serverFetchAnimals = async (
       ...(search && { search }),
       ...(sortBy && { sortBy }),
       ...(sortOrder && { sortOrder }),
+      ...(minPrice && { minPrice }),
+      ...(maxPrice && { maxPrice }),
     },
     headers: {
       Cookie: cookieStore.toString(),

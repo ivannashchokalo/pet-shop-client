@@ -18,14 +18,26 @@ export default function AnimalsByCategoryClient() {
   const sex = searchParams.get("sex") || "";
   const sortBy = searchParams.get("sortBy") || "";
   const sortOrder = searchParams.get("sortOrder") || "";
+  const minPrice = searchParams.get("minPrice") || "";
+  const maxPrice = searchParams.get("maxPrice") || "";
 
   const { data } = useQuery({
     queryKey: [
       "animals",
-      { page, type, breed, sex, sortBy, sortOrder, search },
+      { page, type, breed, sex, sortBy, sortOrder, search, minPrice, maxPrice },
     ],
     queryFn: () =>
-      fetchAnimals(page, type, breed, sex, sortBy, sortOrder, search),
+      fetchAnimals(
+        page,
+        type,
+        breed,
+        sex,
+        sortBy,
+        sortOrder,
+        search,
+        minPrice,
+        maxPrice,
+      ),
     refetchOnMount: false,
   });
 
