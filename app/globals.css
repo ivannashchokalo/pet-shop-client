@@ -1,3 +1,9 @@
+@import "tailwindcss";
+
+body {
+  font-family: var(--font-montserrat);
+}
+
 h1,
 h2,
 h3,
@@ -15,7 +21,6 @@ a {
 img {
   display: block;
   max-width: 100%;
-  /* height: auto; */
 }
 
 ul,

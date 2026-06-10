@@ -3,13 +3,13 @@
 import { logout } from "@/lib/api/client/auth";
 import { useAuthStore } from "@/lib/stores/authStore";
 import { useMutation } from "@tanstack/react-query";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
 import Modal from "../Modal/Modal";
 import SignInForm from "../SignInForm/SignInForm";
+import Button from "../Button/Button";
 
 export default function AuthNavigation() {
   const router = useRouter();
@@ -33,25 +33,42 @@ export default function AuthNavigation() {
   });
   return (
     <>
-      <ul style={{ display: "flex", gap: 20 }}>
-        {isAuthenticated ? (
+      <ul className="flex gap-[6px]">
+        {/* {isAuthenticated ? (
           <li>
             <button type="button" onClick={() => mutate()} disabled={isPending}>
               {isPending ? "Logging out..." : "Logout"}
             </button>
           </li>
-        ) : (
+        ) : ( */}
+
+        {!isAuthenticated && (
           <>
             <li>
-              <button type="button" onClick={() => setIsLoginModalOpen(true)}>
+              <Button
+                // type="button"
+                variant="secondary"
+                className="h-[36px] min-w-[82px] py-[10px] px-4 font-medium text-[13px] tracking-[-0.02em] text-center text-[#323f50]"
+                onClick={() => setIsLoginModalOpen(true)}
+              >
                 Sign in
-              </button>
+              </Button>
+              {/* <button type="button" onClick={() => setIsLoginModalOpen(true)}>
+                Sign in
+              </button> */}
             </li>
             <li>
-              <Link href={`/sign-up?from=${encodeURIComponent(pathname)}`}>
+              <Button
+                // variant="primary"
+                className="h-[36px] min-w-[82px] py-[10px] px-4 font-medium text-[13px] tracking-[-0.02em] text-center text-[#323f50]"
+                href={`/sign-up?from=${encodeURIComponent(pathname)}`}
+              >
                 Sign up
-              </Link>
-            </li>
+              </Button>
+              {/* <Link href={`/sign-up?from=${encodeURIComponent(pathname)}`}>
+                Sign up
+              </Link> */}
+            </li>{" "}
           </>
         )}
       </ul>

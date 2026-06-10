@@ -5,6 +5,7 @@ import TanstackQueryProvider from "@/providers/TanstackQueryProvider";
 import { Metadata } from "next";
 import { Toaster } from "sonner";
 import AuthProvider from "@/providers/AuthProvider";
+import { Montserrat } from "next/font/google";
 
 export const metadata: Metadata = {
   title: "Animals marketplace",
@@ -29,6 +30,13 @@ export const metadata: Metadata = {
   },
 };
 
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-montserrat",
+  display: "swap",
+});
+
 export default function RootLayout({
   children,
   reserve,
@@ -39,6 +47,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
+        className={montserrat.variable}
         style={{
           minHeight: "100vh",
           display: "flex",

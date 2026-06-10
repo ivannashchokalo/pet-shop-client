@@ -7,12 +7,17 @@ import SexRadioGroup from "../SexRadioGroup/SexRadioGroup";
 import PriceSortSelect from "../PriceSortSelect/PriceSortSelect";
 import AgeSortSelect from "../AgeSortSelect/AgeSortSelect";
 import PriceRangeFilter from "../PriceFilter/PriceFilter";
+import { useSearchParams } from "next/navigation";
+import SortTypeSelect from "../SortTypeSelect/SortTypeSelect";
 
 interface FiltersSidebarProps {
   type: string;
 }
 
 export default function FiltersSidebar({ type }: FiltersSidebarProps) {
+  const searchParams = useSearchParams();
+  const sortType = searchParams.get("sortType");
+
   const { data } = useQuery({
     queryKey: ["filters", type],
     queryFn: () => fetchFilters(type),
@@ -23,8 +28,9 @@ export default function FiltersSidebar({ type }: FiltersSidebarProps) {
   return (
     <aside style={{ width: "300px" }}>
       <BreedSelect breeds={breeds} />
-      <PriceSortSelect />
-      <AgeSortSelect />
+      <SortTypeSelect />
+      {sortType === "price" && <PriceSortSelect />}
+      {sortType === "birthDate" && <AgeSortSelect />}
       <SexRadioGroup />
       {data?.price && <PriceRangeFilter price={data.price} />}
     </aside>

@@ -48,8 +48,6 @@ export default function PriceSortSelect() {
       options={options}
       value={selectedOption}
       onChange={(option) => handleSortChange(option ? option.value : "")}
-      //   placeholder="Sort by price"
-      //   isClearable
     />
   );
 }

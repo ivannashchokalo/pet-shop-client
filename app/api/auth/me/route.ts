@@ -19,7 +19,7 @@ export async function GET() {
     return NextResponse.json(
       {
         error:
-          (error as ApiError).response?.data?.error ??
+          // (error as ApiError).response?.data?.error ??
           (error as ApiError).message,
       },
       { status: (error as ApiError).status },
