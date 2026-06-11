@@ -1,7 +1,10 @@
+import clsx from "clsx";
+
 interface SectionProps {
   children: React.ReactNode;
+  className?: string;
 }
 
-export default function Section({ children }: SectionProps) {
-  return <section style={{ padding: "50px 0" }}>{children}</section>;
+export default function Section({ children, className }: SectionProps) {
+  return <section className={clsx("py-6", className)}>{children}</section>;
 }

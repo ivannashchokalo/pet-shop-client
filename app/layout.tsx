@@ -57,7 +57,7 @@ export default function RootLayout({
         <TanstackQueryProvider>
           <AuthProvider>
             <Header />
-            <main style={{ flexGrow: 1 }}>
+            <main className="grow bg-[#f8fafc]">
               {children}
               {reserve}
             </main>
