@@ -4,7 +4,7 @@ export interface Animal {
   type: "dog" | "cat";
   breed: string;
   sex: "male" | "female";
-  birthDate: Date;
+  birthDate: string;
   price: number;
   status: "available" | "reserved" | "sold";
   description: string;

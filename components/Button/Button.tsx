@@ -26,10 +26,11 @@ export default function Button({
     "flex items-center justify-center rounded-[20px] transition-colors duration-300";
 
   const variants = {
-    primary: "bg-[#c7e0f6] hover:bg-[#9db4d3] focus-visible:bg-[#85a3c9]",
+    primary:
+      "bg-[#c7e0f6] hover:bg-[#9db4d3] focus-visible:bg-[#85a3c9] active:bg-[#85a3c9] disabled:bg-[#e8eef5] disabled:text-[#9db4d3] disabled:cursor-not-allowed",
 
     secondary:
-      "bg-transparent border border-[#85a3c9] hover:border-[#c7e0f6] hover:bg-[rgba(199,224,246,0.5)] focus-visible:border-[#c7e0f6] focus-visible:bg-[#c7e0f6]",
+      "bg-transparent border border-[#85a3c9] hover:border-[#c7e0f6] hover:bg-[rgba(199,224,246,0.5)] focus-visible:border-[#c7e0f6] focus-visible:bg-[#c7e0f6] active:bg-[#c7e0f6] disabled:bg-[#e8eef5] disabled:text-[#9db4d3] disabled:cursor-not-allowed",
   };
 
   const classes = clsx(baseStyles, variants[variant], className);

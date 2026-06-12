@@ -1,6 +1,9 @@
 "use client";
 
+import Button from "../../../components/Button/Button";
+
 import AnimalsList from "@/components/AnimalsList/AnimalsList";
+import Icon from "@/components/Icon/Icon";
 import {
   clearFavorites,
   fetchFavoriteAnimals,
@@ -30,16 +33,32 @@ export default function FavoritesAnimalsClient() {
 
   return (
     <>
-      <div>
-        <button
+      <div className="flex items-center justify-between mb-[40px]">
+        <div>
+          <h1 className="mb-[8px] font-semibold text-[24px] leading-[1.5] text-[#151c26] md:text-[32px]">
+            Favorites
+          </h1>
+          <p className="font-medium text-[14px] leading-[1.5] text-[#323f50] md:text-[16px]">
+            You saved 3 favorite animals
+          </p>
+        </div>
+        <Button
           disabled={data?.length < 1}
           type="button"
           onClick={() => mutate()}
+          className="px-6 py-[10px] gap-[8px] rext-4 text-[#323f50] weight-medium leading-[1.5] text-center"
         >
-          Clear
-        </button>
-        {data?.length > 0 && <AnimalsList animals={data} />}
+          <Icon name="trash" className="fill-[#323f50]" />
+          Clear all
+        </Button>
       </div>
+      {data?.length > 0 && <AnimalsList animals={data} />}
+      <Button
+        variant="secondary"
+        className="mt-8 mx-auto p-[10px] min-w-[186px] font-medium text-4 leading-[1.6] text-center text-[#323f50]"
+      >
+        More
+      </Button>
     </>
   );
 }

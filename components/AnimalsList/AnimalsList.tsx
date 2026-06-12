@@ -73,13 +73,7 @@ export default function AnimalsList({ animals }: AnimalsListProps) {
 
   return (
     <>
-      <ul
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gap: 24,
-        }}
-      >
+      <ul className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {animals.map((animal) => {
           const isFavorite = user?.favorites.includes(animal._id) ?? false;
 
