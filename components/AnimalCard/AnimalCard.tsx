@@ -76,12 +76,12 @@ export default function AnimalCard({
             fill
             className="object-cover"
           />
-          <p className="absolute bottom-4 right-4 py-[2px] px-4 bg-[#85a3c9] rounded-[20px] font-semibold text-[20px] leading-[1.5] text-[#fff]">
+          <p className="absolute bottom-4 right-4 py-[2px] px-4 bg-[#85a3c9] rounded-5 font-semibold text-[20px] leading-[1.5] text-[#fff]">
             {animal.price && `$${animal.price}`}
           </p>
         </div>
 
-        <div className="py-[20px] px-[16px] bg-[#fff]">
+        <div className="py-5 px-4 bg-[#fff] md:py-6">
           <h2
             className={
               "mb-1 font-medium text-[20px] leading-[1.5] text-[#0c1118]"
@@ -89,10 +89,10 @@ export default function AnimalCard({
           >
             {animal.name}
           </h2>
-          <p className="mb-4 font-normal text-base leading-6 text-[#0c1118]">
+          <p className="mb-4 font-normal text-base leading-6 text-[#0c1118] md:mb-6">
             {animal.breed}
           </p>
-          <div className="flex items-center gap-4 mb-4">
+          <div className="flex items-center gap-4 mb-4 md:mb-6">
             <p className="flex items-center gap-2">
               <Icon name="calendar" className="stroke-[#9db4d3] fill-none" />
               <span className="font-medium text-[14px] leading-[1.3] text-[#9db4d3]">

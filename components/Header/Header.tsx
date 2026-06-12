@@ -5,7 +5,7 @@ import ProfileLink from "../ProfileLink/ProfileLink";
 import BurgerButton from "../MobileMenu/MobileMenu";
 import HeaderNavList from "../HeaderNavList/HeaderNavList";
 import HeaderThemeSwitcher from "../HeaderThemeSwitcher/HeaderThemeSwitcher";
-import Logo from "../Container/Logo/Logo";
+import Logo from "../Logo/Logo";
 
 export default async function Header() {
   return (
