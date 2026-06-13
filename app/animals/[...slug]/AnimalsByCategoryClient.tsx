@@ -45,8 +45,6 @@ export default function AnimalsByCategoryClient() {
     const params = new URLSearchParams(searchParams);
     params.set("page", String(selected + 1));
 
-    //замість цього setSearchParams(params);
-
     router.push(`${pathname}?${params.toString()}`);
   };
 

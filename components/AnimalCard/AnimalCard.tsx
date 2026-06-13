@@ -5,7 +5,7 @@ import { Animal, AnimalId } from "@/types/animal";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import Button from "../../components/Button/Button";
+import Button from "@/components/Button/Button";
 import Icon from "../Icon/Icon";
 import clsx from "clsx";
 import IconButton from "../IconButton/IconButton";
@@ -122,15 +122,15 @@ export default function AnimalCard({
           >
             {animal.status.charAt(0).toUpperCase() + animal.status.slice(1)}
           </p>
-          <Button
-            className="p-[10px] w-full font-medium text-[20px] leading-[0.9] text-[#0c1118]"
-            onClick={handleReserveClick}
-            disabled={isReserved}
-          >
-            {isReserved ? "Reserved" : "Reserve"}
-          </Button>
         </div>
       </Link>
+      <Button
+        className="p-[10px] w-full font-medium text-[20px] leading-[0.9] text-[#0c1118]"
+        onClick={handleReserveClick}
+        disabled={isReserved}
+      >
+        {isReserved ? "Reserved" : "Reserve"}
+      </Button>
       <IconButton
         onClick={() => onFavoriteClick(animal._id)}
         className="absolute top-4 right-4 p-2 bg-[#fff] rounded-full"

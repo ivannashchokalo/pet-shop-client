@@ -61,7 +61,7 @@ export default function MobileMenu() {
       <div
         className={clsx(
           "absolute top-[calc(100%+19px)] right-4 w-[255px] z-10",
-          "bg-white pt-[6px] px-6 pb-6 rounded-b-[20px]",
+          "bg-white pt-6 px-6 pb-6 rounded-b-[20px]",
           "shadow-[0_2px_12px_0_rgba(50,63,80,0.15)]",
           "transition-all duration-500 ease-out",
           isOpen

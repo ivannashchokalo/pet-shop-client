@@ -1,7 +1,6 @@
 "use client";
 
 import Button from "../../../components/Button/Button";
-
 import AnimalsList from "@/components/AnimalsList/AnimalsList";
 import Icon from "@/components/Icon/Icon";
 import {
@@ -39,7 +38,7 @@ export default function FavoritesAnimalsClient() {
             Favorites
           </h1>
           <p className="font-medium text-[14px] leading-[1.5] text-[#323f50] md:text-[16px]">
-            You saved 3 favorite animals
+            You saved {data?.length} favorite animals
           </p>
         </div>
         <Button
