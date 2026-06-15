@@ -6,8 +6,11 @@ import BurgerButton from "../MobileMenu/MobileMenu";
 import HeaderNavList from "../HeaderNavList/HeaderNavList";
 import HeaderThemeSwitcher from "../HeaderThemeSwitcher/HeaderThemeSwitcher";
 import Logo from "../Logo/Logo";
+// import { headers } from "next/headers";
 
 export default async function Header() {
+  // const headersList = await headers();
+  // console.log(11111, headersList.get("x-pathname"));
   return (
     <header className="sticky top-0 z-100 md:static py-[18px] border-b border-[#85a3c9] bg-[#fff]">
       <Container className="relative flex items-center ">

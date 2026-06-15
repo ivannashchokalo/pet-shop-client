@@ -9,6 +9,7 @@ import AgeSortSelect from "../AgeSortSelect/AgeSortSelect";
 import PriceRangeFilter from "../PriceFilter/PriceFilter";
 import { useSearchParams } from "next/navigation";
 import SortTypeSelect from "../SortTypeSelect/SortTypeSelect";
+import { useState } from "react";
 
 interface FiltersSidebarProps {
   type: string;
@@ -16,7 +17,8 @@ interface FiltersSidebarProps {
 
 export default function FiltersSidebar({ type }: FiltersSidebarProps) {
   const searchParams = useSearchParams();
-  const sortType = searchParams.get("sortType");
+  // const sortType = searchParams.get("sortType");
+  const [sortType, setSortType] = useState("");
 
   const { data } = useQuery({
     queryKey: ["filters", type],
@@ -28,7 +30,7 @@ export default function FiltersSidebar({ type }: FiltersSidebarProps) {
   return (
     <aside style={{ width: "300px" }}>
       <BreedSelect breeds={breeds} />
-      <SortTypeSelect />
+      <SortTypeSelect value={sortType} onChange={setSortType} />
       {sortType === "price" && <PriceSortSelect />}
       {sortType === "birthDate" && <AgeSortSelect />}
       <SexRadioGroup />

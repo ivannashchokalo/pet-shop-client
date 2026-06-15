@@ -44,7 +44,7 @@ export default function AuthNavigation() {
 
       {isAuthenticated && (
         <IconButton
-          className="p-[10px] hidden md:block"
+          className="p-[10px] hidden md:block rounded-full  transition-colors duration-300 ease-in-out hover:bg-[rgba(199,224,246,0.2)] focus-visible:bg-[rgba(199,224,246,0.2)]"
           onClick={logout}
           disabled={isPending}
         >

@@ -5,11 +5,19 @@ import { usePathname, useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import Select from "react-select";
 
-export default function SortTypeSelect() {
+interface SortTypeSelectProps {
+  value: string;
+  onChange: (value: string) => void;
+}
+
+export default function SortTypeSelect({
+  value,
+  onChange,
+}: SortTypeSelectProps) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
-  const sortType = searchParams.get("sortType") || "";
+  // const sortType = searchParams.get("sortType") || "";
 
   const options: SelectOption[] = [
     {
@@ -27,19 +35,15 @@ export default function SortTypeSelect() {
   ];
 
   const selectedOption =
-    options.find((option) => option.value === sortType) ?? options[0];
+    options.find((option) => option.value === value) ?? options[0];
 
   const handleSortTypeChange = (value: string) => {
+    onChange(value);
+
     const params = new URLSearchParams(searchParams);
 
     params.delete("sortBy");
     params.delete("sortOrder");
-
-    if (value) {
-      params.set("sortType", value);
-    } else {
-      params.delete("sortType");
-    }
 
     router.push(`${pathname}?${params.toString()}`);
   };
@@ -48,7 +52,8 @@ export default function SortTypeSelect() {
     <Select
       options={options}
       value={selectedOption}
-      onChange={(option) => handleSortTypeChange(option ? option.value : "")}
+      // onChange={(option) => handleSortTypeChange(option ? option.value : "")}
+      onChange={(option) => handleSortTypeChange(option?.value ?? "")}
     />
   );
 }
