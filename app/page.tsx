@@ -25,7 +25,7 @@ export default async function Home() {
   return (
     <>
       <Section className="bg-[url('/hero-bg.svg')] mx-auto  bg-top bg-cover bg-no-repeat">
-        <Container className="relative flex flex-col justify-evenly min-h-[1000px]">
+        <Container className="relative flex items-center min-h-[700px]">
           <div className="flex flex-col items-start justify-center gap-8 mb-[60px]">
             <h1 className="max-w-[756px] font-bold text-[64px] leading-[1.3] text-[#fafafa]">
               Give love and comfort to a new friend
@@ -44,7 +44,7 @@ export default async function Home() {
               Find the tail
             </Button>
           </div>
-          <ul className="relative z-20 self-center flex items-center  py-[32px] px-[24px] bg-[#fff] rounded-[20px] shadow-[16px_-6px_67px_0_rgba(128,128,128,0.2)]">
+          <ul className="absolute bottom-[-50px] left-[50%] translate-x-[-50%] translate-y-[50%] z-20 flex items-center  py-[32px] px-[24px] bg-[#fff] rounded-[20px] shadow-[16px_-6px_67px_0_rgba(128,128,128,0.2)]">
             <li className="flex flex-col gap-[2px] px-[64px] font-semibold text-6xl leading-normal text-center text-black relative after:content-[''] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-[2px] after:h-[115px] after:bg-[rgba(50,63,80,0.1)]">
               {happyOwnersCount}
               <span className="font-normal text-[24px] leading-normal tracking-normal text-black">
@@ -74,7 +74,7 @@ export default async function Home() {
             width={652}
             height={798}
             alt="customer with animal"
-            className="absolute top-[-50px] left-0 "
+            className="absolute top-0 left-0 "
           />
           <div>
             <h2 className="mb-[40px] font-bold text-[40px] leading-[1.5] text-[#151c26]">
@@ -136,7 +136,7 @@ export default async function Home() {
                   className={iconClass}
                 />
                 <h2 className={cardTitleClass}>
-                  Cats{" "}
+                  Cats
                   <span className={subtitleStyles}>{catsCount} Available</span>
                 </h2>
               </li>
@@ -148,7 +148,7 @@ export default async function Home() {
                   className={iconClass}
                 />
                 <h2 className={cardTitleClass}>
-                  Rodents{" "}
+                  Rodents
                   <span className={subtitleStyles}>
                     {rodentsCount} Available
                   </span>
@@ -162,7 +162,7 @@ export default async function Home() {
                   className={iconClass}
                 />
                 <h2 className={cardTitleClass}>
-                  Birds{" "}
+                  Birds
                   <span className={subtitleStyles}>{birdsCount} Available</span>
                 </h2>
               </li>
