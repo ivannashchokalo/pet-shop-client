@@ -28,24 +28,13 @@ export const fetchAnimals = async (
       ...(breed && { breed }),
       ...(sex && { sex }),
       ...(search && { search }),
-      ...(sortBy && { sortBy }),
-      ...(sortOrder && { sortOrder }),
+      ...(sortBy && sortOrder && { sortBy, sortOrder }),
       ...(minPrice && { minPrice }),
       ...(maxPrice && { maxPrice }),
     },
   });
 
-  console.log({
-    page,
-    type,
-    breed,
-    sex,
-    sortBy,
-    sortOrder,
-    search,
-    minPrice,
-    maxPrice,
-  });
+  console.log(data);
   return data;
 };
 

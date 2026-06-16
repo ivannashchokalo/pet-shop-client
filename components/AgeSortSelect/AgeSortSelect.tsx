@@ -13,10 +13,10 @@ export default function AgeSortSelect() {
   const sortOrder = searchParams.get("sortOrder") || "";
 
   const options: SelectOption[] = [
-    {
-      value: "",
-      label: "Sort by age",
-    },
+    // {
+    //   value: "",
+    //   label: "Sort by age",
+    // },
     {
       value: "desc",
       label: "Youngest First",
@@ -36,10 +36,10 @@ export default function AgeSortSelect() {
     const params = new URLSearchParams(searchParams);
 
     if (value) {
-      params.set("sortBy", "birthDate");
+      // params.set("sortBy", "birthDate");
       params.set("sortOrder", value);
     } else {
-      params.delete("sortBy");
+      // params.delete("sortBy");
       params.delete("sortOrder");
     }
 
@@ -49,6 +49,8 @@ export default function AgeSortSelect() {
   return (
     <Select
       options={options}
+      placeholder="Sort by age"
+      isClearable
       value={selectedOption}
       onChange={(option) => handleSortChange(option?.value || "")}
     />

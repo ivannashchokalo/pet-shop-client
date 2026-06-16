@@ -1,5 +1,6 @@
 import Section from "@/components//Section/Section";
 import Container from "@/components/Container/Container";
+import Icon from "@/components/Icon/Icon";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -115,8 +116,8 @@ export default function About() {
           </ul>
         </Container>
       </Section>
-      <Section className="md:py-[100px]">
-        <Container className="md:min-h-[800px] flex items-end">
+      <Section className="md:pb-[100px]">
+        <Container className="md:min-h-[800px] flex items-end justify-between">
           <div className="relative">
             <div className="overflow-hidden rounded-[20px]  w-[737px] h-[523px]">
               <iframe
@@ -159,15 +160,28 @@ export default function About() {
               </li>
             </ul>
             <ul>
-              <li>
+              <li className="flex items-center gap-6 mb-6">
+                <Icon
+                  name="location"
+                  width={32}
+                  height={32}
+                  className="stroke-[#151c26] fill-none"
+                />
                 <p className="flex flex-col gap-2 font-[600] text-[24px] leading-[1.5] text-[#151c26]">
                   <span className="font-[400] text-[16px] leading-[1] tracking-[0.01em] text-[#151c26]">
-                    adres
+                    address
                   </span>
                   Česká 12, 602 00 Brno
                 </p>
               </li>
-              <li>
+
+              <li className="flex items-center gap-6">
+                <Icon
+                  name="phone"
+                  width={32}
+                  height={32}
+                  className="fill-[#151c26]"
+                />
                 <p className="flex flex-col gap-2 font-[600] text-[24px] leading-[1.5] text-[#151c26]">
                   <span className="font-[400] text-[16px] leading-[1] tracking-[0.01em] text-[#151c26]">
                     phone

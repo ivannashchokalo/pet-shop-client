@@ -6,10 +6,6 @@ import Select from "react-select";
 
 const options: SelectOption[] = [
   {
-    value: "",
-    label: "Sort by price",
-  },
-  {
     value: "asc",
     label: "Price: Low to High",
   },
@@ -33,10 +29,8 @@ export default function PriceSortSelect() {
     const params = new URLSearchParams(searchParams);
 
     if (value) {
-      params.set("sortBy", "price");
       params.set("sortOrder", value);
     } else {
-      params.delete("sortBy");
       params.delete("sortOrder");
     }
 
@@ -46,6 +40,8 @@ export default function PriceSortSelect() {
   return (
     <Select
       options={options}
+      placeholder="Sort by price"
+      isClearable
       value={selectedOption}
       onChange={(option) => handleSortChange(option ? option.value : "")}
     />
