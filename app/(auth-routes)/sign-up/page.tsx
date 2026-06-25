@@ -35,7 +35,6 @@ export default function SignUp() {
     onSuccess: (user: User) => {
       setUser(user);
       router.replace(from);
-      // router.refresh(); // примусово перезапитує серверні компоненти і оновлює їхні дані без повного перезавантаження сторінки
     },
     onError: (error: ApiError) => {
       toast.error(error.response?.data?.message || "Registration failed");

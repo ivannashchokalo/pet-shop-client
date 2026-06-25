@@ -50,6 +50,9 @@ export default function AnimalReservationForm({ animalId }: Props) {
       queryClient.invalidateQueries({
         queryKey: ["user-requests"],
       });
+      queryClient.invalidateQueries({
+        queryKey: ["animals"],
+      });
     },
 
     onError: (error) => {

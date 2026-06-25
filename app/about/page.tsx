@@ -2,7 +2,6 @@ import Section from "@/components//Section/Section";
 import Container from "@/components/Container/Container";
 import Icon from "@/components/Icon/Icon";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function About() {
   return (

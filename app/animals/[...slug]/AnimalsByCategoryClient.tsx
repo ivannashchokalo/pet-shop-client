@@ -26,7 +26,8 @@ export default function AnimalsByCategoryClient() {
       "animals",
       { page, type, breed, sex, sortBy, sortOrder, search, minPrice, maxPrice },
     ],
-    queryFn: () =>
+    queryFn: () => {
+      // перевірка сортування
       fetchAnimals(
         page,
         type,
@@ -37,7 +38,8 @@ export default function AnimalsByCategoryClient() {
         search,
         minPrice,
         maxPrice,
-      ),
+      );
+    },
     refetchOnMount: false,
   });
 
