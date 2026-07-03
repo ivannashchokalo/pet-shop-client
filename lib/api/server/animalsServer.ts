@@ -20,7 +20,7 @@ export const serverFetchAnimals = async (
       page,
       perPage: 12,
       type,
-      ...(breed && { breed }), // щоб у запит не потрапляли пусті значення
+      ...(breed && { breed }),
       ...(sex && { sex }),
       ...(search && { search }),
       ...(sortBy && { sortBy }),

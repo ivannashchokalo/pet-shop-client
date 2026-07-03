@@ -1,3 +1,4 @@
+import CategoryCard from "@/components/CategoryCard/CategoryCard";
 import Icon from "@/components/Icon/Icon";
 import { fetchStatistics } from "@/lib/api/server/statisticsServer";
 import Link from "next/link";
@@ -55,50 +56,57 @@ export default async function Animals() {
         </ul>
       </div>
       <ul className="grid md:grid-cols-2 gap-6">
-        <li className={cardClass}>
-          <Link href="/animals/dog" className={linkClass}>
-            <Icon name="dog" width={216} height={111} className={iconClass} />
-            <h2 className={cardTitleClass}>
-              Dogs <span className={subtitleStyles}>{dogsCount} Available</span>
-            </h2>
-          </Link>
-        </li>
-        <li className={cardClass}>
-          <Link href="/animals/cat" className={linkClass}>
-            <Icon name="cat" width={216} height={116} className={iconClass} />
-            <h2 className={cardTitleClass}>
-              Cats <span className={subtitleStyles}>{catsCount} Available</span>
-            </h2>
-          </Link>
-        </li>
-        <li className={cardClass}>
-          <Link href="/animals/bird" className={linkClass}>
-            <Icon
-              name="hamster"
-              width={200}
-              height={110}
-              className={iconClass}
-            />
-            <h2 className={cardTitleClass}>
-              Rodents{" "}
-              <span className={subtitleStyles}>{rodentsCount} Available</span>
-            </h2>
-          </Link>
-        </li>
-        <li className={cardClass}>
-          <Link href="/animals/rodent" className={linkClass}>
-            <Icon
-              name="parrot"
-              width={152}
-              height={137}
-              className={iconClass}
-            />
-            <h2 className={cardTitleClass}>
-              Birds{" "}
-              <span className={subtitleStyles}>{birdsCount} Available</span>
-            </h2>
-          </Link>
-        </li>
+        <CategoryCard
+          title="Dogs"
+          count={dogsCount}
+          icon="dog"
+          iconWidth={216}
+          iconHeight={111}
+          href="/animals/dog"
+          iconClassName={iconClass}
+          titleClassName={cardTitleClass}
+          contentClassName={linkClass}
+          cardClassName={cardClass}
+        />
+
+        <CategoryCard
+          title="Cats"
+          count={catsCount}
+          icon="cat"
+          iconWidth={216}
+          iconHeight={116}
+          href="/animals/cat"
+          iconClassName={iconClass}
+          titleClassName={cardTitleClass}
+          contentClassName={linkClass}
+          cardClassName={cardClass}
+        />
+
+        <CategoryCard
+          title="Rodents"
+          count={rodentsCount}
+          icon="hamster"
+          iconWidth={200}
+          iconHeight={110}
+          href="/animals/rodent"
+          iconClassName={iconClass}
+          titleClassName={cardTitleClass}
+          contentClassName={linkClass}
+          cardClassName={cardClass}
+        />
+
+        <CategoryCard
+          title="Birds"
+          count={birdsCount}
+          icon="parrot"
+          iconWidth={152}
+          iconHeight={137}
+          href="/animals/bird"
+          iconClassName={iconClass}
+          titleClassName={cardTitleClass}
+          contentClassName={linkClass}
+          cardClassName={cardClass}
+        />
       </ul>
     </>
   );

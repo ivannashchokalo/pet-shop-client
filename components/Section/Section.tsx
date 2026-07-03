@@ -7,7 +7,7 @@ interface SectionProps {
 
 export default function Section({ children, className }: SectionProps) {
   return (
-    <section className={clsx("py-6 md:py-[50px]", className)}>
+    <section className={clsx("py-[70px] md:py-[50px]", className)}>
       {children}
     </section>
   );
