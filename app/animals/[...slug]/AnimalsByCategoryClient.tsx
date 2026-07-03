@@ -28,7 +28,7 @@ export default function AnimalsByCategoryClient() {
     ],
     queryFn: () => {
       // перевірка сортування
-      fetchAnimals(
+      return fetchAnimals(
         page,
         type,
         breed,
