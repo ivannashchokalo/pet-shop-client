@@ -1,7 +1,6 @@
 import CategoryCard from "@/components/CategoryCard/CategoryCard";
 import Icon from "@/components/Icon/Icon";
 import { fetchStatistics } from "@/lib/api/server/statisticsServer";
-import Link from "next/link";
 
 export default async function Animals() {
   const {
@@ -18,8 +17,8 @@ export default async function Animals() {
   const iconClass = "mx-auto fill-[#323f50]";
   const cardTitleClass =
     "flex flex-col gap-[2px] font-semibold text-[40px] leading-[1.5] text-[#323f50]";
-  const subtitleStyles =
-    "font-medium text-[15px] leading-[1.4] tracking-[0.01em] text-[#576b86]";
+  // const subtitleStyles =
+  //   "font-medium text-[15px] leading-[1.4] tracking-[0.01em] text-[#576b86]";
 
   return (
     <>

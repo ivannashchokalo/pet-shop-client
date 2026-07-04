@@ -3,7 +3,6 @@ import Container from "@/components/Container/Container";
 import Image from "next/image";
 import Button from "@/components/Button/Button";
 import { fetchStatistics } from "@/lib/api/server/statisticsServer";
-import Icon from "@/components/Icon/Icon";
 import CategoryCard from "@/components/CategoryCard/CategoryCard";
 
 export default async function Home() {
@@ -16,13 +15,13 @@ export default async function Home() {
     animalsAvailableCount,
   } = await fetchStatistics();
 
-  const cardClass =
-    "flex flex-col justify-between min-h-[280px] py-8 px-6 rounded-[20px] bg-[#c7e0f6]";
+  // const cardClass =
+  //   "flex flex-col justify-between min-h-[280px] py-8 px-6 rounded-[20px] bg-[#c7e0f6]";
   const iconClass = "mx-auto fill-[#323f50]";
   const cardTitleClass =
     "flex flex-col gap-[2px] font-semibold text-[32px] leading-[1.5] text-[#323f50]";
-  const subtitleStyles =
-    "font-medium text-[15px] leading-[1.4] tracking-[0.01em] text-[#576b86]";
+  // const subtitleStyles =
+  //   "font-medium text-[15px] leading-[1.4] tracking-[0.01em] text-[#576b86]";
   return (
     <>
       <Section className="bg-[url('/hero-bg.svg')] mx-auto  bg-top bg-cover bg-no-repeat">
