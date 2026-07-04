@@ -52,11 +52,7 @@ export default function AnimalCard({
     return `${years} year${years !== 1 ? "s" : ""}`;
   }
 
-  const handleReserveClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    console.log("res");
-    e.preventDefault();
-    e.stopPropagation();
-
+  const handleReserveClick = () => {
     router.push(
       `/animals/reserve/${animal._id}?from=${encodeURIComponent(from)}`,
     );
