@@ -27,7 +27,7 @@ export default async function Home() {
       <Section className="bg-[url('/hero-bg.svg')] mx-auto  bg-top bg-cover bg-no-repeat">
         <Container className="relative min-h-[600px] xl:flex xl:items-center xl:min-h-[700px]">
           <div className="flex flex-col items-start justify-center mb-[60px]">
-            <h1 className="mb-6 text-[36px] font-bold leading-[1.3] text-[#fafafa] md:max-w-[620px] md:mb-8 md:text-[48px] xl:max-w-[756px] xl:text-[64px]">
+            <h1 className="mb-6 text-[36px] font-bold leading-[1.3] text-[#fafafa] md:max-w-[620px] md:mb-8 md:text-[48px] xl:max-w-[700px] xl:text-[64px]">
               Give love and comfort to a new friend
             </h1>
             <p className="mb-4 max-w-[220px] text-[15px] font-medium leading-[1.5] text-[#c7e0f6] md:max-w-[328px] md:mb-6 md:text-[16px] xl:max-w-[480px] xl:text-[20px]">
@@ -65,11 +65,11 @@ export default async function Home() {
       </Section>
       <Section>
         <Container className="relative min-h-[1150px] flex flex-col justify-end items-center md:min-h-[800px] md:flex-row">
-          <div className="md:max-w-[300px] xl:max-w-none">
+          <div className="md:max-w-[300px] xl:max-w-[600px]">
             <h2 className="text-[32px] mb-8 font-bold leading-[1.5] text-[#151c26] xl:mb-[40px] xl:text-[40px]">
               Why future owners trust us?
             </h2>
-            <ul className="flex flex-col gap-6 xl:gap-8">
+            <ul className="flex flex-col gap-6 xl:gap-8 xl:max-w-[580px] xl:ml-auto">
               <li>
                 <h3 className="mb-2 font-semibold text-[24px] xl:text-[28px] leading-[1.5] text-[#151c26]">
                   01 / Safe origin

@@ -52,12 +52,6 @@ export default function FavoritesAnimalsClient() {
         </Button>
       </div>
       {data?.length > 0 && <AnimalsList animals={data} />}
-      <Button
-        variant="secondary"
-        className="mt-8 mx-auto p-[10px] min-w-[186px] font-medium text-4 leading-[1.6] text-center text-[#323f50]"
-      >
-        More
-      </Button>
     </>
   );
 }

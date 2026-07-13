@@ -16,3 +16,15 @@ img {
 button {
   cursor: pointer;
 }
+
+.custom-prev.swiper-button-disabled,
+.custom-next.swiper-button-disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.custom-prev.swiper-button-disabled:hover,
+.custom-next.swiper-button-disabled:hover {
+  background: rgba(199, 224, 246, 0.5);
+}

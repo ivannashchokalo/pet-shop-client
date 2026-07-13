@@ -127,5 +127,11 @@
     <symbol id="price-range" viewBox="0 0 56 32">
       <path d="M47.935 0c3.842 0 6.957 3.115 6.957 6.957v11.13c0 3.842-3.114 6.957-6.957 6.957h-16.516l-2.757 4.927c-0.531 0.949-1.897 0.949-2.428 0l-2.757-4.927h-16.52c-3.842 0-6.957-3.115-6.957-6.957v-11.13c0-3.842 3.115-6.957 6.957-6.957h40.978z"></path>
     </symbol>
+    <symbol id="icon-right" viewBox="0 0 32 32">
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M13.333 22.667l6.667-6.667-6.667-6.667"></path>
+    </symbol>
+    <symbol id="icon-left" viewBox="0 0 32 32">
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M18.667 9.333l-6.667 6.667 6.667 6.667"></path>
+    </symbol>
   </defs>
 </svg>

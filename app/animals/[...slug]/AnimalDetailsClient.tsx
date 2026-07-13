@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimalImageSlider } from "@/components/AnimalImageSlider/AnimalImageSlider";
 import Button from "@/components/Button/Button";
 import Icon from "@/components/Icon/Icon";
 import { DEFAULT_PET } from "@/constants/images";
@@ -26,14 +27,23 @@ export default function AnimalDetailsClient() {
 
   return (
     <div className="flex flex-col gap-6 xl:flex-row xl:items-center">
-      <div className="relative w-full h-[240px] rounded-[20px] overflow-hidden md:h-[400px] xl:w-[630px] xl:h-[400px]">
-        <Image
-          src={data?.images[0] || DEFAULT_PET}
-          fill
-          alt={`${data?.type} ${data?.name}`}
-          className="object-cover"
+      {data?.images && data?.images.length > 1 ? (
+        <AnimalImageSlider
+          images={data.images}
+          name={data.name}
+          type={data.type}
         />
-      </div>
+      ) : (
+        <div className="relative w-full h-[240px] rounded-[20px] overflow-hidden md:h-[400px] xl:w-[630px]">
+          <Image
+            src={data?.images[0] || DEFAULT_PET}
+            fill
+            alt={`${data?.type} ${data?.name}`}
+            className="object-cover"
+          />
+        </div>
+      )}
+
       <div className="xl:grow">
         <div className="flex items-center justify-between mb-4">
           <h2 className="font-semibold text-[32px] text-[#151c26]">
