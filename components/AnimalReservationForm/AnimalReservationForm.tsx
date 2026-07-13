@@ -2,11 +2,20 @@
 
 import { createRequest } from "@/lib/api/client/requestsClient";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { Field, Form, Formik, FormikHelpers } from "formik";
+import {
+  ErrorMessage,
+  Field,
+  FieldProps,
+  Form,
+  Formik,
+  FormikHelpers,
+} from "formik";
 import { useState } from "react";
 import * as Yup from "yup";
 import Link from "next/link";
 import { useAuthStore } from "@/lib/stores/authStore";
+import { Input } from "../Input/Input";
+import Button from "../Button/Button";
 
 interface FormValues {
   customerName: string;
@@ -104,70 +113,160 @@ export default function AnimalReservationForm({ animalId }: Props) {
   }
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={ReservationSchema}
-      onSubmit={handleSubmit}
-    >
-      <Form
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          gap: 15,
-          border: "1px solid black",
-          padding: 20,
-          width: "fit-content",
-        }}
+    <>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={ReservationSchema}
+        onSubmit={handleSubmit}
       >
-        <label htmlFor="name">Full name</label>
-        <Field
-          id="name"
-          type="text"
-          name="customerName"
-          placeholder="Enter your full name"
-        />
+        {({ errors, touched }) => (
+          <Form className="flex flex-col items-center gap-4 mx-auto">
+            <h2 className="text-center font-bold text-[24px] text-[#85a3c9] xl:text-[28px]">
+              Pet reservation form
+            </h2>
+            <div className="relative flex flex-col gap-2 w-full">
+              <label
+                htmlFor="name"
+                className="font-medium text-[16px] text-[#9db4d3]"
+              >
+                Full name:<span className="text-red-500">*</span>
+              </label>
+              <Input
+                id="name"
+                type="text"
+                name="customerName"
+                placeholder="Enter your full name"
+                hasError={!!(errors.customerName && touched.customerName)}
+              />
+              <ErrorMessage
+                name="customerName"
+                component="p"
+                className="absolute left-4 -bottom-4 text-[12px] text-red-500"
+              />
+            </div>
+            <div className="relative flex flex-col gap-2 w-full ">
+              <label
+                htmlFor="phone"
+                className="font-medium text-[16px] text-[#9db4d3]"
+              >
+                Phone number:<span className="text-red-500">*</span>
+              </label>
+              <Input
+                id="phone"
+                type="tel"
+                name="phone"
+                placeholder="Enter your phone number"
+                hasError={!!(errors.phone && touched.phone)}
+              />
+              <ErrorMessage
+                name="phone"
+                component="p"
+                className="absolute left-4 -bottom-4 text-[12px] text-red-500"
+              />
+            </div>
+            <div className="relative flex flex-col gap-2 w-full ">
+              <label
+                htmlFor="email"
+                className="font-medium text-[16px] text-[#9db4d3]"
+              >
+                Email:<span className="text-red-500">*</span>
+              </label>
+              <Input
+                id="email"
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                readOnly={!!user}
+                hasError={!!(errors.email && touched.email)}
+              />
+              <ErrorMessage
+                name="email"
+                component="p"
+                className="absolute left-4 -bottom-4 text-[12px] text-red-500"
+              />
+            </div>
+            <div className="relative flex flex-col gap-2 w-full">
+              <label
+                htmlFor="message"
+                className="font-medium text-[16px] text-[#9db4d3]"
+              >
+                Message:
+              </label>
+              <Field
+                as="textarea"
+                id="message"
+                name="message"
+                placeholder="Additional message"
+                className="w-full resize-none h-[100px] rounded-[20px] border border-[#a2a2a2] bg-transparent px-4 py-3 text-[#151c26] placeholder:text-[#a2a2a2] focus:border-[#aad2f2] focus:outline-none md:w-[350px]"
+              />
+            </div>
 
-        <label htmlFor="phone">Phone number</label>
-        <Field
-          id="phone"
-          type="tel"
-          name="phone"
-          placeholder="Enter your phone number"
-        />
+            <fieldset className="flex flex-col gap-3 w-full">
+              <legend className="mb-4 font-medium text-[16px] text-[#9db4d3]">
+                Preferred contact method:<span className="text-red-500">*</span>
+              </legend>
 
-        <label htmlFor="email">Email</label>
-        <Field
-          id="email"
-          type="email"
-          name="email"
-          placeholder="Enter your email"
-          readOnly={!!user}
-        />
+              <div className="flex items-center gap-4 w-full">
+                <label className="flex cursor-pointer items-center gap-3 group">
+                  <Field type="radio" name="contactMethod" value="phone">
+                    {({ field }: FieldProps) => (
+                      <>
+                        <input {...field} type="radio" className="sr-only" />
 
-        <label htmlFor="message">Message</label>
-        <Field
-          as="textarea"
-          id="message"
-          name="message"
-          placeholder="Additional message"
-        />
-        <fieldset>
-          <legend>Preferred contact method</legend>
+                        <div
+                          className={`flex h-5 w-5 items-center justify-center rounded-full border-[3px] group-hover:border-[#aad2f2] ${
+                            field.checked
+                              ? "border-[#aad2f2]"
+                              : "border-[#a2a2a2]"
+                          }`}
+                        >
+                          {field.checked && (
+                            <div className="h-2 w-2 rounded-full bg-[#aad2f2]" />
+                          )}
+                        </div>
 
-          <label>
-            <Field type="radio" name="contactMethod" value="phone" />
-            Phone
-          </label>
+                        <span className="font-medium text-[16px] text-[#151c26]">
+                          Phone
+                        </span>
+                      </>
+                    )}
+                  </Field>
+                </label>
 
-          <label>
-            <Field type="radio" name="contactMethod" value="email" />
-            Email
-          </label>
-        </fieldset>
+                <label className="flex cursor-pointer items-center gap-3 group">
+                  <Field type="radio" name="contactMethod" value="email">
+                    {({ field }: FieldProps) => (
+                      <>
+                        <input {...field} type="radio" className="sr-only" />
 
-        <button type="submit">Reserve</button>
-      </Form>
-    </Formik>
+                        <div
+                          className={`flex h-5 w-5 items-center justify-center rounded-full border-[3px] group-hover:border-[#aad2f2] ${
+                            field.checked
+                              ? "border-[#aad2f2]"
+                              : "border-[#a2a2a2]"
+                          }`}
+                        >
+                          {field.checked && (
+                            <div className="h-2 w-2 rounded-full bg-[#aad2f2]" />
+                          )}
+                        </div>
+
+                        <span className="font-medium text-[16px] text-[#151c26]">
+                          Email
+                        </span>
+                      </>
+                    )}
+                  </Field>
+                </label>
+              </div>
+            </fieldset>
+
+            <Button type="submit" className="py-2 px-8">
+              Reserve
+            </Button>
+          </Form>
+        )}
+      </Formik>
+    </>
   );
 }

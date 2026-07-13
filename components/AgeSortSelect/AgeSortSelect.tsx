@@ -3,8 +3,16 @@
 import { SelectOption } from "@/types/selectOptions";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Select from "react-select";
+import { selectStyles } from "../selectStyles/selectStyles";
+import DropdownIndicator from "../indicators/DropdownIndicator";
+import ClearIndicator from "../indicators/ClearIndicator";
+import Option from "../indicators/Option";
 
-export default function AgeSortSelect() {
+interface AgeSortSelectProps {
+  inputId: string;
+}
+
+export default function AgeSortSelect({ inputId }: AgeSortSelectProps) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
@@ -13,10 +21,6 @@ export default function AgeSortSelect() {
   const sortOrder = searchParams.get("sortOrder") || "";
 
   const options: SelectOption[] = [
-    // {
-    //   value: "",
-    //   label: "Sort by age",
-    // },
     {
       value: "desc",
       label: "Youngest First",
@@ -29,8 +33,8 @@ export default function AgeSortSelect() {
 
   const selectedOption =
     sortBy === "birthDate"
-      ? (options.find((option) => option.value === sortOrder) ?? options[0])
-      : options[0];
+      ? (options.find((option) => option.value === sortOrder) ?? null)
+      : null;
 
   const handleSortChange = (value: string) => {
     const params = new URLSearchParams(searchParams);
@@ -47,12 +51,20 @@ export default function AgeSortSelect() {
   };
 
   return (
-    <Select
+    <Select<SelectOption, false>
+      styles={selectStyles}
+      inputId={inputId}
       options={options}
       placeholder="Sort by age"
       isClearable
       value={selectedOption}
       onChange={(option) => handleSortChange(option?.value || "")}
+      components={{
+        DropdownIndicator,
+        ClearIndicator,
+        Option,
+      }}
+      isSearchable={false}
     />
   );
 }

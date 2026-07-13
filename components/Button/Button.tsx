@@ -23,7 +23,7 @@ export default function Button({
   target,
 }: ButtonProps) {
   const baseStyles =
-    "flex items-center justify-center rounded-[20px] transition-colors duration-300";
+    "flex items-center justify-center rounded-[20px] transition-colors duration-300 font-medium text-[#0c1118]";
 
   const variants = {
     primary:

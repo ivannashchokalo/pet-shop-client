@@ -3,6 +3,9 @@
 import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { createPortal } from "react-dom";
+import ContentCard from "../ContentCard/ContentCard";
+import Icon from "../Icon/Icon";
+import IconButton from "../IconButton/IconButton";
 
 interface ModalProps {
   children: React.ReactNode;
@@ -82,19 +85,16 @@ export default function Modal({ children, onClose, redirectPath }: ModalProps) {
         backgroundColor: "rgba(46, 47, 66, 0.4)",
       }}
     >
-      <div
-        style={{
-          padding: "40px 60px",
-          backgroundColor: "silver",
-          borderRadius: "12px",
-        }}
-      >
-        <button type="button" onClick={handleModalClose}>
-          Close
-        </button>
-
+      <ContentCard className="relative w-[350px]">
+        <IconButton
+          type="button"
+          onClick={handleModalClose}
+          className="absolute top-4 right-4"
+        >
+          <Icon name="cross" className="fill-[#323f50]" />
+        </IconButton>
         {children}
-      </div>
+      </ContentCard>
     </div>,
     document.body,
   );

@@ -9,6 +9,7 @@ import Button from "@/components/Button/Button";
 import Icon from "../Icon/Icon";
 import clsx from "clsx";
 import IconButton from "../IconButton/IconButton";
+import { getAge } from "@/utils/date";
 
 interface AnimalCardProps {
   animal: Animal;
@@ -28,29 +29,6 @@ export default function AnimalCard({
   const router = useRouter();
 
   const from = `${pathname}?${searchParams.toString()}`;
-
-  function getAge(birthDate: string) {
-    const birth = new Date(birthDate);
-    const today = new Date();
-
-    let years = today.getFullYear() - birth.getFullYear();
-    let months = today.getMonth() - birth.getMonth();
-
-    if (today.getDate() < birth.getDate()) {
-      months--;
-    }
-
-    if (months < 0) {
-      years--;
-      months += 12;
-    }
-
-    if (years === 0) {
-      return `${months} month${months !== 1 ? "s" : ""}`;
-    }
-
-    return `${years} year${years !== 1 ? "s" : ""}`;
-  }
 
   const handleReserveClick = () => {
     router.push(
@@ -88,7 +66,7 @@ export default function AnimalCard({
           <p className="mb-4 font-normal text-base leading-6 text-[#0c1118] md:mb-6">
             {animal.breed}
           </p>
-          <div className="flex items-center gap-4 mb-4 md:mb-6">
+          <div className="flex items-center gap-4 md:mb-6">
             <p className="flex items-center gap-2">
               <Icon name="calendar" className="stroke-[#9db4d3] fill-none" />
               <span className="font-medium text-[14px] leading-[1.3] text-[#9db4d3]">
@@ -98,7 +76,6 @@ export default function AnimalCard({
             <p className="flex items-center gap-2">
               <Icon name="gender" className="stroke-[#9db4d3] fill-none" />
               <span className="font-medium text-[14px] leading-[1.3] text-[#9db4d3]">
-                {" "}
                 {animal.sex
                   ? animal.sex.charAt(0).toUpperCase() + animal.sex.slice(1)
                   : ""}
@@ -120,21 +97,24 @@ export default function AnimalCard({
           </p>
         </div>
       </Link>
-      <Button
-        className="p-[10px] w-full font-medium text-[20px] leading-[0.9] text-[#0c1118]"
-        onClick={handleReserveClick}
-        disabled={isReserved}
-      >
-        {isReserved ? "Reserved" : "Reserve"}
-      </Button>
+      <div className="px-4 pb-5 md:pb-6">
+        <Button
+          className="p-[10px] w-full font-medium text-[20px] leading-[0.9] text-[#0c1118]"
+          onClick={handleReserveClick}
+          disabled={isReserved}
+        >
+          {isReserved ? "Reserved" : "Reserve"}
+        </Button>
+      </div>
+
       <IconButton
         onClick={() => onFavoriteClick(animal._id)}
-        className="absolute top-4 right-4 p-2 bg-[#fff] rounded-full"
+        className="absolute top-4 right-4 p-2 bg-[#fff] rounded-full hover:bg-[#4d4d4d] focus-visible:bg-[#4d4d4d]"
       >
         <Icon
           name="heart"
           className={clsx(
-            "transition-all duration-300 ease-in-out",
+            "transition-all duration-200 ease-in-out ",
             isFavorite
               ? "stroke-[#aad2f2] fill-[#aad2f2]"
               : "stroke-[#aad2f2] fill-none",

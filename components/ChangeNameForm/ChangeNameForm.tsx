@@ -4,9 +4,11 @@ import { changeName } from "@/lib/api/client/usersService";
 import { useAuthStore } from "@/lib/stores/authStore";
 import { UserName } from "@/types/user";
 import { useMutation } from "@tanstack/react-query";
-import { Field, Form, Formik, FormikHelpers } from "formik";
+import { Form, Formik, FormikHelpers } from "formik";
 import { toast } from "sonner";
 import * as Yup from "yup";
+import Button from "../Button/Button";
+import { Input } from "../Input/Input";
 
 interface ChangeNameValues {
   name: UserName;
@@ -45,21 +47,23 @@ export function ChangeNameForm() {
   };
 
   return (
-    <section>
-      <h2>Change Name</h2>
-
+    <div className="flex flex-col items-center gap-6">
+      <h2 className="font-semibold text-[24px] text-[#151c26]">Change name</h2>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        <Form>
-          <label htmlFor="name">New name</label>
-          <Field name="name" type="text" placeholder="Enter new name" />
+        <Form className="flex flex-col items-center gap-6 w-full">
+          <label htmlFor="name" className="w-full">
+            <Input name="name" type="text" placeholder="Enter new name" />
+          </label>
 
-          <button type="submit">Change name</button>
+          <Button type="submit" className="py-2 px-4">
+            Change name
+          </Button>
         </Form>
       </Formik>
-    </section>
+    </div>
   );
 }

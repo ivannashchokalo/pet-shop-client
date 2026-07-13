@@ -2,9 +2,11 @@
 
 import { changePassword } from "@/lib/api/client/usersService";
 import { useMutation } from "@tanstack/react-query";
-import { Field, Form, Formik, FormikHelpers } from "formik";
+import { Form, Formik, FormikHelpers } from "formik";
 import { toast } from "sonner";
 import * as Yup from "yup";
+import { Input } from "../Input/Input";
+import Button from "../Button/Button";
 
 interface ChangePasswordValues {
   oldPassword: string;
@@ -43,24 +45,36 @@ export function ChangePasswordForm() {
   };
 
   return (
-    <section>
-      <h2>Change Password</h2>
-
+    <div className="flex flex-col items-center gap-6">
+      <h2 className="font-semibold text-[24px] text-[#151c26]">
+        Change password
+      </h2>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        <Form>
-          <label htmlFor="oldPassword">Old password</label>
-          <Field name="oldPassword" type="password" />
+        <Form className="flex flex-col items-center gap-6 w-full">
+          <label htmlFor="oldPassword" className="w-full">
+            <Input
+              name="oldPassword"
+              type="password"
+              placeholder="Enter old password"
+            />
+          </label>
 
-          <label htmlFor="newPassword">New password</label>
-          <Field name="newPassword" type="password" />
-
-          <button type="submit">Change password</button>
+          <label htmlFor="newPassword" className="w-full">
+            <Input
+              name="newPassword"
+              type="password"
+              placeholder="Enter new password"
+            />
+          </label>
+          <Button type="submit" className="py-2 px-4">
+            Change password{" "}
+          </Button>
         </Form>
       </Formik>
-    </section>
+    </div>
   );
 }

@@ -2,15 +2,12 @@ import Container from "../Container/Container";
 import AuthNavigation from "../AuthNavigation/AuthNavigation";
 import FavoritesLink from "../FavoritesLink/FavoritesLink";
 import ProfileLink from "../ProfileLink/ProfileLink";
-import BurgerButton from "../MobileMenu/MobileMenu";
+import MobileMenu from "../MobileMenu/MobileMenu";
 import HeaderNavList from "../HeaderNavList/HeaderNavList";
 import HeaderThemeSwitcher from "../HeaderThemeSwitcher/HeaderThemeSwitcher";
 import Logo from "../Logo/Logo";
-// import { headers } from "next/headers";
 
 export default async function Header() {
-  // const headersList = await headers();
-  // console.log(11111, headersList.get("x-pathname"));
   return (
     <header className="sticky top-0 z-100 md:static py-[18px] border-b border-[#85a3c9] bg-[#fff]">
       <Container className="relative flex items-center ">
@@ -22,7 +19,7 @@ export default async function Header() {
           <FavoritesLink />
           <ProfileLink />
           <AuthNavigation />
-          <BurgerButton />
+          <MobileMenu />
         </div>
         <HeaderThemeSwitcher />
       </Container>

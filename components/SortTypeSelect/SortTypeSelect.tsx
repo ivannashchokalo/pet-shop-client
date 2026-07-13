@@ -4,18 +4,22 @@ import { SelectOption } from "@/types/selectOptions";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import Select from "react-select";
+import { selectStyles } from "../selectStyles/selectStyles";
+import DropdownIndicator from "../indicators/DropdownIndicator";
+import ClearIndicator from "../indicators/ClearIndicator";
+import Option from "../indicators/Option";
 
-export default function SortTypeSelect() {
+interface SortTypeSelectProps {
+  inputId: string;
+}
+
+export default function SortTypeSelect({ inputId }: SortTypeSelectProps) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
   const sortBy = searchParams.get("sortBy") || "";
 
   const options: SelectOption[] = [
-    // {
-    //   value: "",
-    //   label: "Choose sorting",
-    // },
     {
       value: "price",
       label: "Price",
@@ -44,12 +48,20 @@ export default function SortTypeSelect() {
   };
 
   return (
-    <Select
+    <Select<SelectOption, false>
+      styles={selectStyles}
+      inputId={inputId}
       options={options}
       value={selectedOption}
       placeholder="Choose sorting"
       isClearable
       onChange={(option) => handleSortTypeChange(option ? option.value : "")}
+      components={{
+        DropdownIndicator,
+        ClearIndicator,
+        Option,
+      }}
+      isSearchable={false}
     />
   );
 }

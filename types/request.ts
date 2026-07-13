@@ -1,6 +1,8 @@
+import { Animal } from "./animal";
+
 export interface Request {
   _id: string;
-  animalId: string;
+  animalId: Animal;
   customerName: string;
   email: string;
   phone: string;

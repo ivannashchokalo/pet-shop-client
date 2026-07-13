@@ -3,8 +3,6 @@ import {
   HydrationBoundary,
   QueryClient,
 } from "@tanstack/react-query";
-import Section from "@/components/Section/Section";
-import Container from "@/components/Container/Container";
 import { Metadata } from "next";
 import AnimalDetailsClient from "./AnimalDetailsClient";
 import { notFound } from "next/navigation";
@@ -13,7 +11,8 @@ import {
   serverFetchAnimalById,
   serverFetchAnimals,
 } from "@/lib/api/server/animalsServer";
-import FiltersSidebar from "@/components/FiltersSidebar/FiltersSidebar";
+import MobileFilters from "@/components/MobileFilters/MobileFilters";
+import Filters from "@/components/Filters/Filters";
 
 interface Props {
   params: Promise<{
@@ -128,14 +127,13 @@ export default async function AnimalsByCategory({
     });
 
     return (
-      <Section>
-        <Container>
-          <FiltersSidebar type={type} />
-          <HydrationBoundary state={dehydrate(queryClient)}>
-            <AnimalsByCategoryClient />
-          </HydrationBoundary>
-        </Container>
-      </Section>
+      <>
+        <Filters type={type} />
+        <MobileFilters type={type} />
+        <HydrationBoundary state={dehydrate(queryClient)}>
+          <AnimalsByCategoryClient />
+        </HydrationBoundary>
+      </>
     );
   }
 
@@ -148,13 +146,11 @@ export default async function AnimalsByCategory({
     });
 
     return (
-      <Section>
-        <Container>
-          <HydrationBoundary state={dehydrate(queryClient)}>
-            <AnimalDetailsClient />
-          </HydrationBoundary>
-        </Container>
-      </Section>
+      <>
+        <HydrationBoundary state={dehydrate(queryClient)}>
+          <AnimalDetailsClient />
+        </HydrationBoundary>
+      </>
     );
   }
 

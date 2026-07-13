@@ -1,57 +1,23 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import Icon from "../Icon/Icon";
 import IconButton from "../IconButton/IconButton";
 import Link from "next/link";
 import clsx from "clsx";
 import { useLogout } from "@/hooks/useLogout";
 import { useAuthStore } from "@/lib/stores/authStore";
+import { useDropdown } from "@/hooks/useDropdown";
 
 export default function MobileMenu() {
-  const [isOpen, setIsOpen] = useState(false);
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   const { logout, isPending } = useLogout();
-  const menuRef = useRef<HTMLDivElement>(null);
-
-  const closeMenu = () => setIsOpen(false);
+  const { isOpen, setIsOpen, dropdownRef, closeDropdown } = useDropdown();
 
   const itemStyles = "flex items-center gap-4";
   const textStyles = "font-medium text-4 leading-[1.5] text-center";
 
-  useEffect(() => {
-    if (!isOpen) return;
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.code === "Escape") setIsOpen(false);
-    };
-
-    document.addEventListener("keydown", handleKeyDown);
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [isOpen]);
-
-  useEffect(() => {
-    if (!isOpen) return;
-
-    if (!isOpen) return;
-
-    const handleClickOutside = (e: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isOpen]);
-
   return (
-    <div ref={menuRef} className="md:hidden">
+    <div ref={dropdownRef} className="md:hidden">
       <IconButton
         onClick={() => (isOpen ? setIsOpen(false) : setIsOpen(true))}
         className="h-[44px] w-[44px] p-[10px]"
@@ -91,7 +57,11 @@ export default function MobileMenu() {
             )}
           >
             <li>
-              <Link href="/about" className={itemStyles} onClick={closeMenu}>
+              <Link
+                href="/about"
+                className={itemStyles}
+                onClick={closeDropdown}
+              >
                 <Icon
                   name="user-menu"
                   className="fill-transparent stroke-[#323F50]"
@@ -102,7 +72,11 @@ export default function MobileMenu() {
               </Link>
             </li>
             <li>
-              <Link href="/animals" className={itemStyles} onClick={closeMenu}>
+              <Link
+                href="/animals"
+                className={itemStyles}
+                onClick={closeDropdown}
+              >
                 <Icon name="pow" className="stroke-[#323F50]" />
                 <span className={clsx("text-[#151c26]", textStyles)}>
                   Animals
@@ -116,7 +90,7 @@ export default function MobileMenu() {
             className="justify-start gap-4 mt-[20px] w-full"
             onClick={() => {
               logout();
-              closeMenu();
+              closeDropdown();
             }}
             disabled={isPending}
           >

@@ -20,7 +20,10 @@ export default function IconButton({
   target,
   disabled,
 }: IconButtonProps) {
-  const classes = clsx("flex items-center justify-center", className);
+  const classes = clsx(
+    "flex items-center justify-center rounded-full transition-colors duration-300 md:p-[10px] md:hover:bg-[#c7e0f633]",
+    className,
+  );
 
   if (href) {
     return (

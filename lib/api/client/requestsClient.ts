@@ -6,32 +6,32 @@ interface CreateUserRedponse {
   isUserRegistered: boolean;
 }
 
-interface AnimalInRequest {
-  _id: string;
-  name: string;
-  type: string;
-  breed: string;
-  sex: string;
-  birthDate: string;
-  price: number;
-  status: string;
-  description: string;
-  images: string[];
-  updatedAt: string;
-}
+// interface AnimalInRequest {
+//   _id: string;
+//   name: string;
+//   type: string;
+//   breed: string;
+//   sex: string;
+//   birthDate: string;
+//   price: number;
+//   status: string;
+//   description: string;
+//   images: string[];
+//   updatedAt: string;
+// }
 
-interface UserRequest {
-  _id: string;
-  animalId: AnimalInRequest;
-  customerName: string;
-  email: string;
-  phone: string;
-  message: string;
-  contactMethod: "phone" | "email";
-  status: string;
-  createdAt: string;
-  updatedAt: string;
-}
+// interface UserRequest {
+//   _id: string;
+//   animalId: AnimalInRequest;
+//   customerName: string;
+//   email: string;
+//   phone: string;
+//   message: string;
+//   contactMethod: "phone" | "email";
+//   status: string;
+//   createdAt: string;
+//   updatedAt: string;
+// }
 
 export const createRequest = async (body: CreateRequest) => {
   const { data } = await nextServer.post<CreateUserRedponse>("/requests", body);
@@ -39,7 +39,7 @@ export const createRequest = async (body: CreateRequest) => {
 };
 
 export const fetchUserRequests = async () => {
-  const { data } = await nextServer.get<UserRequest[]>("/users/requests");
+  const { data } = await nextServer.get<Request[]>("/users/requests");
   return data;
 };
 
