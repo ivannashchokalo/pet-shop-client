@@ -94,11 +94,11 @@ export default function SignInForm({
         validationSchema={LoginSchema}
       >
         {({ errors, touched }) => (
-          <Form className="flex flex-col items-center gap-6 mx-auto">
+          <Form className="mx-auto flex flex-col items-center gap-6">
             <div className="relative w-full">
               <label
                 htmlFor="email"
-                className="block mb-1 font-medium text-[16px] text-[#0c1118]"
+                className="mb-1 block text-[16px] font-medium text-[#0c1118]"
               >
                 Email:
               </label>

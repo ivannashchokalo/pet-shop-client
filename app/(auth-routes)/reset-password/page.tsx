@@ -1,23 +1,15 @@
 "use client";
 
-import { resetPassword } from "@/lib/api/client/auth";
 import { useMutation } from "@tanstack/react-query";
-import { Field, Form, Formik } from "formik";
-import { useSearchParams, useRouter } from "next/navigation";
-import * as Yup from "yup";
+import { useRouter, useSearchParams } from "next/navigation";
 
-interface FormValues {
-  password: string;
-  confirmPassword: string;
-}
-
-const ResetPasswordSchema = Yup.object({
-  password: Yup.string().min(8, "Password is too short").required("Required"),
-
-  confirmPassword: Yup.string()
-    .oneOf([Yup.ref("password")], "Passwords must match")
-    .required("Required"),
-});
+import Container from "@/components/Container/Container";
+import ContentCard from "@/components/ContentCard/ContentCard";
+import ResetPasswordForm from "@/components/ResetPasswordForm/ResetPasswordForm";
+import Section from "@/components/Section/Section";
+import { resetPassword } from "@/lib/api/client/auth";
+import Button from "@/components/Button/Button";
+import { toast } from "sonner";
 
 export default function ResetPassword() {
   const searchParams = useSearchParams();
@@ -25,77 +17,57 @@ export default function ResetPassword() {
 
   const token = searchParams.get("token") || "";
 
-  const initialValues: FormValues = {
-    password: "",
-    confirmPassword: "",
-  };
-
   const { mutate, isPending, isSuccess } = useMutation({
     mutationFn: resetPassword,
-
-    onSuccess: () => {
-      console.log("Password reset successfully");
-    },
-
-    onError: (error) => {
-      console.log("Reset password error:", error);
+    onError: () => {
+      toast.error("Failed to reset your password. Please try again.");
     },
   });
 
   if (isSuccess) {
     return (
-      <div>
-        <h2>Password updated</h2>
+      <Section>
+        <Container>
+          <ContentCard>
+            <h1 className="mb-8 text-[36px] text-center font-bold text-[#151c26] md:text-[48px] xl:text-[64px]">
+              Password updated
+            </h1>
 
-        <p>Your password has been reset successfully.</p>
+            <p className="text-[20px] text-center font-medium text-[#323f50]">
+              Your password has been reset successfully.
+            </p>
 
-        <button type="button" onClick={() => router.push("/sign-in")}>
-          Go to Login
-        </button>
-      </div>
+            <Button
+              onClick={() => router.push("/sign-in")}
+              className="py-2 px-8"
+            >
+              Go to Login
+            </Button>
+          </ContentCard>
+        </Container>
+      </Section>
     );
   }
 
   return (
-    <>
-      <h2>Reset Password</h2>
-
-      <p>Enter your new password below.</p>
-
-      <Formik
-        initialValues={initialValues}
-        validationSchema={ResetPasswordSchema}
-        onSubmit={(values) =>
-          mutate({
-            password: values.password,
-            token,
-          })
-        }
-      >
-        <Form>
-          <label htmlFor="password">New Password</label>
-
-          <Field
-            id="password"
-            type="password"
-            name="password"
-            placeholder="Enter new password"
+    <Section>
+      <Container>
+        <h1 className="sr-only">Reset Password</h1>
+        <ContentCard>
+          <p className="mx-auto mb-6 font-medium text-[20px] text-[#576b86]">
+            Enter your new password below
+          </p>
+          <ResetPasswordForm
+            isPending={isPending}
+            onSubmit={(values) =>
+              mutate({
+                password: values.password,
+                token,
+              })
+            }
           />
-
-          <label htmlFor="confirmPassword">Confirm Password</label>
-
-          <Field
-            id="confirmPassword"
-            type="password"
-            name="confirmPassword"
-            placeholder="Confirm new password"
-          />
-
-          <button type="submit" disabled={isPending}>
-            {isPending ? "Saving..." : "Reset Password"}
-          </button>
-        </Form>
-      </Formik>
-    </>
+        </ContentCard>
+      </Container>
+    </Section>
   );
 }
