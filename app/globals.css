@@ -29,6 +29,8 @@
 
 body {
   font-family: var(--font-montserrat);
+  letter-spacing: normal;
+  font-size: 16px;
 }
 
 a {
