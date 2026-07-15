@@ -3,7 +3,7 @@ import clsx from "clsx";
 
 interface InputProps {
   name: string;
-  type: string;
+  type: React.HTMLInputTypeAttribute;
   placeholder?: string;
   className?: string;
   id?: string;
@@ -11,7 +11,7 @@ interface InputProps {
   hasError?: boolean;
 }
 
-export const Input = ({
+export default function Input({
   name,
   type,
   placeholder,
@@ -19,7 +19,7 @@ export const Input = ({
   id,
   readOnly,
   hasError,
-}: InputProps) => {
+}: InputProps) {
   return (
     <Field
       id={id}
@@ -36,4 +36,4 @@ export const Input = ({
       readOnly={readOnly}
     />
   );
-};
+}

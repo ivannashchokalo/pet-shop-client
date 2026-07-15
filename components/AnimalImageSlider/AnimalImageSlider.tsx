@@ -4,16 +4,24 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
 import Icon from "../Icon/Icon";
+import clsx from "clsx";
 
-interface Props {
+interface AnimalImageSliderProps {
   images: string[];
   name: string;
   type: string;
 }
 
-export function AnimalImageSlider({ images, name, type }: Props) {
+const navigationButtonClass =
+  "absolute top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-[20px] bg-[rgba(199,224,246,0.5)] transition-colors duration-200 hover:bg-[#c7e0f6] focus-visible:bg-[#c7e0f6]";
+const navigationIconClass = "stroke-[#fafafa] fill-none";
+
+export function AnimalImageSlider({
+  images,
+  name,
+  type,
+}: AnimalImageSliderProps) {
   return (
     <div className="relative h-[240px] w-full overflow-hidden rounded-[20px] md:h-[400px] xl:w-[630px]">
       <Swiper
@@ -37,19 +45,19 @@ export function AnimalImageSlider({ images, name, type }: Props) {
         ))}
       </Swiper>
       <button
-        className="custom-prev swiper-button-disabled absolute left-4 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-[20px] bg-[rgba(199,224,246,0.5)]  transition-colors duration-200
-    hover:bg-[#c7e0f6]
-    focus-visible:bg-[#c7e0f6]"
+        type="button"
+        aria-label="Previous image"
+        className={clsx(navigationButtonClass, "custom-prev left-4")}
       >
-        <Icon name="icon-left" className="stroke-[#fafafa] fill-none" />
+        <Icon name="icon-left" className={navigationIconClass} />
       </button>
 
       <button
-        className="custom-next swiper-button-disabled absolute right-4 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-[20px] bg-[rgba(199,224,246,0.5)]  transition-colors duration-200
-    hover:bg-[#c7e0f6]
-    focus-visible:bg-[#c7e0f6]"
+        type="button"
+        aria-label="Next image"
+        className={clsx(navigationButtonClass, "custom-next right-4")}
       >
-        <Icon name="icon-right" className="stroke-[#fafafa] fill-none" />
+        <Icon name="icon-right" className={navigationIconClass} />
       </button>
     </div>
   );

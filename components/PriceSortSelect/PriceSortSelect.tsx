@@ -33,11 +33,11 @@ export default function PriceSortSelect({ inputId }: PriceSortSelectProps) {
   const selectedOption =
     options.find((option) => option.value === sortOrder) ?? null;
 
-  const handleSortChange = (value: string) => {
+  const handleSortChange = (option: SelectOption | null) => {
     const params = new URLSearchParams(searchParams);
 
-    if (value) {
-      params.set("sortOrder", value);
+    if (option) {
+      params.set("sortOrder", option.value);
     } else {
       params.delete("sortOrder");
     }
@@ -53,7 +53,7 @@ export default function PriceSortSelect({ inputId }: PriceSortSelectProps) {
       placeholder="Sort by price"
       isClearable
       value={selectedOption}
-      onChange={(option) => handleSortChange(option ? option.value : "")}
+      onChange={handleSortChange}
       components={{
         DropdownIndicator,
         ClearIndicator,

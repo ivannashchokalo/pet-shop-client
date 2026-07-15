@@ -81,7 +81,7 @@ export default async function AnimalsByCategory({
     notFound();
   }
 
-  if (slug.length == 1) {
+  if (slug.length === 1) {
     const type = category;
 
     const {
@@ -146,11 +146,9 @@ export default async function AnimalsByCategory({
     });
 
     return (
-      <>
-        <HydrationBoundary state={dehydrate(queryClient)}>
-          <AnimalDetailsClient />
-        </HydrationBoundary>
-      </>
+      <HydrationBoundary state={dehydrate(queryClient)}>
+        <AnimalDetailsClient />
+      </HydrationBoundary>
     );
   }
 

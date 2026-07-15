@@ -10,6 +10,7 @@ import Icon from "../Icon/Icon";
 import clsx from "clsx";
 import IconButton from "../IconButton/IconButton";
 import { getAge } from "@/utils/date";
+import capitalizeFirstLetter from "@/utils/text";
 
 interface AnimalCardProps {
   animal: Animal;
@@ -17,6 +18,9 @@ interface AnimalCardProps {
   isReserved: boolean;
   onFavoriteClick: (animalId: AnimalId) => void;
 }
+
+const infoTextClass = "font-medium text-[14px] text-[#9db4d3]";
+const infoIconClass = "fill-none stroke-[#9db4d3]";
 
 export default function AnimalCard({
   animal,
@@ -50,35 +54,27 @@ export default function AnimalCard({
             fill
             className="object-cover"
           />
-          <p className="absolute bottom-4 right-4 py-[2px] px-4 bg-[#85a3c9] rounded-5 font-semibold text-[20px] leading-[1.5] text-[#fff]">
+          <p className="absolute bottom-4 right-4 py-[2px] px-4 bg-[#85a3c9] rounded-[20px] font-semibold text-[20px] text-white">
             {animal.price && `$${animal.price}`}
           </p>
         </div>
 
         <div className="py-5 px-4 bg-[#fff] md:py-6">
-          <h2
-            className={
-              "mb-1 font-medium text-[20px] leading-[1.5] text-[#0c1118]"
-            }
-          >
+          <h2 className="mb-1 font-medium text-[20px] text-[#0c1118]">
             {animal.name}
           </h2>
-          <p className="mb-4 font-normal text-base leading-6 text-[#0c1118] md:mb-6">
+          <p className="mb-4 font-normal text-base text-[#0c1118] md:mb-6">
             {animal.breed}
           </p>
           <div className="flex items-center gap-4 md:mb-6">
             <p className="flex items-center gap-2">
-              <Icon name="calendar" className="stroke-[#9db4d3] fill-none" />
-              <span className="font-medium text-[14px] leading-[1.3] text-[#9db4d3]">
-                {getAge(animal.birthDate)}
-              </span>
+              <Icon name="calendar" className={infoIconClass} />
+              <span className={infoTextClass}>{getAge(animal.birthDate)}</span>
             </p>
             <p className="flex items-center gap-2">
-              <Icon name="gender" className="stroke-[#9db4d3] fill-none" />
-              <span className="font-medium text-[14px] leading-[1.3] text-[#9db4d3]">
-                {animal.sex
-                  ? animal.sex.charAt(0).toUpperCase() + animal.sex.slice(1)
-                  : ""}
+              <Icon name="gender" className={infoIconClass} />
+              <span className={infoTextClass}>
+                {capitalizeFirstLetter(animal.sex)}
               </span>
             </p>
           </div>
@@ -93,13 +89,13 @@ export default function AnimalCard({
               },
             )}
           >
-            {animal.status.charAt(0).toUpperCase() + animal.status.slice(1)}
+            {capitalizeFirstLetter(animal.status)}
           </p>
         </div>
       </Link>
       <div className="px-4 pb-5 md:pb-6">
         <Button
-          className="p-[10px] w-full font-medium text-[20px] leading-[0.9] text-[#0c1118]"
+          className="w-full p-[10px] font-medium text-[20px] leading-[0.9] text-[#0c1118]"
           onClick={handleReserveClick}
           disabled={isReserved}
         >
@@ -109,12 +105,12 @@ export default function AnimalCard({
 
       <IconButton
         onClick={() => onFavoriteClick(animal._id)}
-        className="absolute top-4 right-4 p-2 bg-[#fff] rounded-full hover:bg-[#4d4d4d] focus-visible:bg-[#4d4d4d]"
+        className="absolute right-4 top-4 rounded-full bg-white p-2 hover:bg-[#4d4d4d] focus-visible:bg-[#4d4d4d]"
       >
         <Icon
           name="heart"
           className={clsx(
-            "transition-all duration-200 ease-in-out ",
+            "transition-all duration-200 ease-in-out",
             isFavorite
               ? "stroke-[#aad2f2] fill-[#aad2f2]"
               : "stroke-[#aad2f2] fill-none",

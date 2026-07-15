@@ -2,11 +2,6 @@ import { SelectOption } from "@/types/selectOptions";
 import type { StylesConfig } from "react-select";
 
 export const selectStyles: StylesConfig<SelectOption> = {
-  // Головний контейнер Select (рамка, висота, padding)
-  // container: (provided) => ({
-  //   ...provided,
-  //   width: "100%",
-  // }),
   control: (provided, state) => ({
     ...provided,
     borderRadius: "20px",
@@ -24,13 +19,11 @@ export const selectStyles: StylesConfig<SelectOption> = {
     },
   }),
 
-  // Контейнер для placeholder та вибраного значення
   valueContainer: (provided) => ({
     ...provided,
     padding: 0,
   }),
 
-  // Placeholder ("Select breed")
   placeholder: (provided) => ({
     ...provided,
     color: "#a2a2a2",
@@ -40,7 +33,6 @@ export const selectStyles: StylesConfig<SelectOption> = {
     margin: 0,
   }),
 
-  // Вибране значення (для звичайного Select)
   singleValue: (provided) => ({
     ...provided,
     fontFamily: "var(--font-montserrat)",
@@ -53,17 +45,14 @@ export const selectStyles: StylesConfig<SelectOption> = {
     color: "#a2a2a2",
   }),
 
-  // Тег у Multi Select
   multiValue: (provided) => ({
     ...provided,
     padding: "4px",
     backgroundColor: "#f8fafc",
-    border: "border: 1px solid #7793b7",
     borderRadius: "100px",
-    marginRight: "0 4px 0 0",
+    margin: "0 4px 0 0",
   }),
 
-  // Текст усередині тегу
   multiValueLabel: (provided) => ({
     ...provided,
     fontFamily: "var(--font-montserrat)",
@@ -73,7 +62,6 @@ export const selectStyles: StylesConfig<SelectOption> = {
     color: "#7793b7",
   }),
 
-  // Кнопка × для видалення тегу
   multiValueRemove: (provided) => ({
     ...provided,
     backgroundColor: "transparent",
@@ -84,24 +72,20 @@ export const selectStyles: StylesConfig<SelectOption> = {
     },
   }),
 
-  // Стрілка відкриття меню
   dropdownIndicator: (provided) => ({
     ...provided,
     padding: 0,
   }),
 
-  // Вертикальна риска між значенням і стрілкою
   indicatorSeparator: () => ({
     display: "none",
   }),
 
-  // Кнопка очищення (×), якщо isClearable
   clearIndicator: (provided) => ({
     ...provided,
     fill: "#a2a2a2",
   }),
 
-  // Контейнер випадаючого меню
   menu: (provided) => ({
     ...provided,
     borderRadius: "10px",
@@ -110,13 +94,11 @@ export const selectStyles: StylesConfig<SelectOption> = {
     marginTop: "2px",
   }),
 
-  // Контейнер зі списком опцій
   menuList: (provided) => ({
     ...provided,
     padding: 0,
   }),
 
-  // Окремий пункт меню
   option: (provided, state) => ({
     ...provided,
     fontFamily: "var(--font-montserrat)",

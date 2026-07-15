@@ -20,7 +20,7 @@ export default function AgeSortSelect({ inputId }: AgeSortSelectProps) {
   const sortBy = searchParams.get("sortBy");
   const sortOrder = searchParams.get("sortOrder") || "";
 
-  const options: SelectOption[] = [
+  const options = [
     {
       value: "desc",
       label: "Youngest First",
@@ -36,14 +36,12 @@ export default function AgeSortSelect({ inputId }: AgeSortSelectProps) {
       ? (options.find((option) => option.value === sortOrder) ?? null)
       : null;
 
-  const handleSortChange = (value: string) => {
+  const handleSortChange = (sortOrder: SelectOption | null) => {
     const params = new URLSearchParams(searchParams);
 
-    if (value) {
-      // params.set("sortBy", "birthDate");
-      params.set("sortOrder", value);
+    if (sortOrder) {
+      params.set("sortOrder", sortOrder.value);
     } else {
-      // params.delete("sortBy");
       params.delete("sortOrder");
     }
 
@@ -58,7 +56,7 @@ export default function AgeSortSelect({ inputId }: AgeSortSelectProps) {
       placeholder="Sort by age"
       isClearable
       value={selectedOption}
-      onChange={(option) => handleSortChange(option?.value || "")}
+      onChange={handleSortChange}
       components={{
         DropdownIndicator,
         ClearIndicator,

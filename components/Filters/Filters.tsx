@@ -9,15 +9,15 @@ import SortTypeSelect from "../SortTypeSelect/SortTypeSelect";
 import { useFilters } from "@/hooks/useFilters";
 import { ClearFiltersButton } from "../ClearFiltersButton/ClearFiltersButton";
 
-interface FiltersSidebarProps {
+interface FiltersProps {
   type: string;
 }
 
-export default function Filters({ type }: FiltersSidebarProps) {
+export default function Filters({ type }: FiltersProps) {
   const { data, breeds, sortBy } = useFilters(type);
 
   return (
-    <div className="hidden md:block md:flex md:flex-col md:gap-6">
+    <div className="hidden md:flex md:flex-col md:gap-6">
       <div className="flex items-start gap-4 flex-wrap md:min-h-[115px] xl:min-h-0">
         <label htmlFor="breeds" className="sr-only">
           Breed

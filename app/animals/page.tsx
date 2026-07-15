@@ -16,45 +16,43 @@ export default async function Animals() {
   const linkClass = "flex flex-col justify-between min-h-[280px] py-8 px-6";
   const iconClass = "mx-auto fill-[#323f50]";
   const cardTitleClass =
-    "flex flex-col gap-[2px] font-semibold text-[40px] leading-[1.5] text-[#323f50]";
-  // const subtitleStyles =
-  //   "font-medium text-[15px] leading-[1.4] tracking-[0.01em] text-[#576b86]";
+    "flex flex-col gap-[2px] font-semibold text-[40px] text-[#323f50]";
 
   return (
     <>
-      <div className="flex flex-col gap-4 mb-[50px] md:max-w-[740px]">
-        <p className="text-[20px] font-medium leading-[1.5] text-[#aad2f2] md:text-[24px]">
+      <div className="flex flex-col gap-4 mb-12 md:max-w-[740px]">
+        <p className="text-[20px] font-medium text-[#aad2f2] md:text-[24px]">
           Find your companion
         </p>
-        <h1 className="text-[32px] font-semibold leading-[1.5] text-[#151c26] md:text-[40px]">
+        <h1 className="text-[32px] font-semibold text-[#151c26] md:text-[40px]">
           Every pet deserves a loving home
         </h1>
-        <p className="mb-8 text-[16px] font-medium leading-[1.5] text-[#576b86] md:text-[20px]">
+        <p className="mb-8 text-[16px] font-medium text-[#576b86] md:text-[20px]">
           Find your perfect companion from trusted breeders and shelters. All
           pets are health-checked, vaccinated, and ready for a loving home.
         </p>
         <ul className="flex items-center gap-8">
           <li className="flex items-center gap-4">
-            <div className="w-[44px] h-[44px] flex items-center justify-center rounded-[10px] bg-[#c7e0f6]">
+            <div className="flex h-11 w-11 items-center justify-center rounded-[10px] bg-[#c7e0f6]">
               <Icon name="star" className="stroke-[#323f50] fill-none" />
             </div>
-            <p className="flex flex-col gap-2 font-medium text-[20px] leading-[1.5] text-[#000000]">
+            <p className="flex flex-col gap-2 font-medium text-[20px] text-[#000000]">
               {happyOwnersCount}{" "}
               <span className="font-normal text-[14px]">Happy Owners</span>
             </p>
           </li>
           <li className="flex items-center gap-4">
-            <div className="w-[44px] h-[44px] flex items-center justify-center rounded-[10px] bg-[#c7e0f6]">
+            <div className="flex h-11 w-11 items-center justify-center rounded-[10px] bg-[#c7e0f6]">
               <Icon name="check" className="fill-[#323f50]" />
             </div>
-            <p className="flex flex-col gap-2 font-medium text-[20px] leading-[1.5] text-[#000000]">
+            <p className="flex flex-col gap-2 font-medium text-[20px] text-[#000000]">
               {animalsAvailableCount}
               <span className="font-normal text-[14px]">Animals Available</span>
             </p>
           </li>
         </ul>
       </div>
-      <ul className="grid md:grid-cols-2 gap-6">
+      <ul className="grid gap-6 md:grid-cols-2 ">
         <CategoryCard
           title="Dogs"
           count={dogsCount}

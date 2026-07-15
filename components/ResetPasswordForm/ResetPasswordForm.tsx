@@ -2,7 +2,7 @@
 
 import { ErrorMessage, Form, Formik } from "formik";
 import * as Yup from "yup";
-import { Input } from "../Input/Input";
+import Input from "../Input/Input";
 import Button from "../Button/Button";
 
 interface FormValues {
@@ -28,6 +28,8 @@ const ResetPasswordSchema = Yup.object({
     .required("Required"),
 });
 
+const LABEL_STYLES = "mb-1 block font-medium text-[16px] text-[#0c1118]";
+
 export default function ResetPasswordForm({
   isPending,
   onSubmit,
@@ -38,52 +40,50 @@ export default function ResetPasswordForm({
       validationSchema={ResetPasswordSchema}
       onSubmit={onSubmit}
     >
-      <Form className="mx-auto flex flex-col items-center gap-6">
-        <div className="relative w-full">
-          <label
-            htmlFor="password"
-            className="block mb-1 font-medium text-[16px] text-[#0c1118]"
-          >
-            New Password:
-          </label>
-          <Input
-            id="password"
-            type="password"
-            name="password"
-            placeholder="Enter new password"
-          />
-          <ErrorMessage
-            name="password"
-            component="p"
-            className="absolute left-4 -bottom-4 text-[12px] text-red-500"
-          />
-        </div>
+      {({ errors, touched }) => (
+        <Form className="mx-auto flex flex-col items-center gap-6">
+          <div className="relative w-full">
+            <label htmlFor="password" className={LABEL_STYLES}>
+              New Password:
+            </label>
+            <Input
+              id="password"
+              type="password"
+              name="password"
+              placeholder="Enter new password"
+              hasError={!!(touched.password && errors.password)}
+            />
+            <ErrorMessage
+              name="password"
+              component="p"
+              className="absolute left-4 -bottom-4 text-[12px] text-red-500"
+            />
+          </div>
 
-        <div className="relative w-full">
-          <label
-            htmlFor="confirmPassword"
-            className="block mb-1 font-medium text-[16px]  text-[#0c1118]"
-          >
-            Confirm Password:
-          </label>
+          <div className="relative w-full">
+            <label htmlFor="confirmPassword" className={LABEL_STYLES}>
+              Confirm Password:
+            </label>
 
-          <Input
-            id="confirmPassword"
-            type="password"
-            name="confirmPassword"
-            placeholder="Confirm new password"
-          />
-          <ErrorMessage
-            name="confirmPassword"
-            component="p"
-            className="absolute left-4 -bottom-4 text-[12px] text-red-500"
-          />
-        </div>
+            <Input
+              id="confirmPassword"
+              type="password"
+              name="confirmPassword"
+              placeholder="Confirm new password"
+              hasError={!!(touched.confirmPassword && errors.confirmPassword)}
+            />
+            <ErrorMessage
+              name="confirmPassword"
+              component="p"
+              className="absolute left-4 -bottom-4 text-[12px] text-red-500"
+            />
+          </div>
 
-        <Button type="submit" disabled={isPending} className="py-2 px-8">
-          {isPending ? "Resetting..." : "Reset Password"}
-        </Button>
-      </Form>
+          <Button type="submit" disabled={isPending} className="py-2 px-8">
+            {isPending ? "Resetting..." : "Reset Password"}
+          </Button>
+        </Form>
+      )}
     </Formik>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimalSex } from "@/types/animal";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export default function SexRadioGroup() {
@@ -9,7 +10,7 @@ export default function SexRadioGroup() {
 
   const sex = searchParams.get("sex") || "";
 
-  const handleSexChange = (value: string) => {
+  const handleSexChange = (value: AnimalSex | "") => {
     const params = new URLSearchParams(searchParams);
 
     if (value) {

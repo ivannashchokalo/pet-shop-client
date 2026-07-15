@@ -17,15 +17,15 @@ export default function BreedSelect({ breeds, inputId }: BreedSelectProps) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
-  const breed = searchParams.get("breed")?.split(",") ?? [];
+  const selectedBreeds = searchParams.get("breed")?.split(",") ?? [];
 
   const breedOptions: SelectOption[] = breeds.map((breed) => ({
     value: breed,
     label: breed,
   }));
 
-  const selectedBreed = breedOptions.filter((option) =>
-    breed.includes(option.value),
+  const selectedBreedOptions = breedOptions.filter((option) =>
+    selectedBreeds.includes(option.value),
   );
 
   const handleBreedChange = (options: SelectOption[]) => {
@@ -45,7 +45,7 @@ export default function BreedSelect({ breeds, inputId }: BreedSelectProps) {
       styles={selectStyles}
       inputId={inputId}
       options={breedOptions}
-      value={selectedBreed}
+      value={selectedBreedOptions}
       onChange={(options) =>
         handleBreedChange((options as SelectOption[]) ?? [])
       }

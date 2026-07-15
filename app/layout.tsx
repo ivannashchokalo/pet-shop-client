@@ -46,18 +46,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={montserrat.variable}
-        style={{
-          minHeight: "100vh",
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
+      <body className={`${montserrat.variable} flex min-h-screen flex-col`}>
         <TanstackQueryProvider>
           <AuthProvider>
             <Header />
-            <main className="grow bg-[#f8fafc]">
+            <main className="flex-1 bg-[#f8fafc]">
               {children}
               {reserve}
             </main>

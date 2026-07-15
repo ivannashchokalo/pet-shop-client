@@ -4,12 +4,12 @@ import { login } from "@/lib/api/client/auth";
 import { useAuthStore } from "@/lib/stores/authStore";
 import { User } from "@/types/user";
 import { useMutation } from "@tanstack/react-query";
-import { ErrorMessage, Form, Formik, FormikHelpers } from "formik";
+import { ErrorMessage, Form, Formik } from "formik";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { toast } from "sonner";
 import * as Yup from "yup";
 import { ApiError } from "@/app/api/api";
-import { Input } from "../Input/Input";
+import Input from "../Input/Input";
 import Button from "../Button/Button";
 import Loader from "../Loader/Loader";
 
@@ -47,23 +47,19 @@ export default function SignInForm({
       setUser(user);
       onModalClose?.();
 
-      if (fromPath) router.push(fromPath);
+      if (fromPath) {
+        router.push(fromPath);
+      } else if (!onModalClose) {
+        router.push("/");
+      }
     },
     onError: (error: ApiError) => {
       toast.error(error.response?.data?.message || "Login failed");
     },
   });
 
-  const handleSubmit = (
-    data: FormValues,
-    actions: FormikHelpers<FormValues>,
-  ) => {
+  const handleSubmit = (data: FormValues) => {
     mutate(data);
-    actions.resetForm();
-
-    if (!onModalClose) {
-      router.push("/");
-    }
   };
 
   const handleForgotPasswordClick = () => {
@@ -71,7 +67,7 @@ export default function SignInForm({
     router.push("/request-reset-email");
   };
 
-  const hadleSignUpClick = () => {
+  const handleSignUpClick = () => {
     onModalClose?.();
 
     if (fromPath) {
@@ -79,8 +75,6 @@ export default function SignInForm({
     } else {
       router.push(`/sign-up?from=${encodeURIComponent(from)}`);
     }
-
-    router.refresh();
   };
 
   return (
@@ -149,7 +143,7 @@ export default function SignInForm({
               Don&apos;t have an account?
               <button
                 type="button"
-                onClick={hadleSignUpClick}
+                onClick={handleSignUpClick}
                 className="underline hover:text-[#85a3c9] focus-visible:text-[#85a3c9]"
               >
                 Sign up

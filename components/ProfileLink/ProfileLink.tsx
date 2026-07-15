@@ -8,20 +8,21 @@ import clsx from "clsx";
 
 export default function ProfileLink() {
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
-  const pathName = usePathname();
+  const pathname = usePathname();
 
   return (
     <>
       {isAuthenticated && (
         <IconButton
           href="/profile"
-          className="h-[44px] w-[44px] p-[10px] rounded-full  transition-colors duration-300 ease-in-out hover:bg-[rgba(199,224,246,0.2)] focus-visible:bg-[rgba(199,224,246,0.2)]"
+          className="h-11 w-11 hover:bg-[rgba(199,224,246,0.2)] focus-visible:bg-[rgba(199,224,246,0.2)]"
+          ariaLabel="Profile"
         >
           <Icon
             name="user"
             className={clsx(
               "stroke-[#323F50]",
-              pathName === "/profile" ? "fill-[#323f50]" : "fill-transparent",
+              pathname === "/profile" ? "fill-[#323f50]" : "fill-transparent",
             )}
           />
         </IconButton>

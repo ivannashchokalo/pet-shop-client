@@ -9,16 +9,14 @@ export const nextServer = axios.create({
 nextServer.interceptors.response.use(
   (response) => response,
   async (err) => {
-    const originalReq = err.config; // містить інфо про запит, який впав
+    const originalReq = err.config;
 
     if (err.response?.status === 401 && !originalReq._retry) {
       try {
-        originalReq._retry = true; // ми створюємо, для того щоб уникнути infinite loop при наступній 401 (401 → refresh → 401 → refresh → )
+        originalReq._retry = true;
 
         await refreshSession();
 
-        //axios instance gjdthnf' повертає callable instance, який має методи .get(), .post()
-        // і може викликатися як функція
         return nextServer(originalReq);
       } catch (error) {
         window.location.href = "/sign-in";

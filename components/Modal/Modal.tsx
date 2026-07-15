@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { createPortal } from "react-dom";
 import ContentCard from "../ContentCard/ContentCard";
@@ -14,12 +14,8 @@ interface ModalProps {
 }
 export default function Modal({ children, onClose, redirectPath }: ModalProps) {
   const router = useRouter();
-  const [mounted, setMounted] = useState(false);
+  // const [mounted, setMounted] = useState(false);
 
-  // const close = onClose ?? (() => router.back()); - цей варіан кожен рендер створює нову фекцію () => router.back() іерезапускає юзЕф, який залежить від close
-
-  // useCallback каже не створюй нову функцію,
-  //поки dependencies не змінились
   const close = useCallback(() => {
     if (onClose) {
       onClose();
@@ -29,20 +25,14 @@ export default function Modal({ children, onClose, redirectPath }: ModalProps) {
     router.back();
   }, [onClose, router]);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  //! або
-  // if (typeof window === "undefined") {
-  //   return null;
-  // }
+  // useEffect(() => {
+  //   setMounted(true);
+  // }, []);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.code === "Escape") {
         close();
-        // router.back();
       }
     };
 
@@ -67,23 +57,12 @@ export default function Modal({ children, onClose, redirectPath }: ModalProps) {
     }
   };
 
-  if (!mounted) return null; // нічого не рендеримо і не чіпаємо document.body, поки компонент не змонтується
+  // if (!mounted) return null;
 
   return createPortal(
     <div
       onClick={handleBackdropClick}
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-        zIndex: 999,
-        backgroundColor: "rgba(46, 47, 66, 0.4)",
-      }}
+      className="fixed inset-0 z-[999] flex items-center justify-center bg-[rgba(46,47,66,0.4)]"
     >
       <ContentCard className="relative w-[350px]">
         <IconButton

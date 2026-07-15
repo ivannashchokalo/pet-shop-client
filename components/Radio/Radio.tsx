@@ -1,4 +1,5 @@
 "use client";
+import clsx from "clsx";
 import { useField } from "formik";
 
 interface RadioProps {
@@ -15,9 +16,10 @@ export default function Radio({ name, value, label }: RadioProps) {
       <input {...field} type="radio" value={value} className="sr-only" />
 
       <div
-        className={`flex h-6 w-6 items-center justify-center rounded-full border-[3px] ${
-          field.checked ? "border-[#aad2f2]" : "border-[#a2a2a2]"
-        }`}
+        className={clsx(
+          "flex h-6 w-6 items-center justify-center rounded-full border-[3px]",
+          field.checked ? "border-[#aad2f2]" : "border-[#a2a2a2]",
+        )}
       >
         {field.checked && <div className="h-3 w-3 rounded-full bg-[#aad2f2]" />}
       </div>

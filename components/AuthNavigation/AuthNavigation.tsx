@@ -10,6 +10,9 @@ import { useLogout } from "@/hooks/useLogout";
 import IconButton from "../IconButton/IconButton";
 import Icon from "../Icon/Icon";
 
+const AUTH_BUTTON_CLASS =
+  "h-[36px] min-w-[82px] py-[10px] px-4 font-medium text-[13px] tracking-[-0.02em] text-center text-[#323f50] h-[36px] min-w-[82px] py-[10px] px-4 font-medium text-[13px] tracking-[-0.02em] text-center text-[#323f50]";
+
 export default function AuthNavigation() {
   const pathname = usePathname();
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
@@ -24,7 +27,7 @@ export default function AuthNavigation() {
           <li>
             <Button
               variant="secondary"
-              className="h-[36px] min-w-[82px] py-[10px] px-4 font-medium text-[13px] tracking-[-0.02em] text-center text-[#323f50]"
+              className={AUTH_BUTTON_CLASS}
               onClick={() => setIsLoginModalOpen(true)}
             >
               Sign in
@@ -33,7 +36,7 @@ export default function AuthNavigation() {
 
           <li>
             <Button
-              className="h-[36px] min-w-[82px] py-[10px] px-4 font-medium text-[13px] tracking-[-0.02em] text-center text-[#323f50]"
+              className={AUTH_BUTTON_CLASS}
               href={`/sign-up?from=${encodeURIComponent(pathname)}`}
             >
               Sign up

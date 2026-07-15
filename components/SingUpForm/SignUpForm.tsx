@@ -9,7 +9,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "sonner";
 import * as Yup from "yup";
 import { ErrorMessage, Form, Formik } from "formik";
-import { Input } from "../Input/Input";
+import Input from "../Input/Input";
 import Button from "../Button/Button";
 import Loader from "../Loader/Loader";
 
@@ -18,6 +18,12 @@ interface FormValues {
   email: string;
   password: string;
 }
+
+const initialValues: FormValues = {
+  name: "",
+  email: "",
+  password: "",
+};
 
 const RegisterSchema = Yup.object({
   email: Yup.string().email("Invalid email").required("Email is required!"),
@@ -44,11 +50,6 @@ export default function SignUpForm() {
     },
   });
 
-  const initialValues: FormValues = {
-    name: "",
-    email: "",
-    password: "",
-  };
   return (
     <>
       <p className="mx-auto mb-6 font-medium text-[20px] text-[#576b86]">
@@ -63,7 +64,7 @@ export default function SignUpForm() {
           <Form className="mx-auto flex flex-col items-center gap-6">
             <div className="relative w-full">
               <label
-                htmlFor="email"
+                htmlFor="name"
                 className="mb-1 block text-[16px] font-medium text-[#0c1118]"
               >
                 Name:
@@ -99,7 +100,7 @@ export default function SignUpForm() {
 
             <div className="relative w-full">
               <label
-                htmlFor="email"
+                htmlFor="password"
                 className="mb-1 block text-[16px] font-medium text-[#0c1118]"
               >
                 Password:<span className="text-red-500">*</span>

@@ -1,4 +1,4 @@
-"use strict";
+"use client";
 
 import { SelectOption } from "@/types/selectOptions";
 import { usePathname, useSearchParams } from "next/navigation";
@@ -33,13 +33,13 @@ export default function SortTypeSelect({ inputId }: SortTypeSelectProps) {
   const selectedOption =
     options.find((option) => option.value === sortBy) ?? null;
 
-  const handleSortTypeChange = (value: string) => {
+  const handleSortTypeChange = (option: SelectOption | null) => {
     const params = new URLSearchParams(searchParams);
 
     params.delete("sortOrder");
 
-    if (value) {
-      params.set("sortBy", value);
+    if (option) {
+      params.set("sortBy", option.value);
     } else {
       params.delete("sortBy");
     }
@@ -55,7 +55,7 @@ export default function SortTypeSelect({ inputId }: SortTypeSelectProps) {
       value={selectedOption}
       placeholder="Choose sorting"
       isClearable
-      onChange={(option) => handleSortTypeChange(option ? option.value : "")}
+      onChange={handleSortTypeChange}
       components={{
         DropdownIndicator,
         ClearIndicator,

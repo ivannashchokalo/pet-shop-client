@@ -11,15 +11,12 @@ export function ClearFiltersButton({ className }: ClearFiltersButtonProps) {
   const router = useRouter();
   const pathname = usePathname();
 
-  const clearFilters = () => {
-    router.push(pathname);
-  };
-
   return (
     <button
-      onClick={clearFilters}
+      type="button"
+      onClick={() => router.push(pathname)}
       className={clsx(
-        "font-medium text-[16px]]text-[#9db4d3] hover:text-[#85a3c9] focus-visible:text-[#85a3c9]",
+        "font-medium text-[16px] text-[#9db4d3] hover:text-[#85a3c9] focus-visible:text-[#85a3c9]",
         className,
       )}
     >

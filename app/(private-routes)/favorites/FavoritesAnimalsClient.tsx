@@ -30,22 +30,24 @@ export default function FavoritesAnimalsClient() {
     },
   });
 
+  const favoritesCount = data?.length ?? 0;
+
   return (
     <>
-      <div className="flex items-center justify-between mb-[40px]">
+      <div className="mb-10 flex items-center justify-between">
         <div>
-          <h1 className="mb-[8px] font-semibold text-[24px] leading-[1.5] text-[#151c26] md:text-[32px]">
+          <h1 className="mb-2 font-semibold text-[24px] text-[#151c26] md:text-[32px]">
             Favorites
           </h1>
-          <p className="font-medium text-[14px] leading-[1.5] text-[#323f50] md:text-[16px]">
-            You saved {data?.length} favorite animals
+          <p className="font-medium text-[14px] text-[#323f50] md:text-[16px]">
+            You saved {favoritesCount} favorite animals
           </p>
         </div>
         <Button
           disabled={data?.length < 1}
           type="button"
-          onClick={() => mutate()}
-          className="px-6 py-[10px] gap-[8px] rext-4 text-[#323f50] weight-medium leading-[1.5] text-center"
+          onClick={mutate}
+          className="gap-2 px-6 py-[10px] font-medium text-[#323f50]"
         >
           <Icon name="trash" className="fill-[#323f50]" />
           Clear all

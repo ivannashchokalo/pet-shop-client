@@ -5,13 +5,13 @@ import SignUpForm from "@/components/SingUpForm/SignUpForm";
 
 export default function SignUp() {
   return (
-    <Container>
-      <Section>
+    <Section>
+      <Container>
         <ContentCard>
           <h1 className="sr-only">Sign Up</h1>
           <SignUpForm />
         </ContentCard>
-      </Section>
-    </Container>
+      </Container>
+    </Section>
   );
 }

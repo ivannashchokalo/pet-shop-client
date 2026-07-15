@@ -38,15 +38,15 @@ export default function ProfilePageClient() {
 
   return (
     <>
-      <div className="flex flex-col gap-6 mb-10 md:flex-row  md:justify-between items-start">
-        <div>
-          <p className="flex items-center gap-2 font-medium text-[20px] text-[#0c1118]">
+      <div className="mb-10 flex flex-col items-start gap-6 md:flex-row md:justify-between">
+        <div className="text-[#0c1118]">
+          <p className="flex items-center gap-2 font-medium text-[20px]">
             Name:
-            <span className="text-[16px] text-[#0c1118]">{user?.name}</span>
+            <span className="text-[16px]">{user?.name}</span>
           </p>
-          <p className="flex items-center gap-2  font-medium text-[20px] text-[#0c1118]">
+          <p className="flex items-center gap-2 font-medium text-[20px]">
             Email:
-            <span className="text-[16px] text-[#0c1118]">{user?.email}</span>
+            <span className="text-[16px]">{user?.email}</span>
           </p>
         </div>
         <Button href="/profile/settings" className="py-3 px-5 font-medium">
@@ -54,7 +54,7 @@ export default function ProfilePageClient() {
         </Button>
       </div>
 
-      <h2 className="mb-8 font-semibold text-[24px]  text-[#151c26] md:text-[32px] ">
+      <h2 className="mb-8 font-semibold text-[24px] text-[#151c26] md:text-[32px]">
         Your Orders
       </h2>
       {data && data.length > 0 ? (

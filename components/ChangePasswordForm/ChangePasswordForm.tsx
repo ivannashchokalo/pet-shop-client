@@ -5,7 +5,7 @@ import { useMutation } from "@tanstack/react-query";
 import { Form, Formik, FormikHelpers } from "formik";
 import { toast } from "sonner";
 import * as Yup from "yup";
-import { Input } from "../Input/Input";
+import Input from "../Input/Input";
 import Button from "../Button/Button";
 
 interface ChangePasswordValues {
@@ -26,13 +26,13 @@ const validationSchema = Yup.object({
 });
 
 export function ChangePasswordForm() {
-  const { mutate } = useMutation({
+  const { mutate, isPending } = useMutation({
     mutationFn: changePassword,
     onSuccess: () => {
       toast.success("Password successfully changed");
     },
     onError: () => {
-      toast.error("Something went wrong");
+      toast.error("Failed to change password. Please try again.");
     },
   });
 
@@ -40,8 +40,11 @@ export function ChangePasswordForm() {
     values: ChangePasswordValues,
     actions: FormikHelpers<ChangePasswordValues>,
   ) => {
-    mutate(values);
-    actions.resetForm();
+    mutate(values, {
+      onSuccess: () => {
+        actions.resetForm();
+      },
+    });
   };
 
   return (
@@ -55,23 +58,23 @@ export function ChangePasswordForm() {
         onSubmit={handleSubmit}
       >
         <Form className="flex flex-col items-center gap-6 w-full">
-          <label htmlFor="oldPassword" className="w-full">
-            <Input
-              name="oldPassword"
-              type="password"
-              placeholder="Enter old password"
-            />
-          </label>
+          <Input
+            name="oldPassword"
+            type="password"
+            placeholder="Enter old password"
+          />
 
-          <label htmlFor="newPassword" className="w-full">
-            <Input
-              name="newPassword"
-              type="password"
-              placeholder="Enter new password"
-            />
-          </label>
-          <Button type="submit" className="py-2 px-4">
-            Change password{" "}
+          <Input
+            name="newPassword"
+            type="password"
+            placeholder="Enter new password"
+          />
+          <Button
+            type="submit"
+            className="min-w-[180px] py-2 px-4"
+            disabled={isPending}
+          >
+            {isPending ? "Changing..." : "Change password"}
           </Button>
         </Form>
       </Formik>

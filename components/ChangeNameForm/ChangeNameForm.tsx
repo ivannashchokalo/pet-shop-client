@@ -8,7 +8,7 @@ import { Form, Formik, FormikHelpers } from "formik";
 import { toast } from "sonner";
 import * as Yup from "yup";
 import Button from "../Button/Button";
-import { Input } from "../Input/Input";
+import Input from "../Input/Input";
 
 interface ChangeNameValues {
   name: UserName;
@@ -27,14 +27,14 @@ const validationSchema = Yup.object({
 export function ChangeNameForm() {
   const setUser = useAuthStore((state) => state.setUser);
 
-  const { mutate } = useMutation({
+  const { mutate, isPending } = useMutation({
     mutationFn: changeName,
     onSuccess: (user) => {
       toast.success("Name successfully changed");
       setUser(user);
     },
     onError: () => {
-      toast.error("Something went wrong");
+      toast.error("Failed to change name. Please try again.");
     },
   });
 
@@ -42,8 +42,11 @@ export function ChangeNameForm() {
     values: ChangeNameValues,
     actions: FormikHelpers<ChangeNameValues>,
   ) => {
-    mutate(values);
-    actions.resetForm();
+    mutate(values, {
+      onSuccess: () => {
+        actions.resetForm();
+      },
+    });
   };
 
   return (
@@ -55,12 +58,13 @@ export function ChangeNameForm() {
         onSubmit={handleSubmit}
       >
         <Form className="flex flex-col items-center gap-6 w-full">
-          <label htmlFor="name" className="w-full">
-            <Input name="name" type="text" placeholder="Enter new name" />
-          </label>
-
-          <Button type="submit" className="py-2 px-4">
-            Change name
+          <Input name="name" type="text" placeholder="Enter new name" />
+          <Button
+            type="submit"
+            className="min-w-[180px] py-2 px-4"
+            disabled={isPending}
+          >
+            {isPending ? "Changing..." : "Change name"}
           </Button>
         </Form>
       </Formik>

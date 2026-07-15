@@ -5,13 +5,13 @@ import ContentCard from "@/components/ContentCard/ContentCard";
 
 export default function SignIn() {
   return (
-    <Container>
-      <Section>
+    <Section>
+      <Container>
         <ContentCard>
           <h1 className="sr-only">Sign In</h1>
           <SignInForm />
         </ContentCard>
-      </Section>
-    </Container>
+      </Container>
+    </Section>
   );
 }

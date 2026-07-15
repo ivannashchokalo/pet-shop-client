@@ -1,6 +1,7 @@
 "use client";
 
 import { fetchAnimalById } from "@/lib/api/client/animalsClient";
+import capitalizeFirstLetter from "@/utils/text";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -19,7 +20,7 @@ export default function Breadcrumbs() {
 
   if (!slug || !category) return null;
 
-  const categoryName = `${category.charAt(0).toUpperCase() + category.slice(1)}s`;
+  const categoryName = `${capitalizeFirstLetter(category)}s`;
 
   return (
     <nav aria-label="Breadcrumb" className="flex items-center gap-2">

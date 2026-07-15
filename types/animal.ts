@@ -22,3 +22,5 @@ export type AnimalId = Animal["_id"];
 export type UpdateAnimalData = { id: Animal["_id"] } & Partial<
   Omit<Animal, "_id" | "createdAt">
 >;
+
+export type AnimalSex = Animal["sex"];

@@ -7,8 +7,8 @@ import { usePathname } from "next/navigation";
 export default function HeaderNavList() {
   const pathname = usePathname();
 
-  const linkStyles =
-    "px-[16px] py-[10px] rounded-[20px] transition - colors duration - 200 ease-in-out hover:bg-[rgba(199,224,246,0.2)] focus-visible:bg-[rgba(199,224,246,0.2)]";
+  const LINK_STYLES =
+    "px-[16px] py-[10px] rounded-[20px] transition-colors duration-200 ease-in-out hover:bg-[rgba(199,224,246,0.2)] focus-visible:bg-[rgba(199,224,246,0.2)]";
 
   const textStyles =
     "inline-block font-normal text-4 leading-[1.25] text-[#323f50]";
@@ -18,7 +18,7 @@ export default function HeaderNavList() {
   return (
     <ul className="hidden md:flex items-center gap-6">
       <li>
-        <Link href="/animals" className={linkStyles}>
+        <Link href="/animals" className={LINK_STYLES}>
           <span
             className={clsx(
               textStyles,
@@ -30,7 +30,7 @@ export default function HeaderNavList() {
         </Link>
       </li>
       <li>
-        <Link href="/about" className={linkStyles}>
+        <Link href="/about" className={LINK_STYLES}>
           <span
             className={clsx(
               textStyles,

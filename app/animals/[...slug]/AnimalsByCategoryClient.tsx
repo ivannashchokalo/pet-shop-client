@@ -2,8 +2,12 @@
 import AnimalsList from "@/components/AnimalsList/AnimalsList";
 import { fetchAnimals } from "@/lib/api/client/animalsClient";
 import { useQuery } from "@tanstack/react-query";
-import { useParams, usePathname, useSearchParams } from "next/navigation";
-import { useRouter } from "next/navigation";
+import {
+  useParams,
+  usePathname,
+  useSearchParams,
+  useRouter,
+} from "next/navigation";
 import ReactPaginate from "react-paginate";
 
 export default function AnimalsByCategoryClient() {
@@ -26,9 +30,8 @@ export default function AnimalsByCategoryClient() {
       "animals",
       { page, type, breed, sex, sortBy, sortOrder, search, minPrice, maxPrice },
     ],
-    queryFn: () => {
-      // перевірка сортування
-      return fetchAnimals(
+    queryFn: () =>
+      fetchAnimals(
         page,
         type,
         breed,
@@ -38,8 +41,7 @@ export default function AnimalsByCategoryClient() {
         search,
         minPrice,
         maxPrice,
-      );
-    },
+      ),
     refetchOnMount: false,
   });
 
@@ -50,14 +52,15 @@ export default function AnimalsByCategoryClient() {
     router.push(`${pathname}?${params.toString()}`);
   };
 
+  const animals = data?.animals ?? [];
+  const totalPages = data?.totalPages ?? 0;
+
   return (
-    <div>
-      {data?.animals && data.animals.length > 0 && (
-        <AnimalsList animals={data.animals} />
-      )}
-      {(data?.totalPages ?? 0) > 1 && (
+    <>
+      {animals.length > 0 && <AnimalsList animals={animals} />}
+      {totalPages > 1 && (
         <ReactPaginate
-          pageCount={data?.totalPages ?? 0}
+          pageCount={totalPages}
           onPageChange={handlePageChange}
           forcePage={page - 1}
           pageRangeDisplayed={5}
@@ -71,6 +74,6 @@ export default function AnimalsByCategoryClient() {
           // disabledClassName={styles.disabled}
         />
       )}
-    </div>
+    </>
   );
 }
