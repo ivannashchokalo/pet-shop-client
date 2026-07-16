@@ -21,17 +21,17 @@ interface RequestResetEmailPayload {
 }
 
 export const login = async (body: LoginPayload) => {
-  const { data } = await nextServer.post("/auth/login", body);
+  const { data } = await nextServer.post<User>("/auth/login", body);
   return data;
 };
 
 export const register = async (body: RegisterPayload) => {
-  const { data } = await nextServer.post("/auth/register", body);
+  const { data } = await nextServer.post<User>("/auth/register", body);
   return data;
 };
 
 export const logout = async () => {
-  const { data } = await nextServer.post("/auth/logout");
+  const { data } = await nextServer.post<void>("/auth/logout");
   return data;
 };
 
@@ -46,16 +46,22 @@ export const getMe = async () => {
 };
 
 export const refreshSession = async () => {
-  const { data } = await nextServer.post("/auth/refresh");
+  const { data } = await nextServer.post<{ message: string }>("/auth/refresh");
   return data;
 };
 
 export const requestResetEmail = async (body: RequestResetEmailPayload) => {
-  const { data } = await nextServer.post("/auth/request-reset-email", body);
+  const { data } = await nextServer.post<{ message: string }>(
+    "/auth/request-reset-email",
+    body,
+  );
   return data;
 };
 
 export const resetPassword = async (body: ResetPasswordBody) => {
-  const { data } = await nextServer.post("/auth/reset-password", body);
+  const { data } = await nextServer.post<{ message: string }>(
+    "/auth/reset-password",
+    body,
+  );
   return data;
 };

@@ -34,7 +34,6 @@ export const fetchAnimals = async (
     },
   });
 
-  console.log(data);
   return data;
 };
 

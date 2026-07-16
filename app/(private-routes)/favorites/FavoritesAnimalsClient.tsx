@@ -6,16 +6,29 @@ import Icon from "@/components/Icon/Icon";
 import {
   clearFavorites,
   fetchFavoriteAnimals,
-} from "@/lib/api/client/usersService";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+} from "@/lib/api/client/usersClient";
+import {
+  useInfiniteQuery,
+  useMutation,
+  useQueryClient,
+} from "@tanstack/react-query";
 
 export default function FavoritesAnimalsClient() {
-  const { data } = useQuery({
-    queryKey: ["favoriteAnimals"],
-    queryFn: fetchFavoriteAnimals,
-  });
-
   const queryClient = useQueryClient();
+
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    useInfiniteQuery({
+      queryKey: ["favoriteAnimals"],
+      queryFn: fetchFavoriteAnimals,
+      initialPageParam: 1,
+      getNextPageParam: (lastPage) => {
+        if (lastPage.page < lastPage.totalPages) {
+          return lastPage.page + 1;
+        }
+
+        return undefined;
+      },
+    });
 
   const { mutate } = useMutation({
     mutationFn: clearFavorites,
@@ -30,8 +43,9 @@ export default function FavoritesAnimalsClient() {
     },
   });
 
-  const favoritesCount = data?.length ?? 0;
+  const animals = data?.pages.flatMap((page) => page.animals) ?? [];
 
+  const favoritesCount = data?.pages[0]?.totalItems ?? 0;
   return (
     <>
       <div className="mb-10 flex items-center justify-between">
@@ -44,7 +58,7 @@ export default function FavoritesAnimalsClient() {
           </p>
         </div>
         <Button
-          disabled={data?.length < 1}
+          disabled={animals.length < 1}
           type="button"
           onClick={mutate}
           className="gap-2 px-6 py-[10px] font-medium text-[#323f50]"
@@ -53,7 +67,18 @@ export default function FavoritesAnimalsClient() {
           Clear all
         </Button>
       </div>
-      {data?.length > 0 && <AnimalsList animals={data} />}
+      {animals.length > 0 && <AnimalsList animals={animals} />}
+      {hasNextPage && (
+        <Button
+          type="button"
+          variant="secondary"
+          className="min-w-[150px] p-[10px] mx-auto mt-10"
+          onClick={() => fetchNextPage()}
+          disabled={isFetchingNextPage}
+        >
+          {isFetchingNextPage ? "Loading..." : "Show more"}
+        </Button>
+      )}
     </>
   );
 }

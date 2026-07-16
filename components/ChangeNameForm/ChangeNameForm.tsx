@@ -1,6 +1,6 @@
 "use client";
 
-import { changeName } from "@/lib/api/client/usersService";
+import { changeName } from "@/lib/api/client/usersClient";
 import { useAuthStore } from "@/lib/stores/authStore";
 import { UserName } from "@/types/user";
 import { useMutation } from "@tanstack/react-query";

@@ -1,6 +1,6 @@
 "use client";
 
-import { changePassword } from "@/lib/api/client/usersService";
+import { changePassword } from "@/lib/api/client/usersClient";
 import { useMutation } from "@tanstack/react-query";
 import { Form, Formik, FormikHelpers } from "formik";
 import { toast } from "sonner";

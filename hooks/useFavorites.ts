@@ -2,7 +2,7 @@ import { getMe } from "@/lib/api/client/auth";
 import {
   addToFavorites,
   removeFromFavorites,
-} from "@/lib/api/client/usersService";
+} from "@/lib/api/client/usersClient";
 import { useAuthStore } from "@/lib/stores/authStore";
 import { AnimalId } from "@/types/animal";
 import { useMutation, useQueryClient } from "@tanstack/react-query";

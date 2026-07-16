@@ -1,13 +1,29 @@
 import Container from "@/components/Container/Container";
 import Section from "@/components/Section/Section";
 import FavoritesAnimalsClient from "./FavoritesAnimalsClient";
+import {
+  dehydrate,
+  QueryClient,
+  HydrationBoundary,
+} from "@tanstack/react-query";
+import { fetchFavoriteAnimalsServer } from "@/lib/api/server/usersServer";
 
-export default function FavoritesAnimals() {
+export default async function FavoritesAnimals() {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchInfiniteQuery({
+    queryKey: ["favoriteAnimals"],
+    queryFn: fetchFavoriteAnimalsServer,
+    initialPageParam: 1,
+  });
+
   return (
-    <Section>
-      <Container>
-        <FavoritesAnimalsClient />
-      </Container>
-    </Section>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <Section>
+        <Container>
+          <FavoritesAnimalsClient />
+        </Container>
+      </Section>
+    </HydrationBoundary>
   );
 }

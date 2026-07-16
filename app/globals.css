@@ -1,40 +1,15 @@
 @import "tailwindcss";
 
-:root {
-  /* Background */
-  --background: #f8fafc;
-  --surface: #ffffff;
-  --surface-secondary: #eef3f8;
-
-  /* Text */
-  --foreground: #151c26;
-  --foreground-secondary: #323f50;
-  --foreground-muted: #7d8794;
-
-  /* Brand */
-  --primary: #85a3c9;
-  --primary-hover: #7793b7;
-  --primary-light: #aad2f2;
-
-  /* Border */
-  --border: #d5dde7;
-
-  /* State */
-  --overlay: rgba(199, 224, 246, 0.2);
-  --overlay-hover: rgba(199, 224, 246, 0.5);
-
-  /* Misc */
-  --disabled: rgba(245, 245, 245, 0.5);
-}
-
 body {
   font-family: var(--font-montserrat);
   letter-spacing: normal;
+  line-height: 1.5;
   font-size: 16px;
 }
 
 a {
   text-decoration: none;
+  font-style: normal;
 }
 
 img {
