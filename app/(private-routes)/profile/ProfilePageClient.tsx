@@ -54,7 +54,7 @@ export default function ProfilePageClient() {
         </Button>
       </div>
 
-      <h2 className="mb-8 font-semibold text-[24px] text-[#151c26] md:text-[32px]">
+      <h2 className="mb-8 font-semibold text-[24px] text-[var(--text-primary)] md:text-[32px]">
         Your Orders
       </h2>
       {data && data.length > 0 ? (
@@ -65,7 +65,7 @@ export default function ProfilePageClient() {
           requestToDelete={requestToDelete}
         />
       ) : (
-        <p className="text-center text-[#9db4d3]">No orders</p>
+        <p className="text-center text-[var(--text-disabled)]">No orders</p>
       )}
     </>
   );

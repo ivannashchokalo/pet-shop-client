@@ -52,7 +52,7 @@ export default function SignUpForm() {
 
   return (
     <>
-      <p className="mx-auto mb-6 font-medium text-[20px] text-[#576b86]">
+      <p className="mx-auto mb-6 font-medium text-[20px] text-[var(--text-muted)]">
         Create your account
       </p>
       <Formik

@@ -35,10 +35,10 @@ export default function MobileMenu() {
             : "opacity-0 -translate-y-[-32px] pointer-events-none",
         )}
       >
-        <div className="pb-[20px] border-b border-[#bac9df]">
+        <div className="pb-[20px] border-b border-[var(--border-muted)]">
           <IconButton className="justify-start w-full">
             <Icon name="moon" className="mr-4 fill-[#323f50]" />
-            <span className={clsx("text-[#151c26]", TEXT_STYLES)}>
+            <span className={clsx("text-[var(--text-secondary)]", TEXT_STYLES)}>
               Dark mode
             </span>
             <Icon
@@ -53,7 +53,8 @@ export default function MobileMenu() {
           <ul
             className={clsx(
               "flex flex-col gap-[20px] pt-[20px]",
-              isAuthenticated && " pb-[20px] border-b border-[#bac9df]",
+              isAuthenticated &&
+                " pb-[20px] border-b border-[var(--border-muted)]",
             )}
           >
             <li>
@@ -66,7 +67,9 @@ export default function MobileMenu() {
                   name="user-menu"
                   className="fill-transparent stroke-[#323F50]"
                 />
-                <span className={clsx("text-[#151c26]", TEXT_STYLES)}>
+                <span
+                  className={clsx("text-[var(--text-secondary)]", TEXT_STYLES)}
+                >
                   About us
                 </span>
               </Link>
@@ -78,7 +81,9 @@ export default function MobileMenu() {
                 onClick={closeDropdown}
               >
                 <Icon name="pow" className="stroke-[#323F50]" />
-                <span className={clsx("text-[#151c26]", TEXT_STYLES)}>
+                <span
+                  className={clsx("text-[var(--text-secondary)]", TEXT_STYLES)}
+                >
                   Animals
                 </span>
               </Link>

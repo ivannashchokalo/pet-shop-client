@@ -11,7 +11,7 @@ import IconButton from "../IconButton/IconButton";
 import Icon from "../Icon/Icon";
 
 const AUTH_BUTTON_CLASS =
-  "h-[36px] min-w-[82px] py-[10px] px-4 font-medium text-[13px] tracking-[-0.02em] text-center text-[#323f50] h-[36px] min-w-[82px] py-[10px] px-4 font-medium text-[13px] tracking-[-0.02em] text-center text-[#323f50]";
+  "h-[36px] min-w-[82px] py-[10px] px-4 font-medium text-[13px] tracking-[-0.02em] text-center text-[var(--text-secondary)] h-[36px] min-w-[82px] py-[10px] px-4 font-medium text-[13px] tracking-[-0.02em] text-center text-[var(--text-secondary)]";
 
 export default function AuthNavigation() {
   const pathname = usePathname();

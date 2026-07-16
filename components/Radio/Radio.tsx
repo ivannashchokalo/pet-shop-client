@@ -18,10 +18,14 @@ export default function Radio({ name, value, label }: RadioProps) {
       <div
         className={clsx(
           "flex h-6 w-6 items-center justify-center rounded-full border-[3px]",
-          field.checked ? "border-[#aad2f2]" : "border-[#a2a2a2]",
+          field.checked
+            ? "border-[var(--border-secondary)]"
+            : "border-[var(--border-placeholder)]",
         )}
       >
-        {field.checked && <div className="h-3 w-3 rounded-full bg-[#aad2f2]" />}
+        {field.checked && (
+          <div className="h-3 w-3 rounded-full bg-[var(--bg-accent)]" />
+        )}
       </div>
 
       <span>{label}</span>

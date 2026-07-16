@@ -23,7 +23,7 @@ export default function MobileFilters({ type }: MobileFiltersProps) {
   const { data, breeds, sortBy } = useFilters(type);
 
   const labelStyles =
-    "flex flex-col gap-4 font-medium text-[16px] text-[#151c26]";
+    "flex flex-col gap-4 font-medium text-[16px] text-[var(--text-secondary)]";
 
   return (
     <div ref={dropdownRef} className="md:hidden relative mb-10">
@@ -49,8 +49,10 @@ export default function MobileFilters({ type }: MobileFiltersProps) {
         >
           <Icon name="cross" />
         </IconButton>
-        <div className="flex items-center justify-between mb-12 pb-4 border-b border-[#bac9df]">
-          <h2 className="font-semibold text-[24px] text-[#151c26] ">Filters</h2>
+        <div className="flex items-center justify-between mb-12 pb-4 border-b border-[var(--border-muted)]">
+          <h2 className="font-semibold text-[24px] text-[var(--text-secondary)] ">
+            Filters
+          </h2>
           <ClearFiltersButton />
         </div>
 

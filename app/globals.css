@@ -2,35 +2,51 @@
 
 :root {
   /* Background */
-  --background: #f8fafc;
-  --surface: #ffffff;
-  --surface-secondary: #eef3f8;
+  --page-background: #f8fafc;
+
+  --bg-primary: #fff;
+  --bg-secondary: #c7e0f6;
+  --bg-accent: #aad2f2;
+  --bg-dark: #323f50;
 
   /* Text */
-  --foreground: #151c26;
-  --foreground-secondary: #323f50;
-  --foreground-muted: #7d8794;
+  --text-primary: #151c26;
+  --text-secondary: #323f50;
+  --text-muted: #576b86;
+  --text-placeholder: #a2a2a2;
+  --text-disabled: #9db4d3;
+  --text-white: #fff;
 
   /* Brand */
   --primary: #85a3c9;
   --primary-hover: #7793b7;
-  --primary-light: #aad2f2;
 
   /* Border */
-  --border: #d5dde7;
+  --border-primary: #85a3c9;
+  --border-secondary: #aad2f2;
+  --border-light: #c7e0f6;
+  --border-muted: #bac9df;
+  --border-placeholder: #a2a2a2;
 
-  /* State */
-  --overlay: rgba(199, 224, 246, 0.2);
-  --overlay-hover: rgba(199, 224, 246, 0.5);
+  /* Status */
+  --status-positive: #47b881;
+  --status-pending: #e3b52a;
+  --status-negative: #ea7b7b;
 
-  /* Misc */
-  --disabled: rgba(245, 245, 245, 0.5);
+  /* Disabled */
+  --disabled-bg: #e8eef5;
+  --disabled-text: #9db4d3;
 }
 
 body {
   font-family: var(--font-montserrat);
-  letter-spacing: normal;
   font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: normal;
+
+  background: var(--page-background);
+  color: var(--text-primary);
 }
 
 a {

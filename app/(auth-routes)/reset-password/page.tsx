@@ -29,11 +29,11 @@ export default function ResetPassword() {
       <Section>
         <Container>
           <ContentCard>
-            <h1 className="mb-8 text-[36px] text-center font-bold text-[#151c26] md:text-[48px] xl:text-[64px]">
+            <h1 className="mb-8 text-[36px] text-center font-bold text-[var(--text-primary)] md:text-[48px] xl:text-[64px]">
               Password updated
             </h1>
 
-            <p className="text-[20px] text-center font-medium text-[#323f50]">
+            <p className="text-[20px] text-center font-medium text-[var(--text-secondary)]">
               Your password has been reset successfully.
             </p>
 
@@ -54,7 +54,7 @@ export default function ResetPassword() {
       <Container>
         <h1 className="sr-only">Reset Password</h1>
         <ContentCard>
-          <p className="mx-auto mb-6 font-medium text-[20px] text-[#576b86]">
+          <p className="mx-auto mb-6 font-medium text-[20px] text-[var(--text-muted)]">
             Enter your new password below
           </p>
           <ResetPasswordForm

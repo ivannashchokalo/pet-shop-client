@@ -16,7 +16,7 @@ export function ClearFiltersButton({ className }: ClearFiltersButtonProps) {
       type="button"
       onClick={() => router.push(pathname)}
       className={clsx(
-        "font-medium text-[16px] text-[#9db4d3] hover:text-[#85a3c9] focus-visible:text-[#85a3c9]",
+        "font-medium text-[16px] text-[var(--text-disabled)] hover:text-[#85a3c9] focus-visible:text-[#85a3c9]",
         className,
       )}
     >

@@ -23,7 +23,7 @@ export default function OrderCard({
   const { _id, status, createdAt, animalId } = request;
 
   return (
-    <li className="relative overflow-hidden rounded-[20px] shadow-[0_2px_4px_0_rgba(50,63,80,0.1)] border-x-[0.2px] border-b-[0.2px] border-[#c7e0f6]">
+    <li className="relative overflow-hidden rounded-[20px] shadow-[0_2px_4px_0_rgba(50,63,80,0.1)] border-x-[0.2px] border-b-[0.2px] border-[var(--border-light)]">
       <Link href={`/animals/${animalId.type}/${animalId._id}`}>
         <div className="relative h-[273px]">
           <Image
@@ -33,7 +33,7 @@ export default function OrderCard({
             className="object-cover"
           />
         </div>
-        <div className="relative py-5 px-4 bg-[#fff] md:py-6">
+        <div className="relative py-5 px-4 bg-[var(--bg-primary)] md:py-6">
           <h2 className="flex items-center gap-2 mb-2 font-medium text-[20px] text-[#0c1118]">
             Order:
             <span>#{_id.slice(0, 7)}</span>
@@ -45,17 +45,17 @@ export default function OrderCard({
           <p
             className={clsx(
               "absolute top-[22px] right-[16px] rounded-[15px] py-1 px-4",
-              "font-medium text-[15px] leading-[1.4] tracking-[0.01em] text-white",
+              "font-medium text-[15px] leading-[1.4] tracking-[0.01em] text-[var(--text-white)]",
               {
-                "bg-[#47b881]": status === "new",
-                "bg-[#e3b52a]": status === "contacted",
-                "bg-[#ea7b7b]": status === "closed",
+                "bg-[var(--status-positive)]": status === "new",
+                "bg-[var(--status-pending)]": status === "contacted",
+                "bg-[var(--status-negative)]": status === "closed",
               },
             )}
           >
             {status}
           </p>
-          <p className="flex items-center gap-2 font-normal text-[16px] text-[#9db4d3]">
+          <p className="flex items-center gap-2 font-normal text-[16px] text-[var(--text-disabled)]">
             Ordered:
             <span>{new Date(createdAt).toLocaleDateString()}</span>
           </p>

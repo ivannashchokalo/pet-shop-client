@@ -50,7 +50,7 @@ export default function RootLayout({
         <TanstackQueryProvider>
           <AuthProvider>
             <Header />
-            <main className="flex-1 bg-[#f8fafc]">
+            <main className="flex-1">
               {children}
               {reserve}
             </main>

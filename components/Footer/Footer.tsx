@@ -8,17 +8,17 @@ export default function Footer() {
   const FOOTER_LINK_STYLES =
     "font-medium text-[16px] leading-[1.5] tracking-[0.01em] text-[#85a3c9]";
   const sectionTitleStyles =
-    "mb-4 font-medium text-[24px] leading-[1.5] text-white";
+    "mb-4 font-medium text-[24px] leading-[1.5] text-[var(--text-white)]";
   const SOCIAL_LINK_STYLES =
-    "flex items-center justify-center p-3 rounded-full border-[1.5px] border-[#85a3c9]";
+    "flex items-center justify-center p-3 rounded-full border-[1.5px] border-[var(--border-primary)]";
 
   return (
-    <footer className="py-[40px] bg-[#323f50]">
+    <footer className="py-[40px] bg-[var(--bg-dark)]">
       <Container className="flex flex-col gap-[40px] md:gap-[32px] xl:flex-row flex-wrap justify-between">
         <div>
           <Logo className="mb-2" />
 
-          <p className="font-normal text-[16px] leading-[1.5] text-[#fff]">
+          <p className="font-normal text-[16px] leading-[1.5] text-[var(--text-[var(--text-white)])]">
             We help you find your perfect friend
           </p>
         </div>

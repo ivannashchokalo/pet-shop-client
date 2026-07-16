@@ -42,7 +42,7 @@ interface AnimalReservationFormProps {
 }
 
 const fieldWrapperClass = "relative flex flex-col gap-2 w-full";
-const labelClass = "font-medium text-[16px] text-[#9db4d3]";
+const labelClass = "font-medium text-[16px] text-[var(--text-disabled)]";
 const errorMessageClass = "absolute left-4 -bottom-4 text-[12px] text-red-500";
 
 export default function AnimalReservationForm({
@@ -194,12 +194,12 @@ export default function AnimalReservationForm({
               id="message"
               name="message"
               placeholder="Additional message"
-              className="w-full resize-none h-[100px] rounded-[20px] border border-[#a2a2a2] bg-transparent px-4 py-3 text-[#151c26] placeholder:text-[#a2a2a2] focus:border-[#aad2f2] focus:outline-none md:w-[350px]"
+              className="w-full resize-none h-[100px] rounded-[20px] border border-[var(--border-placeholder)] bg-transparent px-4 py-3 placeholder:text-[var(--text-placeholder)] focus:border-[var(--border-secondary)] focus:outline-none md:w-[350px]"
             />
           </div>
 
           <fieldset className="flex flex-col gap-3 w-full">
-            <legend className="mb-4 font-medium text-[16px] text-[#9db4d3]">
+            <legend className="mb-4 font-medium text-[16px] text-[var(--text-disabled)]">
               Preferred contact method:
             </legend>
 
@@ -211,20 +211,18 @@ export default function AnimalReservationForm({
                       <input {...field} type="radio" className="sr-only" />
 
                       <div
-                        className={`flex h-5 w-5 items-center justify-center rounded-full border-[3px] group-hover:border-[#aad2f2] ${
+                        className={`flex h-5 w-5 items-center justify-center rounded-full border-[3px] group-hover:border-[var(--border-secondary)] ${
                           field.checked
-                            ? "border-[#aad2f2]"
-                            : "border-[#a2a2a2]"
+                            ? "border-[var(--border-secondary)]"
+                            : "border-[var(--border-placeholder)]"
                         }`}
                       >
                         {field.checked && (
-                          <div className="h-2 w-2 rounded-full bg-[#aad2f2]" />
+                          <div className="h-2 w-2 rounded-full bg-[var(--bg-accent)]" />
                         )}
                       </div>
 
-                      <span className="font-medium text-[16px] text-[#151c26]">
-                        Phone
-                      </span>
+                      <span className="font-medium text-[16px]">Phone</span>
                     </>
                   )}
                 </Field>
@@ -237,20 +235,18 @@ export default function AnimalReservationForm({
                       <input {...field} type="radio" className="sr-only" />
 
                       <div
-                        className={`flex h-5 w-5 items-center justify-center rounded-full border-[3px] group-hover:border-[#aad2f2] ${
+                        className={`flex h-5 w-5 items-center justify-center rounded-full border-[3px] group-hover:border-[var(--border-secondary)] ${
                           field.checked
-                            ? "border-[#aad2f2]"
-                            : "border-[#a2a2a2]"
+                            ? "border-[var(--border-secondary)]"
+                            : "border-[var(--border-placeholder)]"
                         }`}
                       >
                         {field.checked && (
-                          <div className="h-2 w-2 rounded-full bg-[#aad2f2]" />
+                          <div className="h-2 w-2 rounded-full bg-[var(--bg-accent)]" />
                         )}
                       </div>
 
-                      <span className="font-medium text-[16px] text-[#151c26]">
-                        Email
-                      </span>
+                      <span className="font-medium text-[16px]">Email</span>
                     </>
                   )}
                 </Field>

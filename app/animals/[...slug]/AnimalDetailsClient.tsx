@@ -44,9 +44,8 @@ export default function AnimalDetailsClient() {
     userRequests?.some((request) => request.animalId._id === id) ?? false;
 
   const infoCardClass = "w-full rounded-[20px] bg-[#c7e0f6]/50 p-4";
-  const infoTitleClass =
-    "flex items-center gap-2 mb-4 font-medium text-[20px] text-[#151c26]";
-  const infoTextClass = "text-[16px] text-[#151c26]";
+  const infoTitleClass = "flex items-center gap-2 mb-4 font-medium text-[20px]";
+  const infoTextClass = "text-[16px]";
 
   return (
     <>
@@ -70,15 +69,11 @@ export default function AnimalDetailsClient() {
 
         <div className="xl:grow">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="font-semibold text-[32px] text-[#151c26]">
-              {animal?.name}
-            </h2>
-            <p className="font-semibold text-[32px] text-[#151c26]">
-              ${animal?.price}
-            </p>
+            <h2 className="font-semibold text-[32px]">{animal?.name}</h2>
+            <p className="font-semibold text-[32px]">${animal?.price}</p>
           </div>
           <div className="flex items-center justify-between mb-8 xl:flex-col xl:gap-6">
-            <p className="flex items-center gap-2 font-medium text-[16px] text-[#A2A2A2] xl:self-start">
+            <p className="flex items-center gap-2 font-medium text-[16px] text-[var(--text-placeholder)] xl:self-start">
               {animal?.breed}
               <span className="block w-[4px] h-[4px] bg-[#a2a2a2] rounded-full"></span>
               {animal?.type && capitalizeFirstLetter(animal.type)}
@@ -86,11 +81,11 @@ export default function AnimalDetailsClient() {
 
             <p
               className={clsx(
-                "rounded-[15px] py-1 px-12 font-medium text-[15px] tracking-[0.01em] text-white xl:self-start",
+                "rounded-[15px] py-1 px-12 font-medium text-[15px] tracking-[0.01em] text-[var(--text-white)] xl:self-start",
                 {
-                  "bg-[#47b881]": animal?.status === "available",
-                  "bg-[#e3b52a]": animal?.status === "reserved",
-                  "bg-[#ea7b7b]": animal?.status === "sold",
+                  "bg-[var(--status-positive)]": animal?.status === "available",
+                  "bg-[var(--status-pending)]": animal?.status === "reserved",
+                  "bg-[var(--status-negative)]": animal?.status === "sold",
                 },
               )}
             >
@@ -114,7 +109,7 @@ export default function AnimalDetailsClient() {
             </li>
           </ul>
           <div className="mb-8">
-            <h3 className="mb-4 font-semibold text-[24px] text-[#151c26]">
+            <h3 className="mb-4 font-semibold text-[24px]">
               About {animal?.name}
             </h3>
             <p className={infoTextClass}>{animal?.description}</p>
