@@ -19,7 +19,7 @@ interface AnimalCardProps {
   onFavoriteClick: (animalId: AnimalId) => void;
 }
 
-const infoTextClass = "font-medium text-[14px] text-[var(--text-disabled)]";
+const infoTextClass = "font-medium text-[14px] text-[#9db4d3]";
 const infoIconClass = "fill-none stroke-[#9db4d3]";
 
 export default function AnimalCard({
@@ -41,7 +41,7 @@ export default function AnimalCard({
   };
 
   return (
-    <li className="relative overflow-hidden rounded-[20px] shadow-[0_2px_4px_0_rgba(50,63,80,0.1)] border-x-[0.2px] border-b-[0.2px] border-[var(--border-light)]">
+    <li className="relative overflow-hidden rounded-[20px] shadow-[0_2px_4px_0_rgba(50,63,80,0.1)] border-x-[0.2px] border-b-[0.2px] border-[#c7e0f6]">
       <Link
         href={`/animals/${animal.type}/${animal._id}?from=${encodeURIComponent(
           from,
@@ -54,12 +54,12 @@ export default function AnimalCard({
             fill
             className="object-cover"
           />
-          <p className="absolute bottom-4 right-4 py-[2px] px-4 bg-[var(--primary)] rounded-[20px] font-semibold text-[20px] text-[var(--text-white)]">
+          <p className="absolute bottom-4 right-4 py-[2px] px-4 bg-[#85a3c9] rounded-[20px] font-semibold text-[20px] text-white">
             {animal.price && `$${animal.price}`}
           </p>
         </div>
 
-        <div className="py-5 px-4 bg-[var(--bg-primary)] md:py-6">
+        <div className="py-5 px-4 bg-[#fff] md:py-6">
           <h2 className="mb-1 font-medium text-[20px] text-[#0c1118]">
             {animal.name}
           </h2>
@@ -81,11 +81,11 @@ export default function AnimalCard({
           <p
             className={clsx(
               "absolute top-[22px] left-[16px] rounded-[15px] py-1 px-4",
-              "font-medium text-[15px] leading-[1.4] tracking-[0.01em] text-[var(--text-white)]",
+              "font-medium text-[15px] leading-[1.4] tracking-[0.01em] text-white",
               {
-                "bg-[var(--status-positive)]": animal.status === "available",
-                "bg-[var(--status-pending)]": animal.status === "reserved",
-                "bg-[var(--status-negative)]": animal.status === "sold",
+                "bg-[#47b881]": animal.status === "available",
+                "bg-[#e3b52a]": animal.status === "reserved",
+                "bg-[#ea7b7b]": animal.status === "sold",
               },
             )}
           >

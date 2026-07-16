@@ -27,10 +27,10 @@ export default function Input({
       type={type}
       placeholder={placeholder}
       className={clsx(
-        "h-11 w-full rounded-[20px] border bg-transparent px-4 text-[var(--text-secondary)] placeholder:text-[var(--text-placeholder)] focus:outline-none md:w-[350px]",
+        "h-11 w-full rounded-[20px] border bg-transparent px-4 text-[#151c26] placeholder:text-[#a2a2a2] focus:outline-none md:w-[350px]",
         hasError
           ? "border-red-500 focus:border-red-500"
-          : "border-[var(--border-placeholder)] focus:border-[var(--border-secondary)]",
+          : "border-[#a2a2a2] focus:border-[#aad2f2]",
         className,
       )}
       readOnly={readOnly}

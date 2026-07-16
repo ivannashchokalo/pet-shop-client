@@ -94,7 +94,7 @@ export default function PriceRangeFilter({ price }: PriceRangeFilterProps) {
                   </span>
                 </div>
               </div>
-              <div className="h-5 w-5 rounded-full bg-[var(--bg-accent)] shadow-[0_0_8px_0_rgba(50,63,80,0.25)]" />
+              <div className="h-5 w-5 rounded-full bg-[#aad2f2] shadow-[0_0_8px_0_rgba(50,63,80,0.25)]" />
             </div>
           );
         }}

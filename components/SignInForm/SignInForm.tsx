@@ -79,7 +79,7 @@ export default function SignInForm({
 
   return (
     <>
-      <p className="mx-auto mb-6 font-medium text-[20px] text-[var(--text-muted)]">
+      <p className="mx-auto mb-6 font-medium text-[20px] text-[#576b86]">
         Sign in to your account
       </p>
       <Formik
@@ -131,7 +131,7 @@ export default function SignInForm({
             <button
               type="button"
               onClick={handleForgotPasswordClick}
-              className="font-medium text-[14px] text-[var(--text-disabled)]"
+              className="font-medium text-[14px] text-[#9db4d3]"
             >
               Forgot password?
             </button>
@@ -139,7 +139,7 @@ export default function SignInForm({
             <Button type="submit" disabled={isPending} className="py-2 px-8">
               {isPending ? <Loader /> : "Login"}
             </Button>
-            <p className="flex items-center gap-1 font-medium text-[14px] text-[var(--text-disabled)]">
+            <p className="flex items-center gap-1 font-medium text-[14px] text-[#9db4d3]">
               Don&apos;t have an account?
               <button
                 type="button"

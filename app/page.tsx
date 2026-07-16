@@ -17,7 +17,7 @@ export default async function Home() {
 
   const iconClass = "mx-auto fill-[#323f50]";
   const cardTitleClass =
-    "flex flex-col gap-[2px] font-semibold text-[32px] text-[var(--text-secondary)]";
+    "flex flex-col gap-[2px] font-semibold text-[32px] text-[#323f50]";
 
   return (
     <>
@@ -36,7 +36,7 @@ export default async function Home() {
             </p>
             <Button
               href="/animals"
-              className="relative z-20 h-[44px] min-w-full p-[10px] font-semibold text-[20px] leading-[0.9] text-[var(--text-secondary)] md:min-w-[302px]"
+              className="relative z-20 h-[44px] min-w-full p-[10px] font-semibold text-[20px] leading-[0.9] text-[#323f50] md:min-w-[302px]"
             >
               Find the tail
             </Button>
@@ -63,33 +63,33 @@ export default async function Home() {
       <Section>
         <Container className="relative min-h-[1150px] flex flex-col justify-end items-center md:min-h-[800px] md:flex-row">
           <div className="md:max-w-[300px] xl:max-w-[600px]">
-            <h2 className="mb-8 text-[32px] font-bold text-[var(--text-primary)] xl:mb-[40px] xl:text-[40px]">
+            <h2 className="mb-8 text-[32px] font-bold text-[#151c26] xl:mb-[40px] xl:text-[40px]">
               Why future owners trust us?
             </h2>
             <ul className="flex flex-col gap-6 xl:gap-8 xl:max-w-[580px] xl:ml-auto">
               <li>
-                <h3 className="mb-2 font-semibold text-[24px] text-[var(--text-primary)] xl:text-[28px]">
+                <h3 className="mb-2 font-semibold text-[24px] text-[#151c26] xl:text-[28px]">
                   01 / Safe origin
                 </h3>
-                <p className="font-normal text-[18px] text-[var(--text-secondary)]">
+                <p className="font-normal text-[18px] text-[#323f50]">
                   We work exclusively with certified experts, dog trainers, and
                   official shelters.
                 </p>
               </li>
               <li>
-                <h3 className="mb-2 font-semibold text-[24px] text-[var(--text-primary)] xl:text-[28px]">
+                <h3 className="mb-2 font-semibold text-[24px] text-[#151c26] xl:text-[28px]">
                   02 / Health care
                 </h3>
-                <p className="font-normal text-[18px] text-[var(--text-secondary)]">
+                <p className="font-normal text-[18px] text-[#323f50]">
                   We only transfer pets with a chip, veterinary passport, and
                   all vaccinations.
                 </p>
               </li>
               <li>
-                <h3 className="mb-2 font-semibold text-[24px] text-[var(--text-primary)] xl:text-[28px]">
+                <h3 className="mb-2 font-semibold text-[24px] text-[#151c26] xl:text-[28px]">
                   03 / Supporting a new family
                 </h3>
-                <p className="font-normal text-[18px] text-[var(--text-secondary)]">
+                <p className="font-normal text-[18px] text-[#323f50]">
                   We stay in touch and advise on adaptation, nutrition, and
                   care.
                 </p>

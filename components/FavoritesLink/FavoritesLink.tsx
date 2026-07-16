@@ -27,7 +27,7 @@ export default function FavoritesLink() {
             )}
           />
 
-          <span className="absolute top-0 right-0 flex h-[23px] w-[22px] items-center justify-center rounded-[100px] bg-[var(--bg-primary)] p-[5px] font-semibold text-[11px] tracking-[-0.02em] text-[var(--text-secondary)]">
+          <span className="absolute top-0 right-0 flex h-[23px] w-[22px] items-center justify-center rounded-[100px] bg-[#c7e0f6] p-[5px] font-semibold text-[11px] tracking-[-0.02em] text-[#323f50]">
             {user?.favorites?.length}
           </span>
         </IconButton>

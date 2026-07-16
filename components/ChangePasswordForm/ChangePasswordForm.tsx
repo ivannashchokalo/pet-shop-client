@@ -49,7 +49,9 @@ export function ChangePasswordForm() {
 
   return (
     <div className="flex flex-col items-center gap-6">
-      <h2 className="font-semibold text-[24px]">Change password</h2>
+      <h2 className="font-semibold text-[24px] text-[#151c26]">
+        Change password
+      </h2>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}

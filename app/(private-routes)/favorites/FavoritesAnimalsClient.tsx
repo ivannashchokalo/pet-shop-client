@@ -36,10 +36,10 @@ export default function FavoritesAnimalsClient() {
     <>
       <div className="mb-10 flex items-center justify-between">
         <div>
-          <h1 className="mb-2 font-semibold text-[24px] text-[var(--text-primary)] md:text-[32px]">
+          <h1 className="mb-2 font-semibold text-[24px] text-[#151c26] md:text-[32px]">
             Favorites
           </h1>
-          <p className="font-medium text-[14px] text-[var(--text-secondary)] md:text-[16px]">
+          <p className="font-medium text-[14px] text-[#323f50] md:text-[16px]">
             You saved {favoritesCount} favorite animals
           </p>
         </div>
@@ -47,7 +47,7 @@ export default function FavoritesAnimalsClient() {
           disabled={data?.length < 1}
           type="button"
           onClick={mutate}
-          className="gap-2 px-6 py-[10px] font-medium text-[var(--text-secondary)]"
+          className="gap-2 px-6 py-[10px] font-medium text-[#323f50]"
         >
           <Icon name="trash" className="fill-[#323f50]" />
           Clear all

@@ -21,11 +21,11 @@ export default function RequestResetEmail() {
     return (
       <Section>
         <Container>
-          <h1 className="mb-8 text-[36px] text-center font-bold text-[var(--text-primary)] md:text-[48px] xl:text-[64px]">
+          <h1 className="mb-8 text-[36px] text-center font-bold text-[#151c26] md:text-[48px] xl:text-[64px]">
             Check your email
           </h1>
 
-          <p className="text-[20px] text-center font-medium text-[var(--text-secondary)]">
+          <p className="text-[20px] text-center font-medium text-[#323f50]">
             We have sent password reset instructions to your email address.
           </p>
         </Container>
@@ -38,7 +38,7 @@ export default function RequestResetEmail() {
       <Container>
         <h1 className="sr-only">Reset Password</h1>
         <ContentCard>
-          <p className="mb-6 mx-auto font-medium text-[16px] text-[var(--text-muted)]">
+          <p className="mb-6 mx-auto font-medium text-[16px] text-[#576b86]">
             Enter your email and we will send you a link to reset your password.
           </p>
           <RequestResetEmailForm isPending={isPending} onSubmit={mutate} />

@@ -9,10 +9,10 @@ export default function About() {
       <Section className="mx-auto bg-[url('/about-background.svg')] bg-cover bg-no-repeat bg-top">
         <Container className="relative md:flex md:min-h-[700px]">
           <div className="xl:self-center">
-            <h1 className="mb-8 max-w-[650px] text-[36px] font-bold leading-[1.34375] text-[var(--text-primary)] md:text-[48px] xl:text-[64px]">
+            <h1 className="mb-8 max-w-[650px] text-[36px] font-bold leading-[1.34375] text-[#151c26] md:text-[48px] xl:text-[64px]">
               Creating a world where every paw finds a home
             </h1>
-            <p className="text-[15px] font-medium text-[var(--text-secondary)] md:max-w-[320px] md:text-[20px] xl:max-w-[480px]">
+            <p className="text-[15px] font-medium text-[#323f50] md:max-w-[320px] md:text-[20px] xl:max-w-[480px]">
               FluffyTail is more than just a pet finder. We bring together
               like-minded people, veterinarians, and licensed experts to make
               your pet&apos;s journey to a new home safe, easy, and filled with
@@ -29,10 +29,10 @@ export default function About() {
           <ul className="flex flex-col gap-10 xl:flex-row xl:justify-between">
             <li className="flex flex-col gap-8 md:flex-row xl:w-[500px] xl:flex-col xl:items-center">
               <div className="md:order-1 xl:order-0">
-                <h2 className="mb-4 text-[32px] font-semibold text-[var(--text-primary)] xl:text-[40px]">
+                <h2 className="mb-4 text-[32px] font-semibold text-[#151c26] xl:text-[40px]">
                   Our mission
                 </h2>
-                <p className="font-normal text-[18px] text-[var(--text-secondary)]">
+                <p className="font-normal text-[18px] text-[#323f50]">
                   To change the culture of finding and buying pets in Ukraine,
                   making this process completely transparent and safe for both
                   parties
@@ -45,10 +45,10 @@ export default function About() {
             </li>
             <li className="flex flex-col gap-8 md:flex-row xl:flex-col xl:items-center xl:w-[500px]">
               <div className="xl:order-1">
-                <h2 className="mb-4 text-[32px] font-semibold text-[var(--text-primary)] xl:text-[40px]">
+                <h2 className="mb-4 text-[32px] font-semibold text-[#151c26] xl:text-[40px]">
                   Our goal
                 </h2>
-                <p className="font-normal text-[18px] text-[var(--text-secondary)]">
+                <p className="font-normal text-[18px] text-[#323f50]">
                   To create a single ecosystem where everyone can easily find a
                   healthy ponytail from a proven nursery without any risks.
                 </p>
@@ -63,7 +63,7 @@ export default function About() {
       </Section>
       <Section className="md:py-[100px]">
         <Container className="flex flex-col items-center gap-12">
-          <h2 className="text-center text-[32px] font-bold text-[var(--text-primary)] xl:text-[40px]">
+          <h2 className="text-center text-[32px] font-bold text-[#151c26] xl:text-[40px]">
             People who care about every paw
           </h2>
           <ul className="flex flex-col items-center gap-12 md:flex-row xl:gap-20">
@@ -72,10 +72,10 @@ export default function About() {
                 <Image src="/about-boy.webp" fill alt="Project Founder & CEO" />
               </div>
 
-              <h2 className="mb-2 font-semibold text-[20px] text-center text-[var(--text-primary)]">
+              <h2 className="mb-2 font-semibold text-[20px] text-center text-[#151c26]">
                 Maksym Sergienko
               </h2>
-              <p className="text-[16px] text-center text-[var(--text-secondary)]">
+              <p className="text-[16px] text-center text-[#323f50]">
                 Project Founder & CEO
               </p>
             </li>
@@ -88,10 +88,10 @@ export default function About() {
                 />
               </div>
 
-              <h2 className="mb-2 font-semibold text-[20px] text-center text-[var(--text-primary)]">
+              <h2 className="mb-2 font-semibold text-[20px] text-center text-[#151c26]">
                 Anna Kovalchuk
               </h2>
-              <p className="text-[16px] text-center text-[var(--text-secondary)]">
+              <p className="text-[16px] text-center text-[#323f50]">
                 Chief veterinary expert
               </p>
             </li>
@@ -100,10 +100,10 @@ export default function About() {
                 <Image src="/about-girl-2.webp" fill alt="Head of Support" />
               </div>
 
-              <h2 className="mb-2 font-semibold text-[20px] text-center text-[var(--text-primary)]">
+              <h2 className="mb-2 font-semibold text-[20px] text-center text-[#151c26]">
                 Olena Kravchenko
               </h2>
-              <p className="text-[16px] text-center text-[var(--text-secondary)]">
+              <p className="text-[16px] text-center text-[#323f50]">
                 Head of Support
               </p>
             </li>
@@ -129,23 +129,23 @@ export default function About() {
           </div>
           <div className="md:flex md:items-center md:gap-4 xl:mb-20 xl:mt-auto xl:flex-col xl:gap-8">
             <div>
-              <h2 className="mb-10 font-bold text-[40px] text-[var(--text-primary)]">
+              <h2 className="mb-10 font-bold text-[40px] text-[#151c26]">
                 Work schedule
               </h2>
               <ul className="flex items-center gap-6">
                 <li>
-                  <p className="text-[16px] leading-[1] tracking-[0.01em] text-[var(--text-primary)]">
+                  <p className="text-[16px] leading-[1] tracking-[0.01em] text-[#151c26]">
                     Mon–Fri
                   </p>
-                  <span className="font-semibold text-[24px] uppercase text-[var(--text-primary)]">
+                  <span className="font-semibold text-[24px] uppercase text-[#151c26]">
                     10:00 - 20:00
                   </span>
                 </li>
                 <li>
-                  <p className="text-[16px] leading-[1] tracking-[0.01em] text-[var(--text-primary)]">
+                  <p className="text-[16px] leading-[1] tracking-[0.01em] text-[#151c26]">
                     Sat–Sun
                   </p>
-                  <span className="font-semibold text-[24px] uppercase text-[var(--text-primary)]">
+                  <span className="font-semibold text-[24px] uppercase text-[#151c26]">
                     10:00 - 18:00
                   </span>
                 </li>
@@ -160,8 +160,8 @@ export default function About() {
                   height={32}
                   className="stroke-[#151c26] fill-none"
                 />
-                <p className="flex flex-col gap-2 font-semibold text-[24px] text-[var(--text-primary)]">
-                  <span className="text-[16px] leading-[1] tracking-[0.01em] text-[var(--text-primary)]">
+                <p className="flex flex-col gap-2 font-semibold text-[24px] text-[#151c26]">
+                  <span className="text-[16px] leading-[1] tracking-[0.01em] text-[#151c26]">
                     address
                   </span>
                   Česká 12, 602 00 Brno
@@ -174,8 +174,8 @@ export default function About() {
                   height={32}
                   className="fill-[#151c26]"
                 />
-                <p className="flex flex-col gap-2 font-semibold text-[24px] text-[var(--text-primary)]">
-                  <span className="text-[16px] leading-[1] tracking-[0.01em] text-[var(--text-primary)]">
+                <p className="flex flex-col gap-2 font-semibold text-[24px] text-[#151c26]">
+                  <span className="text-[16px] leading-[1] tracking-[0.01em] text-[#151c26]">
                     phone
                   </span>
                   +420 777 764 374

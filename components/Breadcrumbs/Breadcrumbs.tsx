@@ -42,7 +42,7 @@ export default function Breadcrumbs() {
             {categoryName}
           </Link>
           <span className="text-[16px] text-[#85a3c9]">/</span>
-          <span className="text-[var(--text-secondary)]">{animal?.name}</span>
+          <span className="text-[#323f50]">{animal?.name}</span>
         </>
       ) : (
         <span className="font-medium text-4 tracking-[-0.02em] text-center text-[#85a3c9]">

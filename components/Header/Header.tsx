@@ -9,7 +9,7 @@ import Logo from "../Logo/Logo";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 md:static py-4 border-b border-[var(--border-primary)] bg-[var(--bg-primary)]">
+    <header className="sticky top-0 z-50 md:static py-4 border-b border-[#85a3c9] bg-[#fff]">
       <Container className="relative flex items-center">
         <nav className="flex items-center gap-[72px]">
           <Logo />

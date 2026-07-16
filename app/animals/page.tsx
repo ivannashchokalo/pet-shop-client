@@ -12,11 +12,11 @@ export default async function Animals() {
     animalsAvailableCount,
   } = await fetchStatistics();
 
-  const cardClass = "rounded-[20px] bg-[var(--bg-primary)]";
+  const cardClass = "rounded-[20px] bg-[#c7e0f6]";
   const linkClass = "flex flex-col justify-between min-h-[280px] py-8 px-6";
   const iconClass = "mx-auto fill-[#323f50]";
   const cardTitleClass =
-    "flex flex-col gap-[2px] font-semibold text-[40px] text-[var(--text-secondary)]";
+    "flex flex-col gap-[2px] font-semibold text-[40px] text-[#323f50]";
 
   return (
     <>
@@ -24,16 +24,16 @@ export default async function Animals() {
         <p className="text-[20px] font-medium text-[#aad2f2] md:text-[24px]">
           Find your companion
         </p>
-        <h1 className="text-[32px] font-semibold text-[var(--text-primary)] md:text-[40px]">
+        <h1 className="text-[32px] font-semibold text-[#151c26] md:text-[40px]">
           Every pet deserves a loving home
         </h1>
-        <p className="mb-8 text-[16px] font-medium text-[var(--text-muted)] md:text-[20px]">
+        <p className="mb-8 text-[16px] font-medium text-[#576b86] md:text-[20px]">
           Find your perfect companion from trusted breeders and shelters. All
           pets are health-checked, vaccinated, and ready for a loving home.
         </p>
         <ul className="flex items-center gap-8">
           <li className="flex items-center gap-4">
-            <div className="flex h-11 w-11 items-center justify-center rounded-[10px] bg-[var(--bg-primary)]">
+            <div className="flex h-11 w-11 items-center justify-center rounded-[10px] bg-[#c7e0f6]">
               <Icon name="star" className="stroke-[#323f50] fill-none" />
             </div>
             <p className="flex flex-col gap-2 font-medium text-[20px] text-[#000000]">
@@ -42,7 +42,7 @@ export default async function Animals() {
             </p>
           </li>
           <li className="flex items-center gap-4">
-            <div className="flex h-11 w-11 items-center justify-center rounded-[10px] bg-[var(--bg-primary)]">
+            <div className="flex h-11 w-11 items-center justify-center rounded-[10px] bg-[#c7e0f6]">
               <Icon name="check" className="fill-[#323f50]" />
             </div>
             <p className="flex flex-col gap-2 font-medium text-[20px] text-[#000000]">

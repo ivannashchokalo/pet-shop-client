@@ -33,20 +33,14 @@ export default function SexRadioGroup() {
         />
 
         <div
-          className={`flex h-5 w-5 items-center justify-center rounded-full border-[3px] group-hover:border-[var(--border-secondary)] ${
-            sex === ""
-              ? "border-[var(--border-secondary)]"
-              : "border-[var(--border-placeholder)]"
+          className={`flex h-5 w-5 items-center justify-center rounded-full border-[3px] group-hover:border-[#aad2f2] ${
+            sex === "" ? "border-[#aad2f2]" : "border-[#a2a2a2]"
           }`}
         >
-          {sex === "" && (
-            <div className="h-2 w-2 rounded-full bg-[var(--bg-accent)]" />
-          )}
+          {sex === "" && <div className="h-2 w-2 rounded-full bg-[#aad2f2]" />}
         </div>
 
-        <span className="font-medium text-[16px] text-[var(--text-secondary)]">
-          All
-        </span>
+        <span className="font-medium text-[16px] text-[#151c26]">All</span>
       </label>
 
       <label className="flex cursor-pointer items-center gap-3 group">
@@ -58,20 +52,16 @@ export default function SexRadioGroup() {
         />
 
         <div
-          className={`flex h-5 w-5 items-center justify-center rounded-full border-[3px] group-hover:border-[var(--border-secondary)] ${
-            sex === "male"
-              ? "border-[var(--border-secondary)]"
-              : "border-[var(--border-placeholder)]"
+          className={`flex h-5 w-5 items-center justify-center rounded-full border-[3px] group-hover:border-[#aad2f2] ${
+            sex === "male" ? "border-[#aad2f2]" : "border-[#a2a2a2]"
           }`}
         >
           {sex === "male" && (
-            <div className="h-2 w-2 rounded-full bg-[var(--bg-accent)]" />
+            <div className="h-2 w-2 rounded-full bg-[#aad2f2]" />
           )}
         </div>
 
-        <span className="font-medium text-[16px] text-[var(--text-secondary)]">
-          Male
-        </span>
+        <span className="font-medium text-[16px] text-[#151c26]">Male</span>
       </label>
 
       <label className="flex cursor-pointer items-center gap-3 group">
@@ -83,20 +73,16 @@ export default function SexRadioGroup() {
         />
 
         <div
-          className={`flex h-5 w-5 items-center justify-center rounded-full border-[3px] group-hover:border-[var(--border-secondary)] ${
-            sex === "female"
-              ? "border-[var(--border-secondary)]"
-              : "border-[var(--border-placeholder)]"
+          className={`flex h-5 w-5 items-center justify-center rounded-full border-[3px] group-hover:border-[#aad2f2] ${
+            sex === "female" ? "border-[#aad2f2]" : "border-[#a2a2a2]"
           }`}
         >
           {sex === "female" && (
-            <div className="h-2 w-2 rounded-full bg-[var(--bg-accent)]" />
+            <div className="h-2 w-2 rounded-full bg-[#aad2f2]" />
           )}
         </div>
 
-        <span className="font-medium text-[16px] text-[var(--text-secondary)]">
-          Female
-        </span>
+        <span className="font-medium text-[16px] text-[#151c26]">Female</span>
       </label>
     </div>
   );
