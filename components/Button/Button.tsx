@@ -12,9 +12,10 @@ interface ButtonProps {
   target?: React.HTMLAttributeAnchorTarget;
 }
 
-const BASE_STYLES =
+// styles
+const baseStyles =
   "flex items-center justify-center rounded-[20px] transition-colors duration-300 font-medium text-[#0c1118]";
-const VARIANTS = {
+const variants = {
   primary:
     "bg-[#c7e0f6] hover:bg-[#9db4d3] focus-visible:bg-[#85a3c9] active:bg-[#85a3c9] disabled:bg-[#e8eef5] disabled:text-[#9db4d3] disabled:cursor-not-allowed",
 
@@ -32,7 +33,7 @@ export default function Button({
   disabled,
   target,
 }: ButtonProps) {
-  const classes = clsx(BASE_STYLES, VARIANTS[variant], className);
+  const classes = clsx(baseStyles, variants[variant], className);
 
   if (href) {
     return (

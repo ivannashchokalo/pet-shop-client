@@ -18,12 +18,13 @@ interface MobileFiltersProps {
   type: string;
 }
 
+// styles
+const labelStyles =
+  "flex flex-col gap-4 font-medium text-[16px] text-[#151c26]";
+
 export default function MobileFilters({ type }: MobileFiltersProps) {
   const { isOpen, setIsOpen, dropdownRef, closeDropdown } = useDropdown();
   const { data, breeds, sortBy } = useFilters(type);
-
-  const labelStyles =
-    "flex flex-col gap-4 font-medium text-[16px] text-[#151c26]";
 
   return (
     <div ref={dropdownRef} className="md:hidden relative mb-10">

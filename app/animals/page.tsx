@@ -2,6 +2,13 @@ import CategoryCard from "@/components/CategoryCard/CategoryCard";
 import Icon from "@/components/Icon/Icon";
 import { fetchStatistics } from "@/lib/api/server/statisticsServer";
 
+// styles
+const cardClass = "rounded-[20px] bg-[#c7e0f6]";
+const linkClass = "flex flex-col justify-between min-h-[280px] py-8 px-6";
+const iconClass = "mx-auto fill-[#323f50]";
+const cardTitleClass =
+  "flex flex-col gap-[2px] font-semibold text-[40px] text-[#323f50]";
+
 export default async function Animals() {
   const {
     dogsCount,
@@ -11,12 +18,6 @@ export default async function Animals() {
     happyOwnersCount,
     animalsAvailableCount,
   } = await fetchStatistics();
-
-  const cardClass = "rounded-[20px] bg-[#c7e0f6]";
-  const linkClass = "flex flex-col justify-between min-h-[280px] py-8 px-6";
-  const iconClass = "mx-auto fill-[#323f50]";
-  const cardTitleClass =
-    "flex flex-col gap-[2px] font-semibold text-[40px] text-[#323f50]";
 
   return (
     <>

@@ -4,14 +4,15 @@ import clsx from "clsx";
 import Link from "next/link";
 import Logo from "../Logo/Logo";
 
-export default function Footer() {
-  const FOOTER_LINK_STYLES =
-    "font-medium text-[16px] leading-[1.5] tracking-[0.01em] text-[#85a3c9]";
-  const sectionTitleStyles =
-    "mb-4 font-medium text-[24px] leading-[1.5] text-white";
-  const SOCIAL_LINK_STYLES =
-    "flex items-center justify-center p-3 rounded-full border-[1.5px] border-[#85a3c9]";
+// styles
+const footerLinkStyles =
+  "font-medium text-[16px] leading-[1.5] tracking-[0.01em] text-[#85a3c9]";
+const sectionTitleStyles =
+  "mb-4 font-medium text-[24px] leading-[1.5] text-white";
+const socialLinkStyles =
+  "flex items-center justify-center p-3 rounded-full border-[1.5px] border-[#85a3c9]";
 
+export default function Footer() {
   return (
     <footer className="py-[40px] bg-[#323f50]">
       <Container className="flex flex-col gap-[40px] md:gap-[32px] xl:flex-row flex-wrap justify-between">
@@ -27,12 +28,12 @@ export default function Footer() {
             <h2 className={sectionTitleStyles}>To buyers</h2>
             <ul className="flex flex-col gap-3">
               <li>
-                <Link href="/animals" className={FOOTER_LINK_STYLES}>
+                <Link href="/animals" className={footerLinkStyles}>
                   Animals
                 </Link>
               </li>
               <li>
-                <Link href="/about" className={FOOTER_LINK_STYLES}>
+                <Link href="/about" className={footerLinkStyles}>
                   About us
                 </Link>
               </li>
@@ -44,10 +45,7 @@ export default function Footer() {
               <li>
                 <a
                   href="tel:+420777764374"
-                  className={clsx(
-                    "flex items-center gap-2",
-                    FOOTER_LINK_STYLES,
-                  )}
+                  className={clsx("flex items-center gap-2", footerLinkStyles)}
                 >
                   <Icon name="phone" className="fill-[#85a3c9]" />
                   +420 777 764 374
@@ -56,10 +54,7 @@ export default function Footer() {
               <li>
                 <a
                   href="mailto:yourmane@gmail.com"
-                  className={clsx(
-                    "flex items-center gap-2",
-                    FOOTER_LINK_STYLES,
-                  )}
+                  className={clsx("flex items-center gap-2", footerLinkStyles)}
                 >
                   <Icon name="email" className="stroke-[#85a3c9] fill-none" />
                   yourmane@gmail.com
@@ -70,10 +65,7 @@ export default function Footer() {
                   href="https://maps.google.com/?q=Česká+12,+602+00+Brno"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={clsx(
-                    "flex items-center gap-2",
-                    FOOTER_LINK_STYLES,
-                  )}
+                  className={clsx("flex items-center gap-2", footerLinkStyles)}
                 >
                   <Icon
                     name="location"
@@ -92,7 +84,7 @@ export default function Footer() {
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={SOCIAL_LINK_STYLES}
+                  className={socialLinkStyles}
                 >
                   <Icon
                     name="instagram"
@@ -107,7 +99,7 @@ export default function Footer() {
                   href="https://facebook.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={SOCIAL_LINK_STYLES}
+                  className={socialLinkStyles}
                 >
                   <Icon
                     name="facebook"
@@ -122,7 +114,7 @@ export default function Footer() {
                   href="https://telegram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={SOCIAL_LINK_STYLES}
+                  className={socialLinkStyles}
                 >
                   <Icon
                     name="telegram"

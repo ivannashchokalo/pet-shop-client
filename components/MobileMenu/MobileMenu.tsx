@@ -8,8 +8,9 @@ import { useLogout } from "@/hooks/useLogout";
 import { useAuthStore } from "@/lib/stores/authStore";
 import { useDropdown } from "@/hooks/useDropdown";
 
-const ITEM_STYLES = "flex items-center gap-4";
-const TEXT_STYLES = "font-medium text-4 leading-[1.5] text-center";
+// styles
+const itemStyles = "flex items-center gap-4";
+const textStyles = "font-medium text-4 leading-[1.5] text-center";
 
 export default function MobileMenu() {
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
@@ -38,7 +39,7 @@ export default function MobileMenu() {
         <div className="pb-[20px] border-b border-[#bac9df]">
           <IconButton className="justify-start w-full">
             <Icon name="moon" className="mr-4 fill-[#323f50]" />
-            <span className={clsx("text-[#151c26]", TEXT_STYLES)}>
+            <span className={clsx("text-[#151c26]", textStyles)}>
               Dark mode
             </span>
             <Icon
@@ -59,14 +60,14 @@ export default function MobileMenu() {
             <li>
               <Link
                 href="/about"
-                className={ITEM_STYLES}
+                className={itemStyles}
                 onClick={closeDropdown}
               >
                 <Icon
                   name="user-menu"
                   className="fill-transparent stroke-[#323F50]"
                 />
-                <span className={clsx("text-[#151c26]", TEXT_STYLES)}>
+                <span className={clsx("text-[#151c26]", textStyles)}>
                   About us
                 </span>
               </Link>
@@ -74,11 +75,11 @@ export default function MobileMenu() {
             <li>
               <Link
                 href="/animals"
-                className={ITEM_STYLES}
+                className={itemStyles}
                 onClick={closeDropdown}
               >
                 <Icon name="pow" className="stroke-[#323F50]" />
-                <span className={clsx("text-[#151c26]", TEXT_STYLES)}>
+                <span className={clsx("text-[#151c26]", textStyles)}>
                   Animals
                 </span>
               </Link>
@@ -95,7 +96,7 @@ export default function MobileMenu() {
             disabled={isPending}
           >
             <Icon name="logout" className="fill-transparent stroke-[#ef7d7d]" />
-            <span className={clsx("text-[#ef7d7d]", TEXT_STYLES)}>Logout</span>
+            <span className={clsx("text-[#ef7d7d]", textStyles)}>Logout</span>
           </IconButton>
         )}
       </div>

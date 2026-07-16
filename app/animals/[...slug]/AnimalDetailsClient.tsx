@@ -17,6 +17,12 @@ import Modal from "@/components/Modal/Modal";
 import { useAuthStore } from "@/lib/stores/authStore";
 import { fetchUserRequests } from "@/lib/api/client/requestsClient";
 
+// styles
+const infoCardClass = "w-full rounded-[20px] bg-[#c7e0f6]/50 p-4";
+const infoTitleClass =
+  "flex items-center gap-2 mb-4 font-medium text-[20px] text-[#151c26]";
+const infoTextClass = "text-[16px] text-[#151c26]";
+
 export default function AnimalDetailsClient() {
   const router = useRouter();
   const { slug } = useParams<{ slug: string[] }>();
@@ -42,11 +48,6 @@ export default function AnimalDetailsClient() {
   const isFavorite = user?.favorites.includes(id) ?? false;
   const isReserved =
     userRequests?.some((request) => request.animalId._id === id) ?? false;
-
-  const infoCardClass = "w-full rounded-[20px] bg-[#c7e0f6]/50 p-4";
-  const infoTitleClass =
-    "flex items-center gap-2 mb-4 font-medium text-[20px] text-[#151c26]";
-  const infoTextClass = "text-[16px] text-[#151c26]";
 
   return (
     <>

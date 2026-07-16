@@ -17,7 +17,7 @@ interface CategoryCardProps {
   iconClassName?: string;
 }
 
-const CONTENT_CLASS = "flex min-h-[280px] flex-col justify-between px-6 py-8";
+const contentClass = "flex min-h-[280px] flex-col justify-between px-6 py-8";
 
 export default function CategoryCard({
   title,
@@ -64,11 +64,11 @@ export default function CategoryCard({
   return (
     <li className={clsx("rounded-[20px] bg-[#c7e0f6]", cardClassName)}>
       {href ? (
-        <Link href={href} className={clsx(CONTENT_CLASS, contentClassName)}>
+        <Link href={href} className={clsx(contentClass, contentClassName)}>
           {content}
         </Link>
       ) : (
-        <div className={clsx(CONTENT_CLASS, contentClassName)}>{content}</div>
+        <div className={clsx(contentClass, contentClassName)}>{content}</div>
       )}
     </li>
   );

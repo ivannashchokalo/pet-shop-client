@@ -10,7 +10,8 @@ import { useLogout } from "@/hooks/useLogout";
 import IconButton from "../IconButton/IconButton";
 import Icon from "../Icon/Icon";
 
-const AUTH_BUTTON_CLASS =
+// styles
+const authByttonClass =
   "h-[36px] min-w-[82px] py-[10px] px-4 font-medium text-[13px] tracking-[-0.02em] text-center text-[#323f50] h-[36px] min-w-[82px] py-[10px] px-4 font-medium text-[13px] tracking-[-0.02em] text-center text-[#323f50]";
 
 export default function AuthNavigation() {
@@ -27,7 +28,7 @@ export default function AuthNavigation() {
           <li>
             <Button
               variant="secondary"
-              className={AUTH_BUTTON_CLASS}
+              className={authByttonClass}
               onClick={() => setIsLoginModalOpen(true)}
             >
               Sign in
@@ -36,7 +37,7 @@ export default function AuthNavigation() {
 
           <li>
             <Button
-              className={AUTH_BUTTON_CLASS}
+              className={authByttonClass}
               href={`/sign-up?from=${encodeURIComponent(pathname)}`}
             >
               Sign up

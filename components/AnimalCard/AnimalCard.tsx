@@ -19,6 +19,7 @@ interface AnimalCardProps {
   onFavoriteClick: (animalId: AnimalId) => void;
 }
 
+// styles
 const infoTextClass = "font-medium text-[14px] text-[#9db4d3]";
 const infoIconClass = "fill-none stroke-[#9db4d3]";
 

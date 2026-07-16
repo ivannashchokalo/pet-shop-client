@@ -13,6 +13,7 @@ interface AnimalImageSliderProps {
   type: string;
 }
 
+// styles
 const navigationButtonClass =
   "absolute top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-[20px] bg-[rgba(199,224,246,0.5)] transition-colors duration-200 hover:bg-[#c7e0f6] focus-visible:bg-[#c7e0f6]";
 const navigationIconClass = "stroke-[#fafafa] fill-none";

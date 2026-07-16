@@ -5,6 +5,11 @@ import Button from "@/components/Button/Button";
 import { fetchStatistics } from "@/lib/api/server/statisticsServer";
 import CategoryCard from "@/components/CategoryCard/CategoryCard";
 
+// styles
+const iconClass = "mx-auto fill-[#323f50]";
+const cardTitleClass =
+  "flex flex-col gap-[2px] font-semibold text-[32px] text-[#323f50]";
+
 export default async function Home() {
   const {
     dogsCount,
@@ -14,10 +19,6 @@ export default async function Home() {
     happyOwnersCount,
     animalsAvailableCount,
   } = await fetchStatistics();
-
-  const iconClass = "mx-auto fill-[#323f50]";
-  const cardTitleClass =
-    "flex flex-col gap-[2px] font-semibold text-[32px] text-[#323f50]";
 
   return (
     <>

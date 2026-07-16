@@ -41,6 +41,7 @@ interface AnimalReservationFormProps {
   animalId: string;
 }
 
+// styles
 const fieldWrapperClass = "relative flex flex-col gap-2 w-full";
 const labelClass = "font-medium text-[16px] text-[#9db4d3]";
 const errorMessageClass = "absolute left-4 -bottom-4 text-[12px] text-red-500";

@@ -1,5 +1,7 @@
 "use client";
+
 import AnimalsList from "@/components/AnimalsList/AnimalsList";
+import Pagination from "@/components/Pagination/Pagination";
 import { fetchAnimals } from "@/lib/api/client/animalsClient";
 import { useQuery } from "@tanstack/react-query";
 import {
@@ -8,7 +10,6 @@ import {
   useSearchParams,
   useRouter,
 } from "next/navigation";
-import ReactPaginate from "react-paginate";
 
 export default function AnimalsByCategoryClient() {
   const searchParams = useSearchParams();
@@ -45,9 +46,9 @@ export default function AnimalsByCategoryClient() {
     refetchOnMount: false,
   });
 
-  const handlePageChange = ({ selected }: { selected: number }) => {
+  const handlePageChange = (page: number) => {
     const params = new URLSearchParams(searchParams);
-    params.set("page", String(selected + 1));
+    params.set("page", String(page + 1));
 
     router.push(`${pathname}?${params.toString()}`);
   };
@@ -59,19 +60,10 @@ export default function AnimalsByCategoryClient() {
     <>
       {animals.length > 0 && <AnimalsList animals={animals} />}
       {totalPages > 1 && (
-        <ReactPaginate
-          pageCount={totalPages}
+        <Pagination
+          page={page}
+          totalPages={20}
           onPageChange={handlePageChange}
-          forcePage={page - 1}
-          pageRangeDisplayed={5}
-          marginPagesDisplayed={2}
-          previousLabel="<-"
-          nextLabel="->"
-          breakLabel="..."
-          renderOnZeroPageCount={null}
-          // containerClassName={styles.pagination}
-          // activeClassName={styles.active}
-          // disabledClassName={styles.disabled}
         />
       )}
     </>

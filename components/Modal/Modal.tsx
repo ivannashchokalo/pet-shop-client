@@ -14,7 +14,6 @@ interface ModalProps {
 }
 export default function Modal({ children, onClose, redirectPath }: ModalProps) {
   const router = useRouter();
-  // const [mounted, setMounted] = useState(false);
 
   const close = useCallback(() => {
     if (onClose) {
@@ -24,10 +23,6 @@ export default function Modal({ children, onClose, redirectPath }: ModalProps) {
 
     router.back();
   }, [onClose, router]);
-
-  // useEffect(() => {
-  //   setMounted(true);
-  // }, []);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -47,7 +42,6 @@ export default function Modal({ children, onClose, redirectPath }: ModalProps) {
 
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) close();
-    // router.back();
   };
 
   const handleModalClose = () => {
@@ -56,8 +50,6 @@ export default function Modal({ children, onClose, redirectPath }: ModalProps) {
       router.push(redirectPath);
     }
   };
-
-  // if (!mounted) return null;
 
   return createPortal(
     <div

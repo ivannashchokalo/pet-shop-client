@@ -28,7 +28,8 @@ const ResetPasswordSchema = Yup.object({
     .required("Required"),
 });
 
-const LABEL_STYLES = "mb-1 block font-medium text-[16px] text-[#0c1118]";
+// styles
+const labelStyles = "mb-1 block font-medium text-[16px] text-[#0c1118]";
 
 export default function ResetPasswordForm({
   isPending,
@@ -43,7 +44,7 @@ export default function ResetPasswordForm({
       {({ errors, touched }) => (
         <Form className="mx-auto flex flex-col items-center gap-6">
           <div className="relative w-full">
-            <label htmlFor="password" className={LABEL_STYLES}>
+            <label htmlFor="password" className={labelStyles}>
               New Password:
             </label>
             <Input
@@ -61,7 +62,7 @@ export default function ResetPasswordForm({
           </div>
 
           <div className="relative w-full">
-            <label htmlFor="confirmPassword" className={LABEL_STYLES}>
+            <label htmlFor="confirmPassword" className={labelStyles}>
               Confirm Password:
             </label>
 
