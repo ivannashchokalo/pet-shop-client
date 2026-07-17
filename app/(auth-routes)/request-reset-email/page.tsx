@@ -21,11 +21,11 @@ export default function RequestResetEmail() {
     return (
       <Section>
         <Container>
-          <h1 className="mb-8 text-[36px] text-center font-bold text-[#151c26] md:text-[48px] xl:text-[64px]">
+          <h1 className="mb-8 text-[36px] text-center font-bold text-[var(--text-main)] md:text-[48px] xl:text-[64px]">
             Check your email
           </h1>
 
-          <p className="text-[20px] text-center font-medium text-[#323f50]">
+          <p className="text-[20px] text-center font-medium text-[var(--text-secondary)]">
             We have sent password reset instructions to your email address.
           </p>
         </Container>

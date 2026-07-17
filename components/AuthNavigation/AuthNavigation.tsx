@@ -52,7 +52,10 @@ export default function AuthNavigation() {
           onClick={logout}
           disabled={isPending}
         >
-          <Icon name="logout" className="fill-transparent stroke-[#323f50]" />
+          <Icon
+            name="logout"
+            className="fill-transparent stroke-[var(--icon-color)]"
+          />
         </IconButton>
       )}
 

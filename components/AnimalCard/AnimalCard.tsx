@@ -42,7 +42,7 @@ export default function AnimalCard({
   };
 
   return (
-    <li className="relative overflow-hidden rounded-[20px] shadow-[0_2px_4px_0_rgba(50,63,80,0.1)] border-x-[0.2px] border-b-[0.2px] border-[#c7e0f6]">
+    <li className="relative overflow-hidden rounded-[20px] shadow-[0_2px_4px_0_rgba(50,63,80,0.1)] border-x-[0.2px] border-b-[0.2px] border-[var(--border-card-main)] bg-[var(--card-background-main)]">
       <Link
         href={`/animals/${animal.type}/${animal._id}?from=${encodeURIComponent(
           from,
@@ -60,11 +60,11 @@ export default function AnimalCard({
           </p>
         </div>
 
-        <div className="py-5 px-4 bg-[#fff] md:py-6">
-          <h2 className="mb-1 font-medium text-[20px] text-[#0c1118]">
+        <div className="py-5 px-4 md:py-6">
+          <h2 className="mb-1 font-medium text-[20px] text-[var(--text-main)]">
             {animal.name}
           </h2>
-          <p className="mb-4 font-normal text-base text-[#0c1118] md:mb-6">
+          <p className="mb-4 font-normal text-base text-[var(--text-main)] md:mb-6">
             {animal.breed}
           </p>
           <div className="flex items-center gap-4 md:mb-6">
@@ -106,7 +106,7 @@ export default function AnimalCard({
 
       <IconButton
         onClick={() => onFavoriteClick(animal._id)}
-        className="absolute right-4 top-4 rounded-full bg-white p-2 hover:bg-[#4d4d4d] focus-visible:bg-[#4d4d4d]"
+        className="absolute right-4 top-4 rounded-full bg-[var(--heart-card-bg)] p-2 hover:bg-[var(--heart-button-bg-interactive)] focus-visible:bg-[var(--heart-button-bg-interactive)]"
       >
         <Icon
           name="heart"

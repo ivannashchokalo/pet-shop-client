@@ -6,9 +6,9 @@ import { fetchStatistics } from "@/lib/api/server/statisticsServer";
 import CategoryCard from "@/components/CategoryCard/CategoryCard";
 
 // styles
-const iconClass = "mx-auto fill-[#323f50]";
+const iconClass = "mx-auto fill-[var(--icon-category)]";
 const cardTitleClass =
-  "flex flex-col gap-[2px] font-semibold text-[32px] text-[#323f50]";
+  "flex flex-col gap-[2px] font-semibold text-[32px] text-[var(--text-main)]";
 
 export default async function Home() {
   const {
@@ -22,7 +22,7 @@ export default async function Home() {
 
   return (
     <>
-      <Section className="mx-auto bg-[url('/hero-bg.svg')] bg-cover bg-no-repeat bg-top">
+      <Section className="mx-auto bg-[image:var(--hero-bg)] bg-cover bg-no-repeat bg-top">
         <Container className="relative min-h-[600px] xl:flex xl:items-center xl:min-h-[700px]">
           <div className="flex flex-col items-start justify-center mb-[60px]">
             <h1 className="mb-6 text-[36px] font-bold leading-[1.3] text-[#fafafa] md:max-w-[620px] md:mb-8 md:text-[48px] xl:max-w-[700px] xl:text-[64px]">
@@ -42,16 +42,16 @@ export default async function Home() {
               Find the tail
             </Button>
           </div>
-          <ul className="absolute bottom-[-50px] left-1/2 z-20 flex -translate-x-1/2 translate-y-1/2 flex-col items-center rounded-[20px] bg-white px-6 py-8 shadow-[16px_-6px_67px_0_rgba(128,128,128,0.2)] md:flex-row">
-            <li className="flex flex-col gap-[2px] border-b-2 border-b-[#BAC9DF] px-16 pb-6 text-center text-[48px] font-semibold text-black md:border-b-0 md:border-r-2 md:border-r-[#BAC9DF] md:pb-0">
+          <ul className="absolute bottom-[-50px] left-1/2 z-20 flex -translate-x-1/2 translate-y-1/2 flex-col items-center rounded-[20px] bg-[var(--card-background-second)] px-6 py-8 shadow-[16px_-6px_67px_0_rgba(128,128,128,0.2)] md:flex-row">
+            <li className="flex flex-col gap-[2px] border-b-2 border-b-[#BAC9DF] px-16 pb-6 text-center text-[48px] font-semibold text-[var(--text-main)] md:border-b-0 md:border-r-2 md:border-r-[#BAC9DF] md:pb-0">
               {happyOwnersCount}
-              <span className="whitespace-nowrap font-normal text-[20px] leading-normal tracking-normal text-black">
+              <span className="whitespace-nowrap font-normal text-[20px] leading-normal tracking-normal text-[var(--text-main)]">
                 Happy Owners
               </span>
             </li>
-            <li className="flex flex-col whitespace-nowrap px-16 pt-6 text-center text-[48px] font-semibold text-black md:pt-0">
+            <li className="flex flex-col whitespace-nowrap px-16 pt-6 text-center text-[48px] font-semibold text-[var(--text-main)] md:pt-0">
               {animalsAvailableCount}
-              <span className="font-normal text-[20px] leading-normal tracking-normal text-black">
+              <span className="font-normal text-[20px] leading-normal tracking-normal text-[var(--text-main)]">
                 Animals Available
               </span>
             </li>
@@ -64,33 +64,33 @@ export default async function Home() {
       <Section>
         <Container className="relative min-h-[1150px] flex flex-col justify-end items-center md:min-h-[800px] md:flex-row">
           <div className="md:max-w-[300px] xl:max-w-[600px]">
-            <h2 className="mb-8 text-[32px] font-bold text-[#151c26] xl:mb-[40px] xl:text-[40px]">
+            <h2 className="mb-8 text-[32px] font-bold text-[var(--text-main)] xl:mb-[40px] xl:text-[40px]">
               Why future owners trust us?
             </h2>
             <ul className="flex flex-col gap-6 xl:gap-8 xl:max-w-[580px] xl:ml-auto">
               <li>
-                <h3 className="mb-2 font-semibold text-[24px] text-[#151c26] xl:text-[28px]">
+                <h3 className="mb-2 font-semibold text-[24px] text-[var(--text-main)] xl:text-[28px]">
                   01 / Safe origin
                 </h3>
-                <p className="font-normal text-[18px] text-[#323f50]">
+                <p className="font-normal text-[18px] text-[var(--text-secondary)]">
                   We work exclusively with certified experts, dog trainers, and
                   official shelters.
                 </p>
               </li>
               <li>
-                <h3 className="mb-2 font-semibold text-[24px] text-[#151c26] xl:text-[28px]">
+                <h3 className="mb-2 font-semibold text-[24px] text-[var(--text-main)] xl:text-[28px]">
                   02 / Health care
                 </h3>
-                <p className="font-normal text-[18px] text-[#323f50]">
+                <p className="font-normal text-[18px] text-[var(--text-secondary)]">
                   We only transfer pets with a chip, veterinary passport, and
                   all vaccinations.
                 </p>
               </li>
               <li>
-                <h3 className="mb-2 font-semibold text-[24px] text-[#151c26] xl:text-[28px]">
+                <h3 className="mb-2 font-semibold text-[24px] text-[var(--text-main)] xl:text-[28px]">
                   03 / Supporting a new family
                 </h3>
-                <p className="font-normal text-[18px] text-[#323f50]">
+                <p className="font-normal text-[18px] text-[var(--text-secondary)]">
                   We stay in touch and advise on adaptation, nutrition, and
                   care.
                 </p>
@@ -98,7 +98,7 @@ export default async function Home() {
             </ul>
           </div>
           <div className="relative w-[400px] h-[448px] md:absolute md:left-0 md:top-[50%] md:translate-y-[-50%] xl:top-0 xl:translate-y-0 xl:w-[652px] xl:h-[798px]">
-            <Image src="/customer.webp" fill alt="customer with animal" />
+            <Image src="/dog-hero-dark.webp" fill alt="customer with animal" />
           </div>
         </Container>
       </Section>

@@ -49,7 +49,11 @@ export default function RequestResetEmailForm({
             />
           </div>
 
-          <Button type="submit" className="py-2 px-8" disabled={isPending}>
+          <Button
+            type="submit"
+            className="min-w-[120px] py-2 px-8 font-medium text-[16px]"
+            disabled={isPending}
+          >
             {isPending ? "Sending..." : "Send"}
           </Button>
         </Form>

@@ -29,17 +29,17 @@ export default function ResetPassword() {
       <Section>
         <Container>
           <ContentCard>
-            <h1 className="mb-8 text-[36px] text-center font-bold text-[#151c26] md:text-[48px] xl:text-[64px]">
+            <h1 className="mb-8 text-[36px] text-center font-bold text-[var(--text-main)] md:text-[48px] xl:text-[64px]">
               Password updated
             </h1>
 
-            <p className="text-[20px] text-center font-medium text-[#323f50]">
+            <p className="text-[20px] text-center font-medium text-[var(--text-secondary)]">
               Your password has been reset successfully.
             </p>
 
             <Button
               onClick={() => router.push("/sign-in")}
-              className="py-2 px-8"
+              className="py-2 px-8 font-medium text-[16px]"
             >
               Go to Login
             </Button>

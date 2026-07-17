@@ -25,28 +25,31 @@ export default async function Animals() {
         <p className="text-[20px] font-medium text-[#aad2f2] md:text-[24px]">
           Find your companion
         </p>
-        <h1 className="text-[32px] font-semibold text-[#151c26] md:text-[40px]">
+        <h1 className="text-[32px] font-semibold text-[var(--text-main)] md:text-[40px]">
           Every pet deserves a loving home
         </h1>
-        <p className="mb-8 text-[16px] font-medium text-[#576b86] md:text-[20px]">
+        <p className="mb-8 text-[16px] font-medium text-[var(--text-secondary)] md:text-[20px]">
           Find your perfect companion from trusted breeders and shelters. All
           pets are health-checked, vaccinated, and ready for a loving home.
         </p>
         <ul className="flex items-center gap-8">
           <li className="flex items-center gap-4">
-            <div className="flex h-11 w-11 items-center justify-center rounded-[10px] bg-[#c7e0f6]">
-              <Icon name="star" className="stroke-[#323f50] fill-none" />
+            <div className="flex h-11 w-11 items-center justify-center rounded-[10px] bg-[var(--background-category)]">
+              <Icon
+                name="star"
+                className="stroke-[var(--icon-category)] fill-none"
+              />
             </div>
-            <p className="flex flex-col gap-2 font-medium text-[20px] text-[#000000]">
-              {happyOwnersCount}{" "}
+            <p className="flex flex-col gap-2 font-medium text-[20px] text-[var(--text-secondary)]">
+              {happyOwnersCount}
               <span className="font-normal text-[14px]">Happy Owners</span>
             </p>
           </li>
           <li className="flex items-center gap-4">
-            <div className="flex h-11 w-11 items-center justify-center rounded-[10px] bg-[#c7e0f6]">
-              <Icon name="check" className="fill-[#323f50]" />
+            <div className="flex h-11 w-11 items-center justify-center rounded-[10px] bg-[var(--background-category)]">
+              <Icon name="check" className="fill-[var(--icon-category)]" />
             </div>
-            <p className="flex flex-col gap-2 font-medium text-[20px] text-[#000000]">
+            <p className="flex flex-col gap-2 font-medium text-[20px] text-[var(--text-secondary)]">
               {animalsAvailableCount}
               <span className="font-normal text-[14px]">Animals Available</span>
             </p>

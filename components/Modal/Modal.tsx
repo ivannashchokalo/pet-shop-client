@@ -62,7 +62,7 @@ export default function Modal({ children, onClose, redirectPath }: ModalProps) {
           onClick={handleModalClose}
           className="absolute top-4 right-4"
         >
-          <Icon name="cross" className="fill-[#323f50]" />
+          <Icon name="cross" className="fill-[var(--icon-color)]" />
         </IconButton>
         {children}
       </ContentCard>

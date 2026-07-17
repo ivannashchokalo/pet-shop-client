@@ -29,7 +29,8 @@ const ResetPasswordSchema = Yup.object({
 });
 
 // styles
-const labelStyles = "mb-1 block font-medium text-[16px] text-[#0c1118]";
+const labelStyles =
+  "mb-1 block font-medium text-[16px] text-[var(--text-secondary)]";
 
 export default function ResetPasswordForm({
   isPending,
@@ -80,7 +81,11 @@ export default function ResetPasswordForm({
             />
           </div>
 
-          <Button type="submit" disabled={isPending} className="py-2 px-8">
+          <Button
+            type="submit"
+            disabled={isPending}
+            className="min-w-[195px] py-2 px-8 font-medium text-[16px]"
+          >
             {isPending ? "Resetting..." : "Reset Password"}
           </Button>
         </Form>

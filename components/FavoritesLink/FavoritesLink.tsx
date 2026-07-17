@@ -22,8 +22,10 @@ export default function FavoritesLink() {
           <Icon
             name="heart"
             className={clsx(
-              "stroke-[#323F50]",
-              pathname === "/favorites" ? "fill-[#323F50]" : "fill-none",
+              "stroke-[var(--icon-color)]",
+              pathname === "/favorites"
+                ? "fill-[var(--icon-color)]"
+                : "fill-none",
             )}
           />
 

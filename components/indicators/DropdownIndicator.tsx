@@ -14,7 +14,7 @@ export default function DropdownIndicator(
       <Icon
         name="arrow"
         className={clsx(
-          "fill-none stroke-[#323f50] stroke-1 transition-transform duration-300",
+          "fill-none stroke-[#a2a2a2] stroke-1 transition-transform duration-300",
           menuIsOpen && "rotate-180",
         )}
       />

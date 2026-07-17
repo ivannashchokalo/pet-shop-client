@@ -20,7 +20,7 @@ interface MobileFiltersProps {
 
 // styles
 const labelStyles =
-  "flex flex-col gap-4 font-medium text-[16px] text-[#151c26]";
+  "flex flex-col gap-4 font-medium text-[16px] text-[var(--text-main)]";
 
 export default function MobileFilters({ type }: MobileFiltersProps) {
   const { isOpen, setIsOpen, dropdownRef, closeDropdown } = useDropdown();
@@ -38,7 +38,7 @@ export default function MobileFilters({ type }: MobileFiltersProps) {
 
       <div
         className={clsx(
-          " min-h-[700px] absolute top-12 left-0 w-[325px] h-[760px] z-10 bg-white pt-20 px-6 pb-6 rounded-[20px] shadow-[0_2px_12px_0_rgba(50,63,80,0.15)] transition-all duration-500 ease-out",
+          " min-h-[700px] absolute top-12 left-0 w-[325px] h-[760px] z-10 bg-[var(--mobile-menu-bg)] pt-20 px-6 pb-6 rounded-[20px] shadow-[0_2px_12px_0_rgba(50,63,80,0.15)] transition-all duration-500 ease-out",
           isOpen
             ? "opacity-100 translate-x-0"
             : "opacity-0 -translate-x-[100%] pointer-events-none",
@@ -46,12 +46,14 @@ export default function MobileFilters({ type }: MobileFiltersProps) {
       >
         <IconButton
           onClick={closeDropdown}
-          className="absolute top-6 right-6 p-[10px]"
+          className="absolute top-6 right-6 p-[10px] hover:bg-[rgba(199,224,246,0.2)] focus-visible:bg-[rgba(199,224,246,0.2)]"
         >
-          <Icon name="cross" />
+          <Icon name="cross" className="fill-[var(--icon-color)]" />
         </IconButton>
         <div className="flex items-center justify-between mb-12 pb-4 border-b border-[#bac9df]">
-          <h2 className="font-semibold text-[24px] text-[#151c26] ">Filters</h2>
+          <h2 className="font-semibold text-[24px] text-[var(--text-main)] ">
+            Filters
+          </h2>
           <ClearFiltersButton />
         </div>
 

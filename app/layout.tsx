@@ -6,6 +6,7 @@ import { Metadata } from "next";
 import { Toaster } from "sonner";
 import AuthProvider from "@/providers/AuthProvider";
 import { Montserrat } from "next/font/google";
+import { ThemeProvider } from "@/providers/ThemeProvider";
 
 export const metadata: Metadata = {
   title: "Animals marketplace",
@@ -49,13 +50,15 @@ export default function RootLayout({
       <body className={`${montserrat.variable} flex min-h-screen flex-col`}>
         <TanstackQueryProvider>
           <AuthProvider>
-            <Header />
-            <main className="flex-1 bg-[#f8fafc]">
-              {children}
-              {reserve}
-            </main>
-            <Toaster />
-            <Footer />
+            <ThemeProvider>
+              <Header />
+              <main className="flex-1 bg-[var(--background)]">
+                {children}
+                {reserve}
+              </main>
+              <Toaster />
+              <Footer />
+            </ThemeProvider>
           </AuthProvider>
         </TanstackQueryProvider>
       </body>

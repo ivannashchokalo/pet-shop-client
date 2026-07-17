@@ -38,12 +38,12 @@ export default function CategoryCard({
         name={icon}
         width={iconWidth}
         height={iconHeight}
-        className={clsx("mx-auto fill-[#323f50]", iconClassName)}
+        className={clsx("mx-auto fill-[var(--icon-category)]", iconClassName)}
       />
 
       <h2
         className={clsx(
-          "flex flex-col gap-[2px] font-semibold text-[#323f50]",
+          "flex flex-col gap-[2px] font-semibold text-[var(--text-main)]",
           titleClassName,
         )}
       >
@@ -51,7 +51,7 @@ export default function CategoryCard({
 
         <span
           className={clsx(
-            "font-medium text-[15px] leading-[1.4] tracking-[0.01em] text-[#576b86]",
+            "font-medium text-[15px] leading-[1.4] tracking-[0.01em] text-[var(--text-category)]",
             subtitleClassName,
           )}
         >
@@ -62,7 +62,12 @@ export default function CategoryCard({
   );
 
   return (
-    <li className={clsx("rounded-[20px] bg-[#c7e0f6]", cardClassName)}>
+    <li
+      className={clsx(
+        "rounded-[20px] bg-[var(--background-category)]",
+        cardClassName,
+      )}
+    >
       {href ? (
         <Link href={href} className={clsx(contentClass, contentClassName)}>
           {content}

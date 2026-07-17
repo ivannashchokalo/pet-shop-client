@@ -21,8 +21,10 @@ export default function ProfileLink() {
           <Icon
             name="user"
             className={clsx(
-              "stroke-[#323F50]",
-              pathname === "/profile" ? "fill-[#323f50]" : "fill-transparent",
+              "stroke-[var(--icon-color)]",
+              pathname === "/profile"
+                ? "fill-[var(--icon-color)]"
+                : "fill-transparent",
             )}
           />
         </IconButton>

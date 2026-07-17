@@ -61,7 +61,11 @@ export default function PriceRangeFilter({ price }: PriceRangeFilterProps) {
 
               background: getTrackBackground({
                 values,
-                colors: ["#eee", "#aad2f2", "#eee"],
+                colors: [
+                  "var(--price-range-bg)",
+                  "#aad2f2",
+                  "var(--price-range-bg)",
+                ],
                 min: price.min,
                 max: price.max,
               }),
@@ -86,7 +90,7 @@ export default function PriceRangeFilter({ price }: PriceRangeFilterProps) {
                     name="price-range"
                     width={50}
                     height={40}
-                    className="fill-[#eee]"
+                    className="fill-[var(--price-range-bg)]"
                   />
 
                   <span className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-65%] flex items-center justify-center font-medium text-[14px] text-[#7793b7]">

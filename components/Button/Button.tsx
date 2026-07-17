@@ -20,7 +20,7 @@ const variants = {
     "bg-[#c7e0f6] hover:bg-[#9db4d3] focus-visible:bg-[#85a3c9] active:bg-[#85a3c9] disabled:bg-[#e8eef5] disabled:text-[#9db4d3] disabled:cursor-not-allowed",
 
   secondary:
-    "bg-transparent border border-[#85a3c9] hover:border-[#c7e0f6] hover:bg-[rgba(199,224,246,0.5)] focus-visible:border-[#c7e0f6] focus-visible:bg-[#c7e0f6] active:bg-[#c7e0f6] disabled:bg-[#e8eef5] disabled:text-[#9db4d3] disabled:cursor-not-allowed",
+    "text-[var(--text-main)] bg-transparent border border-[#85a3c9] hover:border-[#c7e0f6] hover:bg-[rgba(199,224,246,0.5)] focus-visible:border-[#c7e0f6] focus-visible:bg-[#c7e0f6] active:bg-[#c7e0f6] disabled:bg-[#e8eef5] disabled:text-[#9db4d3] disabled:cursor-not-allowed",
 };
 
 export default function Button({

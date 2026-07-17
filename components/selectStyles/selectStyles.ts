@@ -1,9 +1,17 @@
 import { SelectOption } from "@/types/selectOptions";
 import type { StylesConfig } from "react-select";
 
+const SELECT_BG = "var(--select-bg)";
+const SELECT_BORDER_COLOR = "var(--select-border-color)";
+const SELECT_BORDER_COLOR_HOVER = "var(--select-border-color-hover)";
+const SELECT_TEXT_COLOR = "var(--select-text-color)";
+const SELECT_MULTI_VALUE_BG = "var(--select-multi-value-bg)";
+const SELECT_MULTI_VALUE_TEXT = "var(--select-multi-value-text)";
+
 export const selectStyles: StylesConfig<SelectOption> = {
   control: (provided, state) => ({
     ...provided,
+    backgroundColor: SELECT_BG,
     borderRadius: "20px",
     borderWidth: "1px",
     borderStyle: "solid",
@@ -12,10 +20,12 @@ export const selectStyles: StylesConfig<SelectOption> = {
     cursor: "pointer",
     boxShadow: "none",
     height: "44px",
-    borderColor: state.isFocused ? "#aad2f2" : "#a2a2a2",
+    borderColor: state.isFocused
+      ? SELECT_BORDER_COLOR_HOVER
+      : SELECT_BORDER_COLOR,
 
     "&:hover": {
-      borderColor: "#aad2f2",
+      borderColor: SELECT_BORDER_COLOR_HOVER,
     },
   }),
 
@@ -26,7 +36,7 @@ export const selectStyles: StylesConfig<SelectOption> = {
 
   placeholder: (provided) => ({
     ...provided,
-    color: "#a2a2a2",
+    color: SELECT_TEXT_COLOR,
     fontWeight: 400,
     fontSize: "14px",
     lineHeight: "1.5",
@@ -48,7 +58,7 @@ export const selectStyles: StylesConfig<SelectOption> = {
   multiValue: (provided) => ({
     ...provided,
     padding: "4px",
-    backgroundColor: "#f8fafc",
+    backgroundColor: SELECT_MULTI_VALUE_BG,
     borderRadius: "100px",
     margin: "0 4px 0 0",
   }),
@@ -59,7 +69,7 @@ export const selectStyles: StylesConfig<SelectOption> = {
     fontWeight: 400,
     fontSize: "14px",
     lineHeight: 1.5,
-    color: "#7793b7",
+    color: SELECT_MULTI_VALUE_TEXT,
   }),
 
   multiValueRemove: (provided) => ({
@@ -83,13 +93,13 @@ export const selectStyles: StylesConfig<SelectOption> = {
 
   clearIndicator: (provided) => ({
     ...provided,
-    fill: "#a2a2a2",
+    fill: SELECT_TEXT_COLOR,
   }),
 
   menu: (provided) => ({
     ...provided,
     borderRadius: "10px",
-    backgroundColor: "#fff",
+    backgroundColor: SELECT_BG,
     overflow: "hidden",
     marginTop: "2px",
   }),
@@ -102,11 +112,10 @@ export const selectStyles: StylesConfig<SelectOption> = {
   option: (provided, state) => ({
     ...provided,
     fontFamily: "var(--font-montserrat)",
-    color: state.isSelected
-      ? "#aad2f2"
-      : state.isFocused
-        ? "#aad2f2"
-        : "#a2a2a2",
+    color:
+      state.isSelected || state.isFocused
+        ? SELECT_BORDER_COLOR_HOVER
+        : SELECT_TEXT_COLOR,
     backgroundColor: "transparent",
     fontWeight: 400,
     fontSize: "14px",

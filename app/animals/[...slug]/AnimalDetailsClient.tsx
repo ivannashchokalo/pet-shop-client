@@ -18,10 +18,10 @@ import { useAuthStore } from "@/lib/stores/authStore";
 import { fetchUserRequests } from "@/lib/api/client/requestsClient";
 
 // styles
-const infoCardClass = "w-full rounded-[20px] bg-[#c7e0f6]/50 p-4";
+const infoCardClass = "w-full rounded-[20px] bg-[#c7e0f6] p-4";
 const infoTitleClass =
-  "flex items-center gap-2 mb-4 font-medium text-[20px] text-[#151c26]";
-const infoTextClass = "text-[16px] text-[#151c26]";
+  "flex items-center gap-2 mb-4 font-medium text-[20px] text-[#323f50]";
+const infoTextClass = "text-[16px]";
 
 export default function AnimalDetailsClient() {
   const router = useRouter();
@@ -71,10 +71,10 @@ export default function AnimalDetailsClient() {
 
         <div className="xl:grow">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="font-semibold text-[32px] text-[#151c26]">
+            <h2 className="font-semibold text-[32px] text-[var(--text-main)]">
               {animal?.name}
             </h2>
-            <p className="font-semibold text-[32px] text-[#151c26]">
+            <p className="font-semibold text-[32px] text-[var(--text-main)]">
               ${animal?.price}
             </p>
           </div>
@@ -104,21 +104,23 @@ export default function AnimalDetailsClient() {
                 <Icon name="calendar" className="fill-none stroke-[#323f50]" />
                 Age
               </h3>
-              <p className={infoTextClass}>{age}</p>
+              <p className={clsx("#323f50", infoTextClass)}>{age}</p>
             </li>
             <li className={infoCardClass}>
               <h3 className={infoTitleClass}>
                 <Icon name="gender" className="fill-none stroke-[#323f50]" />
                 Gender
               </h3>
-              <p className={infoTextClass}>{animal?.sex}</p>
+              <p className={clsx("#323f50", infoTextClass)}>{animal?.sex}</p>
             </li>
           </ul>
           <div className="mb-8">
-            <h3 className="mb-4 font-semibold text-[24px] text-[#151c26]">
+            <h3 className="mb-4 font-semibold text-[24px] text-[var(--text-main)]">
               About {animal?.name}
             </h3>
-            <p className={infoTextClass}>{animal?.description}</p>
+            <p className={clsx("text-[var(--text-main)]", infoTextClass)}>
+              {animal?.description}
+            </p>
           </div>
           <div className="flex flex-col gap-4 md:flex-row">
             <Button
@@ -132,13 +134,13 @@ export default function AnimalDetailsClient() {
                   "mr-4 transition-all duration-200",
                   isFavorite
                     ? "fill-[#323f50] stroke-[#323f50]"
-                    : "fill-none stroke-[#323f50]",
+                    : "fill-none stroke-[var(--icon-color)]",
                 )}
               />
               {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
             </Button>
             <Button
-              className="w-full p-[10px]"
+              className="w-full p-[10px] font-medium text-[16px]"
               onClick={() => router.push(`/animals/reserve/${id}`)}
               disabled={isReserved}
             >

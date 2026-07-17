@@ -40,7 +40,9 @@ export default function SexRadioGroup() {
           {sex === "" && <div className="h-2 w-2 rounded-full bg-[#aad2f2]" />}
         </div>
 
-        <span className="font-medium text-[16px] text-[#151c26]">All</span>
+        <span className="font-medium text-[16px] text-[var(--text-main)]">
+          All
+        </span>
       </label>
 
       <label className="flex cursor-pointer items-center gap-3 group">
@@ -61,7 +63,9 @@ export default function SexRadioGroup() {
           )}
         </div>
 
-        <span className="font-medium text-[16px] text-[#151c26]">Male</span>
+        <span className="font-medium text-[16px] text-[var(--text-main)]">
+          Male
+        </span>
       </label>
 
       <label className="flex cursor-pointer items-center gap-3 group">
@@ -82,7 +86,9 @@ export default function SexRadioGroup() {
           )}
         </div>
 
-        <span className="font-medium text-[16px] text-[#151c26]">Female</span>
+        <span className="font-medium text-[16px] text-[var(--text-main)]">
+          Female
+        </span>
       </label>
     </div>
   );

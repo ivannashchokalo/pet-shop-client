@@ -1,5 +1,69 @@
 @import "tailwindcss";
 
+:root {
+  --background: #f8fafc;
+  --background-header: #fff;
+  --hero-bg: url("/hero-light.svg");
+  --about-bg: url("/about-background.svg");
+  --text-secondary: #323f50;
+  --icon-color: #323f50;
+  --card-background-second: #fff;
+  --text-main: #151c26;
+  --background-category: #c7e0f6;
+  --icon-category: #151c26;
+  --text-category: #576b86;
+  --background-dark: #323f50;
+  --card-background-main: #fff;
+  --border-card-main: #c7e0f6;
+  --heart-button-card-bg: #fff;
+  --heart-button-bg-interactive: #4d4d4d;
+  --breadcrumb-text: #85a3c9;
+  --contetn-card-bg: #fff;
+
+  --select-bg: #fff;
+  --select-border-color: #a2a2a2;
+  --select-border-color-hover: #aad2f2;
+  --select-text-color: #a2a2a2;
+  --select-multi-value-bg: #f8fafc;
+  --select-multi-value-text: #7793b7;
+  --price-range-bg: #eee;
+
+  --mobile-menu-bg: #fff;
+  --mobile-menu-icon: #323f50;
+}
+
+.dark {
+  --background: #0b0e14;
+  --background-header: #343434;
+  --hero-bg: url("/hero-dark.svg");
+  --about-bg: url("/about-background-dark.svg");
+  --text-secondary: #fafafa;
+  --icon-color: #fafafa;
+  --card-background-second: #576b86;
+  --text-main: #fafafa;
+  --background-category: #576b86;
+  --icon-category: #aad2f2;
+  --text-category: #aad2f2;
+  --background-dark: #343434;
+  --card-background-main: rgba(64, 64, 64, 0.3);
+  --border-card-main: #323f50;
+  --heart-card-bg: #4d4d4d;
+  --heart-button-bg-interactive: #fff;
+  --breadcrumb-text: #bac9df;
+  --contetn-card-bg: #343434;
+
+  --select-bg: rgba(50, 63, 80, 0.8);
+  --select-border-color: #757575;
+  --select-border-color-hover: #aad2f2;
+  --select-text-color: #fafafa;
+  --select-multi-value-bg: rgba(248, 250, 252, 0.2);
+  --select-multi-value-text: #fafafa;
+  --price-range-bg: rgba(50, 63, 80, 0.8);
+
+  --mobile-menu-bg: rgba(64, 64, 64, 0.9);
+  --mobile-menu-icon: #aad2f2;
+}
+
 body {
   font-family: var(--font-montserrat);
   letter-spacing: normal;
