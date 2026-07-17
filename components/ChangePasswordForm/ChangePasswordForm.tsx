@@ -7,6 +7,7 @@ import { toast } from "sonner";
 import * as Yup from "yup";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
+import Loader from "../Loader/Loader";
 
 interface ChangePasswordValues {
   oldPassword: string;
@@ -74,7 +75,7 @@ export function ChangePasswordForm() {
             className="min-w-[180px] py-2 px-4"
             disabled={isPending}
           >
-            {isPending ? "Changing..." : "Change password"}
+            {isPending ? <Loader /> : "Change password"}
           </Button>
         </Form>
       </Formik>

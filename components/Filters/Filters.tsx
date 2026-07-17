@@ -17,7 +17,7 @@ export default function Filters({ type }: FiltersProps) {
   const { data, breeds, sortBy } = useFilters(type);
 
   return (
-    <div className="hidden md:flex md:flex-col md:gap-6">
+    <div className="hidden md:flex md:flex-col md:gap-6 md:h-[210px]">
       <div className="flex items-start gap-4 flex-wrap md:min-h-[115px] xl:min-h-0">
         <label htmlFor="breeds" className="sr-only">
           Breed
@@ -49,7 +49,7 @@ export default function Filters({ type }: FiltersProps) {
         <SexRadioGroup />
         {data?.price && <PriceRangeFilter price={data.price} />}
       </div>
-      <ClearFiltersButton className="self-end" />
+      <ClearFiltersButton className="self-end mt-auto" />
     </div>
   );
 }

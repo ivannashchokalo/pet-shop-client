@@ -62,7 +62,7 @@ export default function AnimalsByCategoryClient() {
       {totalPages > 1 && (
         <Pagination
           page={page}
-          totalPages={20}
+          totalPages={totalPages}
           onPageChange={handlePageChange}
         />
       )}

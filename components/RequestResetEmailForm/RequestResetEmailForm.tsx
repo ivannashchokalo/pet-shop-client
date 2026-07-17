@@ -4,6 +4,7 @@ import { ErrorMessage, Form, Formik } from "formik";
 import * as Yup from "yup";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
+import Loader from "../Loader/Loader";
 
 interface FormValues {
   email: string;
@@ -54,7 +55,7 @@ export default function RequestResetEmailForm({
             className="min-w-[120px] py-2 px-8 font-medium text-[16px]"
             disabled={isPending}
           >
-            {isPending ? "Sending..." : "Send"}
+            {isPending ? <Loader /> : "Send"}
           </Button>
         </Form>
       )}

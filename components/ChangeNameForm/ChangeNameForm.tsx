@@ -9,6 +9,7 @@ import { toast } from "sonner";
 import * as Yup from "yup";
 import Button from "../Button/Button";
 import Input from "../Input/Input";
+import Loader from "../Loader/Loader";
 
 interface ChangeNameValues {
   name: UserName;
@@ -66,7 +67,7 @@ export function ChangeNameForm() {
             className="min-w-[180px] py-2 px-4"
             disabled={isPending}
           >
-            {isPending ? "Changing..." : "Change name"}
+            {isPending ? <Loader /> : "Change name"}
           </Button>
         </Form>
       </Formik>

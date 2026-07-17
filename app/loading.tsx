@@ -1,3 +1,5 @@
+import Loader from "@/components/Loader/Loader";
+
 export default function Loading() {
-  return <p>Loading...</p>;
+  return <Loader className="absolute top-[30%] left-1/2 -translate-x-1/2" />;
 }

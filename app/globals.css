@@ -19,6 +19,7 @@
   --heart-button-bg-interactive: #4d4d4d;
   --breadcrumb-text: #85a3c9;
   --contetn-card-bg: #fff;
+  --header-shadow: 0 2px 4px 0 rgba(50, 63, 80, 0.1);
 
   --select-bg: #fff;
   --select-border-color: #a2a2a2;
@@ -30,6 +31,8 @@
 
   --mobile-menu-bg: #fff;
   --mobile-menu-icon: #323f50;
+
+  --pagination-bg: #fff;
 }
 
 .dark {
@@ -51,6 +54,7 @@
   --heart-button-bg-interactive: #fff;
   --breadcrumb-text: #bac9df;
   --contetn-card-bg: #343434;
+  --header-shadow: 0 4px 16px rgba(255, 255, 255, 0.12);
 
   --select-bg: rgba(50, 63, 80, 0.8);
   --select-border-color: #757575;
@@ -62,6 +66,8 @@
 
   --mobile-menu-bg: rgba(64, 64, 64, 0.9);
   --mobile-menu-icon: #aad2f2;
+
+  --pagination-bg: #323f50;
 }
 
 body {
@@ -85,6 +91,8 @@ button {
   cursor: pointer;
 }
 
+/* swiper */
+
 .custom-prev.swiper-button-disabled,
 .custom-next.swiper-button-disabled {
   opacity: 0.4;
@@ -95,4 +103,27 @@ button {
 .custom-prev.swiper-button-disabled:hover,
 .custom-next.swiper-button-disabled:hover {
   background: rgba(199, 224, 246, 0.5);
+}
+
+/* loader */
+
+@keyframes paw {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-paw {
+  animation: paw 1s linear infinite;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
 }

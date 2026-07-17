@@ -98,7 +98,7 @@ export default async function Home() {
             </ul>
           </div>
           <div className="relative w-[400px] h-[448px] md:absolute md:left-0 md:top-[50%] md:translate-y-[-50%] xl:top-0 xl:translate-y-0 xl:w-[652px] xl:h-[798px]">
-            <Image src="/dog-hero-dark.webp" fill alt="customer with animal" />
+            <Image src="/customer-dark.webp" fill alt="customer with animal" />
           </div>
         </Container>
       </Section>

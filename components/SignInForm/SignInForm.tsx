@@ -136,7 +136,11 @@ export default function SignInForm({
               Forgot password?
             </button>
 
-            <Button type="submit" disabled={isPending} className="py-2 px-8">
+            <Button
+              type="submit"
+              disabled={isPending}
+              className="min-w-[150px] py-2 px-8"
+            >
               {isPending ? <Loader /> : "Login"}
             </Button>
             <p className="flex items-center gap-1 font-medium text-[14px] text-[#9db4d3]">

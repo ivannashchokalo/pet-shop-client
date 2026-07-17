@@ -4,6 +4,7 @@ import { ErrorMessage, Form, Formik } from "formik";
 import * as Yup from "yup";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
+import Loader from "../Loader/Loader";
 
 interface FormValues {
   password: string;
@@ -86,7 +87,7 @@ export default function ResetPasswordForm({
             disabled={isPending}
             className="min-w-[195px] py-2 px-8 font-medium text-[16px]"
           >
-            {isPending ? "Resetting..." : "Reset Password"}
+            {isPending ? <Loader /> : "Reset Password"}
           </Button>
         </Form>
       )}

@@ -17,6 +17,7 @@ import { useAuthStore } from "@/lib/stores/authStore";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
 import { toast } from "sonner";
+import Loader from "../Loader/Loader";
 
 interface FormValues {
   customerName: string;
@@ -54,7 +55,7 @@ export default function AnimalReservationForm({
   const user = useAuthStore((state) => state.user);
   const queryClient = useQueryClient();
 
-  const { mutate } = useMutation({
+  const { mutate, isPending } = useMutation({
     mutationFn: createRequest,
 
     onSuccess: (data) => {
@@ -103,19 +104,25 @@ export default function AnimalReservationForm({
 
   if (isRegisteredModalOpen) {
     return (
-      <p>
-        Your reservation has been successfully submitted. Please wait for our
-        team to contact you soon.
-      </p>
+      <>
+        <p className="mb-6 text-[20px] text-center font-medium text-[var(--text-secondary)]">
+          Your reservation has been successfully submitted.
+        </p>
+        <p className="mx-auto font-medium text-[16px] text-[#576b86]">
+          Please wait for our team to contact you soon.
+        </p>
+      </>
     );
   }
 
   if (isGuestModalOpen) {
     return (
       <>
-        <p>Your reservation has been successfully submitted.</p>
+        <p className="mb-6 text-[20px] text-center font-medium text-[var(--text-secondary)]">
+          Your reservation has been successfully submitted.
+        </p>
 
-        <p>
+        <p className="mx-auto font-medium text-[16px] text-[#576b86]">
           To track your reservations and manage your requests more easily,
           please <Link href="/sign-up">create an account</Link>
         </p>
@@ -259,8 +266,8 @@ export default function AnimalReservationForm({
             </div>
           </fieldset>
 
-          <Button type="submit" className="py-2 px-8">
-            Reserve
+          <Button type="submit" className="min-w-[130px] py-2 px-8">
+            {isPending ? <Loader /> : "Reserve"}
           </Button>
         </Form>
       )}

@@ -118,7 +118,11 @@ export default function SignUpForm() {
               />
             </div>
 
-            <Button type="submit" disabled={isPending} className="py-2 px-6">
+            <Button
+              type="submit"
+              disabled={isPending}
+              className="min-w-[150px] py-2 px-6"
+            >
               {isPending ? <Loader /> : "Sign up"}
             </Button>
           </Form>
