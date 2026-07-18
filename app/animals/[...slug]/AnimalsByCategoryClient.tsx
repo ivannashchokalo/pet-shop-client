@@ -1,6 +1,8 @@
 "use client";
 
 import AnimalsList from "@/components/AnimalsList/AnimalsList";
+import Filters from "@/components/Filters/Filters";
+import MobileFilters from "@/components/MobileFilters/MobileFilters";
 import Pagination from "@/components/Pagination/Pagination";
 import { fetchAnimals } from "@/lib/api/client/animalsClient";
 import { useQuery } from "@tanstack/react-query";
@@ -29,7 +31,7 @@ export default function AnimalsByCategoryClient() {
   const { data } = useQuery({
     queryKey: [
       "animals",
-      { page, type, breed, sex, sortBy, sortOrder, search, minPrice, maxPrice },
+      { page, type, breed, sex, sortOrder, search, minPrice, maxPrice },
     ],
     queryFn: () =>
       fetchAnimals(
@@ -58,6 +60,8 @@ export default function AnimalsByCategoryClient() {
 
   return (
     <>
+      <Filters type={type} />
+      <MobileFilters type={type} />
       {animals.length > 0 && <AnimalsList animals={animals} />}
       {totalPages > 1 && (
         <Pagination

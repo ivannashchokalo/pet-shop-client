@@ -39,3 +39,12 @@ export const serverFetchAnimalById = async (id: AnimalId) => {
   const { data } = await nextServer.get<Animal>(`/animals/${id}`);
   return data;
 };
+
+export const serverFetchFilters = async (type: string) => {
+  const { data } = await nextServer.get("/animals/filters", {
+    params: {
+      type,
+    },
+  });
+  return data;
+};

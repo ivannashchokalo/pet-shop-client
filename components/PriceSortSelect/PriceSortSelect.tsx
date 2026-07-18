@@ -50,7 +50,7 @@ export default function PriceSortSelect({ inputId }: PriceSortSelectProps) {
       styles={selectStyles}
       inputId={inputId}
       options={options}
-      placeholder="Sort by price"
+      placeholder="Choose order"
       isClearable
       value={selectedOption}
       onChange={handleSortChange}

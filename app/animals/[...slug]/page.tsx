@@ -10,9 +10,8 @@ import AnimalsByCategoryClient from "./AnimalsByCategoryClient";
 import {
   serverFetchAnimalById,
   serverFetchAnimals,
+  serverFetchFilters,
 } from "@/lib/api/server/animalsServer";
-import MobileFilters from "@/components/MobileFilters/MobileFilters";
-import Filters from "@/components/Filters/Filters";
 import { DEFAULT_PET } from "@/constants/images";
 
 interface Props {
@@ -78,6 +77,8 @@ export default async function AnimalsByCategory({
   const { slug } = await params;
   const category = slug[0];
 
+  if (!["cat", "dog"].includes(category)) return notFound();
+
   if (slug.length > 2) {
     notFound();
   }
@@ -106,7 +107,6 @@ export default async function AnimalsByCategory({
           type,
           breed,
           sex,
-          sortBy,
           sortOrder,
           search,
           minPrice,
@@ -127,10 +127,13 @@ export default async function AnimalsByCategory({
         ),
     });
 
+    await queryClient.prefetchQuery({
+      queryKey: ["filters", type],
+      queryFn: () => serverFetchFilters(type),
+    });
+
     return (
       <>
-        <Filters type={type} />
-        <MobileFilters type={type} />
         <HydrationBoundary state={dehydrate(queryClient)}>
           <AnimalsByCategoryClient />
         </HydrationBoundary>

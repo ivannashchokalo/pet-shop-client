@@ -8,6 +8,7 @@ import PriceRangeFilter from "../PriceRangeFilter/PriceRangeFilter";
 import SortTypeSelect from "../SortTypeSelect/SortTypeSelect";
 import { useFilters } from "@/hooks/useFilters";
 import { ClearFiltersButton } from "../ClearFiltersButton/ClearFiltersButton";
+import { useSearchParams } from "next/navigation";
 
 interface FiltersProps {
   type: string;
@@ -15,9 +16,10 @@ interface FiltersProps {
 
 export default function Filters({ type }: FiltersProps) {
   const { data, breeds, sortBy } = useFilters(type);
+  const searchParams = useSearchParams();
 
   return (
-    <div className="hidden md:flex md:flex-col md:gap-6 md:h-[210px]">
+    <div className="hidden md:flex md:flex-col md:gap-6">
       <div className="flex items-start gap-4 flex-wrap md:min-h-[115px] xl:min-h-0">
         <label htmlFor="breeds" className="sr-only">
           Breed
@@ -47,7 +49,9 @@ export default function Filters({ type }: FiltersProps) {
 
       <div className="flex flex-col gap-15">
         <SexRadioGroup />
-        {data?.price && <PriceRangeFilter price={data.price} />}
+        {data?.price && (
+          <PriceRangeFilter price={data.price} key={searchParams.toString()} />
+        )}
       </div>
       <ClearFiltersButton className="self-end mt-auto" />
     </div>

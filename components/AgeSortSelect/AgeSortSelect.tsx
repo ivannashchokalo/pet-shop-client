@@ -53,7 +53,7 @@ export default function AgeSortSelect({ inputId }: AgeSortSelectProps) {
       styles={selectStyles}
       inputId={inputId}
       options={options}
-      placeholder="Sort by age"
+      placeholder="Choose order"
       isClearable
       value={selectedOption}
       onChange={handleSortChange}

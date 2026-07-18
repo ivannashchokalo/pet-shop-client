@@ -11,6 +11,7 @@ export function useFilters(type: string) {
   const { data } = useQuery({
     queryKey: ["filters", type],
     queryFn: () => fetchFilters(type),
+    refetchOnMount: false,
   });
 
   const breeds = data?.breeds ?? [];
