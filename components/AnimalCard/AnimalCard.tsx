@@ -15,7 +15,6 @@ import capitalizeFirstLetter from "@/utils/text";
 interface AnimalCardProps {
   animal: Animal;
   isFavorite: boolean;
-  isReserved: boolean;
   onFavoriteClick: (animalId: AnimalId) => void;
 }
 
@@ -26,7 +25,6 @@ const infoIconClass = "fill-none stroke-[#9db4d3]";
 export default function AnimalCard({
   animal,
   isFavorite,
-  isReserved,
   onFavoriteClick,
 }: AnimalCardProps) {
   const searchParams = useSearchParams();
@@ -40,6 +38,9 @@ export default function AnimalCard({
       `/animals/reserve/${animal._id}?from=${encodeURIComponent(from)}`,
     );
   };
+
+  const isUnavailable =
+    animal.status === "reserved" || animal.status === "sold";
 
   return (
     <li className="relative overflow-hidden rounded-[20px] shadow-[0_2px_4px_0_rgba(50,63,80,0.1)] border-x-[0.2px] border-b-[0.2px] border-[var(--border-card-main)] bg-[var(--card-background-main)]">
@@ -98,9 +99,13 @@ export default function AnimalCard({
         <Button
           className="w-full p-[10px] font-medium text-[20px] leading-[0.9] text-[#0c1118]"
           onClick={handleReserveClick}
-          disabled={isReserved}
+          disabled={isUnavailable}
         >
-          {isReserved ? "Reserved" : "Reserve"}
+          {animal.status === "reserved"
+            ? "Reserved"
+            : animal.status === "sold"
+              ? "Sold"
+              : "Reserve"}
         </Button>
       </div>
 

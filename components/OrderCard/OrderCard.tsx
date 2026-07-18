@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Button from "../Button/Button";
 import clsx from "clsx";
+import Loader from "../Loader/Loader";
 
 interface OrderCardProps {
   request: Request;
@@ -70,7 +71,11 @@ export default function OrderCard({
           disabled={status !== "new" || isDeleting}
           onClick={() => onDelete(_id)}
         >
-          Cancel reservation
+          {isDeletePending ? (
+            <Loader iconColor="fill-[#323f50]" />
+          ) : (
+            "Cancel reservation"
+          )}
         </Button>
       </div>
     </li>

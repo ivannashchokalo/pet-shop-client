@@ -15,7 +15,6 @@ import Image from "next/image";
 import { useParams, useRouter } from "next/navigation";
 import Modal from "@/components/Modal/Modal";
 import { useAuthStore } from "@/lib/stores/authStore";
-import { fetchUserRequests } from "@/lib/api/client/requestsClient";
 
 // styles
 const infoCardClass = "w-full rounded-[20px] bg-[#c7e0f6] p-4";
@@ -38,16 +37,11 @@ export default function AnimalDetailsClient() {
     refetchOnMount: false,
   });
 
-  const { data: userRequests } = useQuery({
-    queryKey: ["user-requests"],
-    queryFn: fetchUserRequests,
-  });
-
   const age = animal?.birthDate ? getAge(animal.birthDate) : "";
   const images = animal?.images ?? [];
   const isFavorite = user?.favorites.includes(id) ?? false;
-  const isReserved =
-    userRequests?.some((request) => request.animalId._id === id) ?? false;
+  const isUnavailable =
+    animal?.status === "reserved" || animal?.status === "sold";
 
   return (
     <>
@@ -142,9 +136,13 @@ export default function AnimalDetailsClient() {
             <Button
               className="w-full p-[10px] font-medium text-[16px]"
               onClick={() => router.push(`/animals/reserve/${id}`)}
-              disabled={isReserved}
+              disabled={isUnavailable}
             >
-              {isReserved ? "Reserved" : "Reserve"}
+              {animal?.status === "reserved"
+                ? "Reserved"
+                : animal?.status === "sold"
+                  ? "Sold"
+                  : "Reserve"}
             </Button>
           </div>
         </div>

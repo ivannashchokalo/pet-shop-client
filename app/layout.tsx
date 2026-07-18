@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     siteName: "Pet shop",
     images: [
       {
-        url: "https://pet-shop-client-five.vercel.app/og-image.png",
+        url: "https://pet-shop-client-five.vercel.app/og-image.webp",
         width: 1200,
         height: 630,
         alt: "Pet shop",
