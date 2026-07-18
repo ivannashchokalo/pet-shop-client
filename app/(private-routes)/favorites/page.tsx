@@ -7,6 +7,16 @@ import {
   HydrationBoundary,
 } from "@tanstack/react-query";
 import { fetchFavoriteAnimalsServer } from "@/lib/api/server/usersServer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Favorite Animals | Pet Shop",
+  description: "View and manage your favorite animals.",
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export default async function FavoritesAnimals() {
   const queryClient = new QueryClient();
