@@ -55,7 +55,7 @@ export default function RequestResetEmailForm({
             className="min-w-[120px] py-2 px-8 font-medium text-[16px]"
             disabled={isPending}
           >
-            {isPending ? <Loader /> : "Send"}
+            {isPending ? <Loader iconColor="fill-[#323f50]" /> : "Send"}
           </Button>
         </Form>
       )}

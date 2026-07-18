@@ -65,7 +65,7 @@ export default function SignUpForm() {
             <div className="relative w-full">
               <label
                 htmlFor="name"
-                className="mb-1 block text-[16px] font-medium text-[#0c1118]"
+                className="mb-1 block text-[16px] font-medium text-[var(--text-secondary)]"
               >
                 Name:
               </label>
@@ -80,7 +80,7 @@ export default function SignUpForm() {
             <div className="relative w-full">
               <label
                 htmlFor="email"
-                className="mb-1 block text-[16px] font-medium text-[#0c1118]"
+                className="mb-1 block text-[16px] font-medium text-[var(--text-secondary)]"
               >
                 Email:<span className="text-red-500">*</span>
               </label>
@@ -101,7 +101,7 @@ export default function SignUpForm() {
             <div className="relative w-full">
               <label
                 htmlFor="password"
-                className="mb-1 block text-[16px] font-medium text-[#0c1118]"
+                className="mb-1 block text-[16px] font-medium text-[var(--text-secondary)]"
               >
                 Password:<span className="text-red-500">*</span>
               </label>
@@ -123,7 +123,7 @@ export default function SignUpForm() {
               disabled={isPending}
               className="min-w-[150px] py-2 px-6"
             >
-              {isPending ? <Loader /> : "Sign up"}
+              {isPending ? <Loader iconColor="fill-[#323f50]" /> : "Sign up"}
             </Button>
           </Form>
         )}

@@ -92,7 +92,7 @@ export default function SignInForm({
             <div className="relative w-full">
               <label
                 htmlFor="email"
-                className="mb-1 block text-[16px] font-medium text-[#0c1118]"
+                className="mb-1 block text-[16px] font-medium text-[var(--text-secondary)]"
               >
                 Email:
               </label>
@@ -112,7 +112,7 @@ export default function SignInForm({
             <div className="relative w-full">
               <label
                 htmlFor="password"
-                className="block mb-1 font-medium text-[16px]  text-[#0c1118]"
+                className="block mb-1 font-medium text-[16px]  text-[var(--text-secondary)]"
               >
                 Password:
               </label>
@@ -141,7 +141,7 @@ export default function SignInForm({
               disabled={isPending}
               className="min-w-[150px] py-2 px-8"
             >
-              {isPending ? <Loader /> : "Login"}
+              {isPending ? <Loader iconColor="fill-[#323f50]" /> : "Login"}
             </Button>
             <p className="flex items-center gap-1 font-medium text-[14px] text-[#9db4d3]">
               Don&apos;t have an account?

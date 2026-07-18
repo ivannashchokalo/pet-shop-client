@@ -13,6 +13,7 @@ import {
 } from "@/lib/api/server/animalsServer";
 import MobileFilters from "@/components/MobileFilters/MobileFilters";
 import Filters from "@/components/Filters/Filters";
+import { DEFAULT_PET } from "@/constants/images";
 
 interface Props {
   params: Promise<{
@@ -42,10 +43,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: animal.name,
       description: `${animal.name} is a ${animal.breed} available for purchase.`,
-      url: "",
+      url: `https://pet-shop-client-five.vercel.app/animals/${animal._id}`,
       images: [
         {
-          url: animal.images?.[0],
+          url: animal.images?.[0] || DEFAULT_PET,
           width: 1200,
           height: 630,
           alt: animal.name,

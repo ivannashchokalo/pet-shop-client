@@ -267,7 +267,7 @@ export default function AnimalReservationForm({
           </fieldset>
 
           <Button type="submit" className="min-w-[130px] py-2 px-8">
-            {isPending ? <Loader /> : "Reserve"}
+            {isPending ? <Loader iconColor="fill-[#323f50]" /> : "Reserve"}
           </Button>
         </Form>
       )}

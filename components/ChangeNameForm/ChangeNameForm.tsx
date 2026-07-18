@@ -67,7 +67,7 @@ export function ChangeNameForm() {
             className="min-w-[180px] py-2 px-4"
             disabled={isPending}
           >
-            {isPending ? <Loader /> : "Change name"}
+            {isPending ? <Loader iconColor="fill-[#323f50]" /> : "Change name"}
           </Button>
         </Form>
       </Formik>

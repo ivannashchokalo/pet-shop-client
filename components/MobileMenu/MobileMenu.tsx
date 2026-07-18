@@ -10,7 +10,8 @@ import { useDropdown } from "@/hooks/useDropdown";
 import { useThemeStore } from "@/lib/stores/themeStote";
 
 // styles
-const itemStyles = "flex items-center gap-4";
+const itemStyles =
+  "flex items-center gap-4 transition-opacity duration-200 hover:opacity-70 focus-visible:opacity-70";
 const textStyles = "font-medium text-4 leading-[1.5] text-center";
 
 export default function MobileMenu() {
@@ -89,7 +90,7 @@ export default function MobileMenu() {
                 className={itemStyles}
                 onClick={closeDropdown}
               >
-                <Icon name="pow" className="stroke-[var(--mobile-menu-icon)]" />
+                <Icon name="pow" className="fill-[var(--mobile-menu-icon)]" />
                 <span className={clsx("text-[var(--text-main)]", textStyles)}>
                   Animals
                 </span>
@@ -99,7 +100,7 @@ export default function MobileMenu() {
         </nav>
         {isAuthenticated && (
           <IconButton
-            className="justify-start gap-4 mt-[20px] w-full"
+            className="justify-start gap-4 mt-[20px] w-full transition-opacity duration-200 hover:opacity-70 focus-visible:opacity-70"
             onClick={() => {
               logout();
               closeDropdown();

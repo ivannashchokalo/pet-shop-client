@@ -87,7 +87,11 @@ export default function ResetPasswordForm({
             disabled={isPending}
             className="min-w-[195px] py-2 px-8 font-medium text-[16px]"
           >
-            {isPending ? <Loader /> : "Reset Password"}
+            {isPending ? (
+              <Loader iconColor="fill-[#323f50]" />
+            ) : (
+              "Reset Password"
+            )}
           </Button>
         </Form>
       )}

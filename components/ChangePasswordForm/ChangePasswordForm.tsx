@@ -75,7 +75,11 @@ export function ChangePasswordForm() {
             className="min-w-[180px] py-2 px-4"
             disabled={isPending}
           >
-            {isPending ? <Loader /> : "Change password"}
+            {isPending ? (
+              <Loader iconColor="fill-[#323f50]" />
+            ) : (
+              "Change password"
+            )}
           </Button>
         </Form>
       </Formik>

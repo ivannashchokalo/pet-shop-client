@@ -6,11 +6,11 @@ import Logo from "../Logo/Logo";
 
 // styles
 const footerLinkStyles =
-  "font-medium text-[16px] leading-[1.5] tracking-[0.01em] text-[#85a3c9]";
+  "font-medium text-[16px] leading-[1.5] tracking-[0.01em] text-[#85a3c9] transition-opacity duration-200 hover:opacity-70 focus-visible:opacity-70";
 const sectionTitleStyles =
   "mb-4 font-medium text-[24px] leading-[1.5] text-white not-italic";
 const socialLinkStyles =
-  "flex items-center justify-center p-3 rounded-full border-[1.5px] border-[#85a3c9]";
+  "flex items-center justify-center p-3 rounded-full border-[1.5px] border-[#85a3c9] transition-opacity duration-200 hover:opacity-70 focus-visible:opacity-70";
 
 export default function Footer() {
   return (

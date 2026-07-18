@@ -33,6 +33,7 @@
   --mobile-menu-icon: #323f50;
 
   --pagination-bg: #fff;
+  --page-loader-color: #323f50;
 }
 
 .dark {
@@ -68,6 +69,7 @@
   --mobile-menu-icon: #aad2f2;
 
   --pagination-bg: #323f50;
+  --page-loader-color: #c7e0f6;
 }
 
 body {

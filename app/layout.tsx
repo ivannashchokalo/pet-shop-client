@@ -9,21 +9,21 @@ import { Montserrat } from "next/font/google";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 
 export const metadata: Metadata = {
-  title: "Animals marketplace",
+  title: "Pet Shop",
   description:
     "Buy healthy animals online from trusted breeders. Discover different breeds, compare options, and choose the perfect pet for your home.",
   openGraph: {
-    title: "Animals marketplace",
+    title: "Pet Shop",
     description:
       "Buy healthy animals online from trusted breeders. Discover different breeds, compare options, and choose the perfect pet for your home.",
-    url: "",
-    siteName: "Animals marketplace",
+    url: "https://pet-shop-client-five.vercel.app/",
+    siteName: "Pet shop",
     images: [
       {
-        url: "",
+        url: "https://pet-shop-client-five.vercel.app/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Animals marketplace",
+        alt: "Pet shop",
       },
     ],
     locale: "en_US",
