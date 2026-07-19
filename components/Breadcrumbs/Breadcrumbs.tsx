@@ -4,10 +4,12 @@ import { fetchAnimalById } from "@/lib/api/client/animalsClient";
 import capitalizeFirstLetter from "@/utils/text";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
 
 export default function Breadcrumbs() {
   const { slug } = useParams<{ slug?: string[] }>();
+  const searchParams = useSearchParams();
+  const from = searchParams.get("from");
 
   const category = slug?.[0];
   const id = slug?.[1];
@@ -36,7 +38,7 @@ export default function Breadcrumbs() {
       {slug.length === 2 ? (
         <>
           <Link
-            href={`/animals/${category}`}
+            href={from || `/animals/${category}`}
             className="text-[16px] text-[var(--breadcrumb-text)]"
           >
             {categoryName}
