@@ -12,7 +12,6 @@ import {
 } from "formik";
 import { useState } from "react";
 import * as Yup from "yup";
-import Link from "next/link";
 import { useAuthStore } from "@/lib/stores/authStore";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
@@ -123,8 +122,8 @@ export default function AnimalReservationForm({
         </p>
 
         <p className="mx-auto font-medium text-[16px] text-[#576b86]">
-          To track your reservations and manage your requests more easily,
-          please <Link href="/sign-up">create an account</Link>
+          You can create an account later to track your reservations and manage
+          your requests.
         </p>
       </>
     );
