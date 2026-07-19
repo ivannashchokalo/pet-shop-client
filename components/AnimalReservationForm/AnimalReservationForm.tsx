@@ -135,6 +135,7 @@ export default function AnimalReservationForm({
       initialValues={initialValues}
       validationSchema={ReservationSchema}
       onSubmit={handleSubmit}
+      enableReinitialize // Enable Formik to update initial values after the authenticated user is loaded
     >
       {({ errors, touched }) => (
         <Form className="flex flex-col items-center gap-4 mx-auto">

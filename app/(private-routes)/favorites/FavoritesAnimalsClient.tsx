@@ -63,7 +63,7 @@ export default function FavoritesAnimalsClient() {
           onClick={mutate}
           className="gap-2 px-6 py-[10px] font-medium text-[#323f50]"
         >
-          <Icon name="trash" className="fill-[#323f50]" />
+          <Icon name="trash" className="fill-current" />
           Clear all
         </Button>
       </div>
