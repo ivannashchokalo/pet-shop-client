@@ -77,7 +77,7 @@ export default async function AnimalsByCategory({
   const { slug } = await params;
   const category = slug[0];
 
-  if (!["cat", "dog"].includes(category)) return notFound();
+  if (!["cat", "dog", "rodent", "bird"].includes(category)) return notFound();
 
   if (slug.length > 2) {
     notFound();
