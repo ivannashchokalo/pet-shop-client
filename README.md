@@ -20,7 +20,7 @@ The application provides users with an intuitive interface for browsing animals,
 
 ## 📸 Application Preview
 
-![Pet Shop Admin Demo](./screenshots/demo-client.gif)
+![Pet Shop Admin Demo](./screenshots/demo.gif)
 
 ---
 
