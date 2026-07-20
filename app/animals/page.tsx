@@ -9,6 +9,9 @@ const iconClass = "mx-auto fill-[#323f50]";
 const cardTitleClass =
   "flex flex-col gap-[2px] font-semibold text-[40px] text-[#323f50]";
 
+// Always render this page dynamically to display up-to-date statistics.
+export const dynamic = "force-dynamic";
+
 export default async function Animals() {
   const {
     dogsCount,

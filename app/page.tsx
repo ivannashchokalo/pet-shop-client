@@ -10,6 +10,7 @@ const iconClass = "mx-auto fill-[var(--icon-category)]";
 const cardTitleClass =
   "flex flex-col gap-[2px] font-semibold text-[32px] text-[var(--text-main)]";
 
+// Always render this page dynamically to display up-to-date statistics.
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
