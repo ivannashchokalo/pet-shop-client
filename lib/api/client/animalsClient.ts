@@ -33,7 +33,6 @@ export const fetchAnimals = async (
       ...(maxPrice && { maxPrice }),
     },
   });
-
   return data;
 };
 

@@ -50,7 +50,7 @@ export default function AnimalsByCategoryClient() {
 
   const handlePageChange = (page: number) => {
     const params = new URLSearchParams(searchParams);
-    params.set("page", String(page + 1));
+    params.set("page", String(page));
 
     router.push(`${pathname}?${params.toString()}`);
   };

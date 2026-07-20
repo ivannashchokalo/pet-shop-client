@@ -24,7 +24,7 @@ export async function GET(req: NextRequest) {
         search,
         minPrice,
         maxPrice,
-        perPage: 12,
+        perPage: 9,
       },
     });
     return NextResponse.json(data);

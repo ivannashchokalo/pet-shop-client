@@ -32,6 +32,8 @@ export const serverFetchAnimals = async (
       Cookie: cookieStore.toString(),
     },
   });
+  console.log(data);
+
   return data;
 };
 
