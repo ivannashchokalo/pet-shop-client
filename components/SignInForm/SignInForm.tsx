@@ -37,9 +37,9 @@ export default function SignInForm({
 }) {
   const router = useRouter();
   const setUser = useAuthStore((state) => state.setUser);
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const from = `${pathname}?${searchParams.toString()}`;
+  // const searchParams = useSearchParams();
+  // const pathname = usePathname();
+  // const from = `${pathname}?${searchParams.toString()}`;
 
   const { mutate, isPending } = useMutation({
     mutationFn: login,
@@ -68,11 +68,12 @@ export default function SignInForm({
   };
 
   const handleSignUpClick = () => {
-    if (fromPath) {
-      router.push(`/sign-up?from=${encodeURIComponent(fromPath)}`);
-    } else {
-      router.push(`/sign-up?from=${encodeURIComponent(from)}`);
-    }
+    // if (fromPath) {
+    //   router.push(`/sign-up?from=${encodeURIComponent(fromPath)}`);
+    // } else {
+    //   router.push(`/sign-up?from=${encodeURIComponent(from)}`);
+    // }
+    router.push("/sign-up");
 
     onModalClose?.();
   };
