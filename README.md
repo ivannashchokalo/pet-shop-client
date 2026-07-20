@@ -115,27 +115,6 @@ This allows users to:
 
 ---
 
-## 🔗 Related Repositories
-
-- 👑 **Admin Panel**  
-  Administrative dashboard for managing animals, processing reservation requests, and monitoring platform activity.  
-  🔗 https://github.com/ivannashchokalo/pet-shop-admin
-
-- ⚙️ **Backend API**  
-  Backend service responsible for authentication, business logic, database operations, image uploads, and REST endpoints.  
-  🔗 https://github.com/ivannashchokalo/pet-shop-api
-
----
-
-> ⚠️ **Important**
->
-> The Client App and Admin Panel share the same authentication cookies.
-> When testing both applications simultaneously, use different browser windows (Incognito or another browser) to avoid cookie conflicts.
-
-
----
-
-
 ## 🧱 Project Structure
 
 The project follows a modular structure with a clear separation of routing, UI components, state management, API communication, and shared utilities.
@@ -157,7 +136,6 @@ utils/         # Utility functions
 
 ---
 
-
 ## 🔐 Environment Variables
 
 Create a `.env` file in the project root and add the required environment variables:
@@ -172,20 +150,6 @@ NEXT_PUBLIC_BACKEND=
 | `NEXT_PUBLIC_API` | Client application URL |
 | `NEXT_PUBLIC_BACKEND` | Base URL of the Pet Shop Backend API |
 
-
-
----
-
-## 🚀 Deployment
-
-- 🌐 **Client App**  
-  https://pet-shop-client-five.vercel.app
-
-- 👑 **Admin Panel**  
-  https://pet-shop-admin-taupe.vercel.app
-
-- ⚙️ **Backend API**  
-  https://pet-shop-api-tmbd.onrender.com
 
 
 ---
@@ -229,6 +193,48 @@ npm run dev
 
 ---
 
+## 🚀 Deployment
+
+- 🌐 **Client App**  
+  https://pet-shop-client-five.vercel.app
+
+- 👑 **Admin Panel**  
+  https://pet-shop-admin-taupe.vercel.app
+
+- ⚙️ **Backend API**  
+  https://pet-shop-api-tmbd.onrender.com
+
+
+---
+
+
+## 🔗 Related Repositories
+
+- 👑 **Admin Panel**  
+  Administrative dashboard for managing animals, processing reservation requests, and monitoring platform activity.  
+  🔗 https://github.com/ivannashchokalo/pet-shop-admin
+
+- ⚙️ **Backend API**  
+  Backend service responsible for authentication, business logic, database operations, image uploads, and REST endpoints.  
+  🔗 https://github.com/ivannashchokalo/pet-shop-api
+
+---
+
+> ⚠️ **Important**
+>
+> The Client App and Admin Panel share the same authentication cookies.
+> When testing both applications simultaneously, use different browser windows (Incognito or another browser) to avoid cookie conflicts.
+
+
+---
+
+## 🔮 Future Improvements
+
+- 📧 Email subscription for notifications about newly added animals
+- 🔥 Trending animals based on user activity
+
+---
+
 
 ## 👩‍💻 Author
 
@@ -239,10 +245,7 @@ Junior Full-Stack Developer
 - 🌐 GitHub: https://github.com/ivannashchokalo
 
 
-
 ---
-
-
 
 ## 📄 License
 

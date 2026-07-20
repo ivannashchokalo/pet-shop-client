@@ -13,6 +13,8 @@ import AgeSortSelect from "../AgeSortSelect/AgeSortSelect";
 import SexRadioGroup from "../SexRadioGroup/SexRadioGroup";
 import PriceRangeFilter from "../PriceRangeFilter/PriceRangeFilter";
 import { ClearFiltersButton } from "../ClearFiltersButton/ClearFiltersButton";
+import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 interface MobileFiltersProps {
   type: string;
@@ -24,7 +26,12 @@ const labelStyles =
 
 export default function MobileFilters({ type }: MobileFiltersProps) {
   const { isOpen, setIsOpen, dropdownRef, closeDropdown } = useDropdown();
-  const { data, breeds, sortBy } = useFilters(type);
+  const { data, breeds } = useFilters(type);
+
+  const searchParams = useSearchParams();
+  const [selectedSortType, setSelectedSortType] = useState(
+    searchParams.get("sortBy") ?? "",
+  );
 
   return (
     <div ref={dropdownRef} className="md:hidden relative mb-10">
@@ -64,14 +71,19 @@ export default function MobileFilters({ type }: MobileFiltersProps) {
             Breeds <BreedSelect inputId="breeds" breeds={breeds} />
           </label>
           <label htmlFor="sortType" className={labelStyles}>
-            Sorting <SortTypeSelect inputId="sortType" />
+            Sorting{" "}
+            <SortTypeSelect
+              inputId="sortType"
+              value={selectedSortType}
+              onChange={setSelectedSortType}
+            />
           </label>
-          {sortBy === "price" && (
+          {selectedSortType === "price" && (
             <label htmlFor="priceOrder" className={labelStyles}>
               Sort order <PriceSortSelect inputId="priceOrder" />
             </label>
           )}
-          {sortBy === "birthDate" && (
+          {selectedSortType === "birthDate" && (
             <label htmlFor="ageOrder" className={labelStyles}>
               Sort order <AgeSortSelect inputId="ageOrder" />
             </label>
