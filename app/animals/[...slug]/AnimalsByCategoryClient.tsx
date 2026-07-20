@@ -31,7 +31,7 @@ export default function AnimalsByCategoryClient() {
   const { data } = useQuery({
     queryKey: [
       "animals",
-      { page, type, breed, sex, sortOrder, search, minPrice, maxPrice },
+      { page, type, breed, sex, sortBy, sortOrder, search, minPrice, maxPrice },
     ],
     queryFn: () =>
       fetchAnimals(

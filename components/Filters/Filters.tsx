@@ -9,14 +9,18 @@ import SortTypeSelect from "../SortTypeSelect/SortTypeSelect";
 import { useFilters } from "@/hooks/useFilters";
 import { ClearFiltersButton } from "../ClearFiltersButton/ClearFiltersButton";
 import { useSearchParams } from "next/navigation";
+import { useState } from "react";
 
 interface FiltersProps {
   type: string;
 }
 
 export default function Filters({ type }: FiltersProps) {
-  const { data, breeds, sortBy } = useFilters(type);
+  const { data, breeds } = useFilters(type);
   const searchParams = useSearchParams();
+  const [selectedSortType, setSelectedSortType] = useState(
+    searchParams.get("sortBy") ?? "",
+  );
 
   return (
     <div className="hidden md:flex md:flex-col md:gap-6">
@@ -28,8 +32,12 @@ export default function Filters({ type }: FiltersProps) {
         <label htmlFor="sortType" className="sr-only">
           Sort Type
         </label>
-        <SortTypeSelect inputId="sortType" />
-        {sortBy === "price" && (
+        <SortTypeSelect
+          inputId="sortType"
+          value={selectedSortType}
+          onChange={setSelectedSortType}
+        />
+        {selectedSortType === "price" && (
           <>
             <label htmlFor="priceOrder" className="sr-only">
               Sort Order
@@ -37,7 +45,7 @@ export default function Filters({ type }: FiltersProps) {
             <PriceSortSelect inputId="priceOrder" />
           </>
         )}
-        {sortBy === "birthDate" && (
+        {selectedSortType === "birthDate" && (
           <>
             <label htmlFor="ageOrder" className="sr-only">
               Sort Order

@@ -110,7 +110,6 @@ This allows users to:
 - 🔔 React Hot Toast
 - 🖼️ next/image
 - 🔍 next/navigation
-- 📦 App Router
 - ☁️ Vercel
 
 
@@ -170,7 +169,7 @@ NEXT_PUBLIC_BACKEND=
 
 | Variable | Description |
 |----------|-------------|
-| `NEXT_PUBLIC_API` | Base URL of the Next.js application |
+| `NEXT_PUBLIC_API` | Client application URL |
 | `NEXT_PUBLIC_BACKEND` | Base URL of the Pet Shop Backend API |
 
 

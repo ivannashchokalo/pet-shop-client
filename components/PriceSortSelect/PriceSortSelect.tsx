@@ -37,8 +37,10 @@ export default function PriceSortSelect({ inputId }: PriceSortSelectProps) {
     const params = new URLSearchParams(searchParams);
 
     if (option) {
+      params.set("sortBy", "price");
       params.set("sortOrder", option.value);
     } else {
+      params.delete("sortBy");
       params.delete("sortOrder");
     }
 

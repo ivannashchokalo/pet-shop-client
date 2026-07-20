@@ -107,6 +107,7 @@ export default async function AnimalsByCategory({
           type,
           breed,
           sex,
+          sortBy,
           sortOrder,
           search,
           minPrice,

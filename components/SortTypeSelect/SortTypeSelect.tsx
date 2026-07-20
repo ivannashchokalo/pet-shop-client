@@ -1,23 +1,27 @@
 "use client";
 
 import { SelectOption } from "@/types/selectOptions";
-import { usePathname, useSearchParams } from "next/navigation";
-import { useRouter } from "next/navigation";
 import Select from "react-select";
 import { selectStyles } from "../selectStyles/selectStyles";
 import DropdownIndicator from "../indicators/DropdownIndicator";
 import ClearIndicator from "../indicators/ClearIndicator";
 import Option from "../indicators/Option";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 interface SortTypeSelectProps {
   inputId: string;
+  value: string;
+  onChange: (value: string) => void;
 }
 
-export default function SortTypeSelect({ inputId }: SortTypeSelectProps) {
-  const searchParams = useSearchParams();
+export default function SortTypeSelect({
+  inputId,
+  value,
+  onChange,
+}: SortTypeSelectProps) {
   const router = useRouter();
   const pathname = usePathname();
-  const sortBy = searchParams.get("sortBy") || "";
+  const searchParams = useSearchParams();
 
   const options: SelectOption[] = [
     {
@@ -31,20 +35,22 @@ export default function SortTypeSelect({ inputId }: SortTypeSelectProps) {
   ];
 
   const selectedOption =
-    options.find((option) => option.value === sortBy) ?? null;
+    options.find((option) => option.value === value) ?? null;
 
   const handleSortTypeChange = (option: SelectOption | null) => {
-    const params = new URLSearchParams(searchParams);
+    if (!option) {
+      const params = new URLSearchParams(searchParams);
 
-    params.delete("sortOrder");
-
-    if (option) {
-      params.set("sortBy", option.value);
-    } else {
       params.delete("sortBy");
+      params.delete("sortOrder");
+
+      router.push(`${pathname}?${params.toString()}`);
+
+      onChange("");
+      return;
     }
 
-    router.push(`${pathname}?${params.toString()}`);
+    onChange(option.value);
   };
 
   return (

@@ -40,8 +40,10 @@ export default function AgeSortSelect({ inputId }: AgeSortSelectProps) {
     const params = new URLSearchParams(searchParams);
 
     if (sortOrder) {
+      params.set("sortBy", "birthDate");
       params.set("sortOrder", sortOrder.value);
     } else {
+      params.delete("sortBy");
       params.delete("sortOrder");
     }
 
