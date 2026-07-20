@@ -18,6 +18,13 @@ The application provides users with an intuitive interface for browsing animals,
 
 ---
 
+## 📸 Application Preview
+
+![Pet Shop Admin Demo](./screenshots/demo.gif)
+
+---
+
+
 ## 📝 About the Project
 
 The project demonstrates modern frontend development practices and includes:
