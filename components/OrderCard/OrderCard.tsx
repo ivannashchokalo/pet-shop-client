@@ -5,7 +5,6 @@ import Link from "next/link";
 import Button from "../Button/Button";
 import clsx from "clsx";
 import Loader from "../Loader/Loader";
-import { checkIsOnDemandRevalidate } from "next/dist/server/api-utils";
 
 interface OrderCardProps {
   request: Request;

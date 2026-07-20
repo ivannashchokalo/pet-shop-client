@@ -5,7 +5,7 @@ import { register } from "@/lib/api/client/auth";
 import { useAuthStore } from "@/lib/stores/authStore";
 import { User } from "@/types/user";
 import { useMutation } from "@tanstack/react-query";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import * as Yup from "yup";
 import { ErrorMessage, Form, Formik } from "formik";
@@ -35,15 +35,12 @@ const RegisterSchema = Yup.object({
 export default function SignUpForm() {
   const router = useRouter();
   const setUser = useAuthStore((state) => state.setUser);
-  const searchParams = useSearchParams();
-
-  const from = searchParams.get("from") || "/";
 
   const { mutate, isPending } = useMutation({
     mutationFn: register,
     onSuccess: (user: User) => {
       setUser(user);
-      router.replace(from);
+      router.replace("/");
     },
     onError: (error: ApiError) => {
       toast.error(error.response?.data?.message || "Registration failed");

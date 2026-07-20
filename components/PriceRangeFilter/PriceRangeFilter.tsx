@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Range, getTrackBackground } from "react-range";
 import { useDebouncedCallback } from "use-debounce";
 import Icon from "../Icon/Icon";

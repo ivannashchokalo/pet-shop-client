@@ -5,7 +5,7 @@ import { useAuthStore } from "@/lib/stores/authStore";
 import { User } from "@/types/user";
 import { useMutation } from "@tanstack/react-query";
 import { ErrorMessage, Form, Formik } from "formik";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { toast } from "sonner";
 import * as Yup from "yup";
 import { ApiError } from "@/app/api/api";
@@ -37,9 +37,7 @@ export default function SignInForm({
 }) {
   const router = useRouter();
   const setUser = useAuthStore((state) => state.setUser);
-  // const searchParams = useSearchParams();
-  // const pathname = usePathname();
-  // const from = `${pathname}?${searchParams.toString()}`;
+  const pathname = usePathname();
 
   const { mutate, isPending } = useMutation({
     mutationFn: login,
@@ -47,7 +45,9 @@ export default function SignInForm({
       setUser(user);
       onModalClose?.();
 
-      if (fromPath) {
+      if (pathname?.startsWith("/sign-up")) {
+        router.push("/");
+      } else if (fromPath) {
         router.push(fromPath);
       } else if (!onModalClose) {
         router.push("/");
@@ -68,11 +68,6 @@ export default function SignInForm({
   };
 
   const handleSignUpClick = () => {
-    // if (fromPath) {
-    //   router.push(`/sign-up?from=${encodeURIComponent(fromPath)}`);
-    // } else {
-    //   router.push(`/sign-up?from=${encodeURIComponent(from)}`);
-    // }
     router.push("/sign-up");
 
     onModalClose?.();
