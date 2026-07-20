@@ -68,13 +68,13 @@ export default function SignInForm({
   };
 
   const handleSignUpClick = () => {
-    onModalClose?.();
-
     if (fromPath) {
       router.push(`/sign-up?from=${encodeURIComponent(fromPath)}`);
     } else {
       router.push(`/sign-up?from=${encodeURIComponent(from)}`);
     }
+
+    onModalClose?.();
   };
 
   return (
