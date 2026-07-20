@@ -23,7 +23,7 @@ export const fetchAnimals = async (
   const { data } = await nextServer.get<FetchAnimalsRequest>("/animals", {
     params: {
       page,
-      perPage: 12,
+      perPage: 9,
       type,
       ...(breed && { breed }),
       ...(sex && { sex }),
