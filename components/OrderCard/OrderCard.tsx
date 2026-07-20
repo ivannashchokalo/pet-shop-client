@@ -5,6 +5,7 @@ import Link from "next/link";
 import Button from "../Button/Button";
 import clsx from "clsx";
 import Loader from "../Loader/Loader";
+import { checkIsOnDemandRevalidate } from "next/dist/server/api-utils";
 
 interface OrderCardProps {
   request: Request;
@@ -66,12 +67,12 @@ export default function OrderCard({
       </Link>
       <div className="px-4 pb-5 md:pb-6">
         <Button
-          className="p-[10px] w-full"
+          className="p-[10px] w-full disabled:hover:bg-[#e8eef5] disabled:hover:border-[#85a3c9] disabled:focus-visible:bg-[#e8eef5] disabled:focus-visible:border-[#85a3c9]"
           variant="secondary"
           disabled={status !== "new" || isDeleting}
           onClick={() => onDelete(_id)}
         >
-          {isDeletePending ? (
+          {isDeleting ? (
             <Loader iconColor="fill-[#323f50]" />
           ) : (
             "Cancel reservation"
