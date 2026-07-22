@@ -15,10 +15,10 @@ export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const {
-    dogsCount,
-    catsCount,
-    rodentsCount,
-    birdsCount,
+    availableDogsCount,
+    availableCatsCount,
+    availableRodentsCount,
+    availableBirdsCount,
     happyOwnersCount,
     animalsAvailableCount,
   } = await fetchStatistics();
@@ -111,7 +111,7 @@ export default async function Home() {
             <ul className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
               <CategoryCard
                 title="Dogs"
-                count={dogsCount}
+                count={availableDogsCount}
                 icon="dog"
                 iconWidth={160}
                 iconHeight={82}
@@ -121,7 +121,7 @@ export default async function Home() {
 
               <CategoryCard
                 title="Cats"
-                count={catsCount}
+                count={availableCatsCount}
                 icon="cat"
                 iconWidth={154}
                 iconHeight={89}
@@ -131,7 +131,7 @@ export default async function Home() {
 
               <CategoryCard
                 title="Rodents"
-                count={rodentsCount}
+                count={availableRodentsCount}
                 icon="hamster"
                 iconWidth={144}
                 iconHeight={80}
@@ -141,7 +141,7 @@ export default async function Home() {
 
               <CategoryCard
                 title="Birds"
-                count={birdsCount}
+                count={availableBirdsCount}
                 icon="parrot"
                 iconWidth={106}
                 iconHeight={95}
