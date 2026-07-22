@@ -3,10 +3,12 @@
 import Button from "../../../components/Button/Button";
 import AnimalsList from "@/components/AnimalsList/AnimalsList";
 import Icon from "@/components/Icon/Icon";
+import { getMe } from "@/lib/api/client/auth";
 import {
   clearFavorites,
   fetchFavoriteAnimals,
 } from "@/lib/api/client/usersClient";
+import { useAuthStore } from "@/lib/stores/authStore";
 import {
   useInfiniteQuery,
   useMutation,
@@ -15,6 +17,7 @@ import {
 
 export default function FavoritesAnimalsClient() {
   const queryClient = useQueryClient();
+  const setUser = useAuthStore((state) => state.setUser);
 
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
     useInfiniteQuery({
@@ -32,7 +35,7 @@ export default function FavoritesAnimalsClient() {
 
   const { mutate } = useMutation({
     mutationFn: clearFavorites,
-    onSuccess: () => {
+    onSuccess: async () => {
       queryClient.invalidateQueries({
         queryKey: ["favorites"],
       });
@@ -40,6 +43,13 @@ export default function FavoritesAnimalsClient() {
       queryClient.invalidateQueries({
         queryKey: ["favoriteAnimals"],
       });
+
+      queryClient.invalidateQueries({
+        queryKey: ["animals"],
+      });
+
+      const updatedUser = await getMe();
+      setUser(updatedUser);
     },
   });
 
