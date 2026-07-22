@@ -230,7 +230,7 @@ export default function AnimalReservationForm({
                         )}
                       </div>
 
-                      <span className="font-medium text-[16px] text-[#151c26]">
+                      <span className="font-medium text-[16px] text-[var(--text-main)]">
                         Phone
                       </span>
                     </>
@@ -256,7 +256,7 @@ export default function AnimalReservationForm({
                         )}
                       </div>
 
-                      <span className="font-medium text-[16px] text-[#151c26]">
+                      <span className="font-medium text-[16px] text-[var(--text-main)]">
                         Email
                       </span>
                     </>
