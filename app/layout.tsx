@@ -52,7 +52,7 @@ export default function RootLayout({
           <AuthProvider>
             <ThemeProvider>
               <Header />
-              <main className="reletive flex-1 bg-[var(--background)]">
+              <main className="relative min-h-[70vh] bg-[var(--background)]">
                 {children}
                 {reserve}
               </main>
