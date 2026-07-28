@@ -18,9 +18,7 @@ export async function GET() {
   } catch (error) {
     return NextResponse.json(
       {
-        error:
-          // (error as ApiError).response?.data?.error ??
-          (error as ApiError).message,
+        error: (error as ApiError).message,
       },
       { status: (error as ApiError).status },
     );

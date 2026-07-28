@@ -7,8 +7,6 @@ interface Params {
 
 export async function GET(_req: NextRequest, { params }: Params) {
   const { animalId } = await params;
-  console.log("nrxt");
-
   try {
     const { data } = await api.get(`/animals/${animalId}`);
     return NextResponse.json(data);

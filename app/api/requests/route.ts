@@ -5,7 +5,6 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const { data } = await api.post("/requests", body);
-    console.log("next", data);
     return NextResponse.json(data);
   } catch (error) {
     const err = error as ApiError;

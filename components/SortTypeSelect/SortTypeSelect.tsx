@@ -38,19 +38,19 @@ export default function SortTypeSelect({
     options.find((option) => option.value === value) ?? null;
 
   const handleSortTypeChange = (option: SelectOption | null) => {
-    if (!option) {
-      const params = new URLSearchParams(searchParams);
+    const params = new URLSearchParams(searchParams);
 
+    if (option) {
+      params.set("sortBy", option.value);
+      onChange(option.value);
+    } else {
       params.delete("sortBy");
-      params.delete("sortOrder");
-
-      router.push(`${pathname}?${params.toString()}`);
-
       onChange("");
-      return;
     }
 
-    onChange(option.value);
+    params.delete("sortOrder");
+
+    router.push(`${pathname}?${params.toString()}`);
   };
 
   return (

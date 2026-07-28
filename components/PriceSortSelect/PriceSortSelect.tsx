@@ -22,11 +22,11 @@ export default function PriceSortSelect({ inputId }: PriceSortSelectProps) {
   const options: SelectOption[] = [
     {
       value: "asc",
-      label: "Price: Low to High",
+      label: "Low to high",
     },
     {
       value: "desc",
-      label: "Price: High to Low",
+      label: "High to low",
     },
   ];
 

@@ -8,6 +8,5 @@ export const fetchUserRequestsServer = async () => {
       Cookie: cookieStore.toString(),
     },
   });
-  console.log(data);
   return data;
 };
