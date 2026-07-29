@@ -10,7 +10,9 @@ export default function HeaderThemeSwitcher() {
     <button
       type="button"
       className="hidden md:block"
-      aria-label="Toggle theme"
+      aria-label={
+        theme === "light" ? "Switch to dark theme" : "Switch to light theme"
+      }
       onClick={themeToggle}
     >
       {theme === "light" ? (

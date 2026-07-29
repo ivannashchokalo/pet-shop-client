@@ -20,7 +20,12 @@ export default function About() {
             </p>
           </div>
           <div className="relative h-[370px] w-[395px] md:absolute md:bottom-[100px] md:right-0 md:z-10 md:h-[480px] md:w-[500px] xl:top-[-50px] xl:h-[800px] xl:w-[830px]">
-            <Image src="/about-animals.webp" alt="animals" fill />
+            <Image
+              src="/about-animals.webp"
+              alt="animals"
+              fill
+              className="object-cover"
+            />
           </div>
         </Container>
       </Section>
@@ -40,7 +45,12 @@ export default function About() {
               </div>
 
               <div className="relative h-[330px] w-[330px] mr-auto md:order-0 md:mr-0 md:shrink-0 xl:order-1 xl:h-[500px] xl:w-[500px]">
-                <Image src="/parrot.webp" fill alt="parrot" />
+                <Image
+                  src="/parrot.webp"
+                  fill
+                  alt="parrot"
+                  className="object-cover"
+                />
               </div>
             </li>
             <li className="flex flex-col gap-8 md:flex-row xl:flex-col xl:items-center xl:w-[500px]">
@@ -55,7 +65,12 @@ export default function About() {
               </div>
 
               <div className="relative h-[330px] w-[330px] ml-auto shrink-0 md:ml-0 xl:order-0 xl:h-[500px] xl:w-[500px]">
-                <Image src="/dog-and-cat.webp" alt="parrot" fill />
+                <Image
+                  src="/dog-and-cat.webp"
+                  alt="parrot"
+                  fill
+                  className="object-cover"
+                />
               </div>
             </li>
           </ul>
@@ -69,7 +84,12 @@ export default function About() {
           <ul className="flex flex-col items-center gap-12 md:flex-row xl:gap-20">
             <li>
               <div className="relative mb-6 h-[226px] w-[226px] md:h-[200px] md:w-[200px] xl:h-[284px] xl:w-[284px]">
-                <Image src="/about-boy.webp" fill alt="Project Founder & CEO" />
+                <Image
+                  src="/about-boy.webp"
+                  fill
+                  alt="Project Founder & CEO"
+                  className="object-cover"
+                />
               </div>
 
               <h2 className="mb-2 font-semibold text-[20px] text-center text-[var(--text-main)]">
@@ -85,6 +105,7 @@ export default function About() {
                   src="/about-girl-1.webp"
                   fill
                   alt="Chief veterinary expert"
+                  className="object-cover"
                 />
               </div>
 
@@ -97,7 +118,12 @@ export default function About() {
             </li>
             <li>
               <div className="relative mb-6 h-[226px] w-[226px] md:h-[200px] md:w-[200px] xl:h-[284px] xl:w-[284px]">
-                <Image src="/about-girl-2.webp" fill alt="Head of Support" />
+                <Image
+                  src="/about-girl-2.webp"
+                  fill
+                  alt="Head of Support"
+                  className="object-cover"
+                />
               </div>
 
               <h2 className="mb-2 font-semibold text-[20px] text-center text-[var(--text-main)]">
@@ -124,7 +150,12 @@ export default function About() {
               <div className="pointer-events-none absolute left-0 top-0 h-full w-full rounded-[20px] bg-[var(--text-secondary)]/20"></div>
             </div>
             <div className="absolute left-1/2 top-0 z-40 h-[330px] w-[370px] -translate-x-1/2 -translate-y-[85%] xl:left-0 xl:translate-x-0">
-              <Image src="/about-dog.webp" fill alt="dog on a map" />
+              <Image
+                src="/about-dog.webp"
+                fill
+                alt="dog on a map"
+                className="object-cover"
+              />
             </div>
           </div>
           <div className="md:flex md:items-center md:gap-4 xl:mb-20 xl:mt-auto xl:flex-col xl:gap-8">

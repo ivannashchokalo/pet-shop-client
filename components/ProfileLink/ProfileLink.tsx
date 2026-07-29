@@ -16,7 +16,7 @@ export default function ProfileLink() {
         <IconButton
           href="/profile"
           className="h-11 w-11 hover:bg-[rgba(199,224,246,0.2)] focus-visible:bg-[rgba(199,224,246,0.2)]"
-          ariaLabel="Profile"
+          ariaLabel="Open profile"
         >
           <Icon
             name="user"

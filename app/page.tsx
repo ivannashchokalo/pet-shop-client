@@ -60,7 +60,12 @@ export default async function Home() {
             </li>
           </ul>
           <div className="absolute top-[12%] right-0 w-[227px] h-[319px] md:w-[424px] md:h-[524px] xl:w-[603px] xl:h-[746px] xl:top-[-20px] xl:right-[40px]">
-            <Image src="/dog-hero.webp" fill alt="dog" />
+            <Image
+              src="/dog-hero.webp"
+              fill
+              alt="dog"
+              className="object-cover"
+            />
           </div>
         </Container>
       </Section>
@@ -101,7 +106,12 @@ export default async function Home() {
             </ul>
           </div>
           <div className="relative w-[400px] h-[448px] md:absolute md:left-0 md:top-[50%] md:translate-y-[-50%] xl:top-0 xl:translate-y-0 xl:w-[652px] xl:h-[798px]">
-            <Image src="/customer-dark.webp" fill alt="customer with animal" />
+            <Image
+              src="/customer-dark.webp"
+              fill
+              alt="customer with animal"
+              className="object-cover"
+            />
           </div>
         </Container>
       </Section>

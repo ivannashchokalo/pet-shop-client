@@ -43,6 +43,7 @@ export default function IconButton({
 
   return (
     <button
+      aria-label={ariaLabel}
       type={type}
       onClick={onClick}
       disabled={disabled}

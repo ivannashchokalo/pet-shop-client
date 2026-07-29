@@ -1,7 +1,6 @@
 "use client";
 import { useAuthStore } from "@/lib/stores/authStore";
-// import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Icon from "../Icon/Icon";
 import IconButton from "../IconButton/IconButton";
 import clsx from "clsx";
@@ -9,14 +8,14 @@ import clsx from "clsx";
 export default function FavoritesLink() {
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   const user = useAuthStore((state) => state.user);
-  const router = useRouter();
   const pathname = usePathname();
 
   return (
     <>
       {isAuthenticated && (
         <IconButton
-          onClick={() => router.push("/favorites")}
+          ariaLabel={`Open favorites. ${user?.favorites?.length ?? 0} saved animals`}
+          href="/favorites"
           className="relative h-[44px] w-[44px] p-[10px] rounded-full transition-colors duration-300 ease-in-out hover:bg-[rgba(199,224,246,0.2)] focus-visible:bg-[rgba(199,224,246,0.2)]"
         >
           <Icon

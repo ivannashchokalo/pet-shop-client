@@ -81,6 +81,7 @@ export default function Footer() {
             <ul className="flex gap-3">
               <li>
                 <a
+                  aria-label="Instagram"
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -96,6 +97,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
+                  aria-label="Facebook"
                   href="https://facebook.com"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -111,6 +113,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
+                  aria-label="Telegram"
                   href="https://telegram.com"
                   target="_blank"
                   rel="noopener noreferrer"

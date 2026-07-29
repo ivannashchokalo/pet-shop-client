@@ -110,6 +110,7 @@ export default function AnimalCard({
       </div>
 
       <IconButton
+        ariaLabel={isFavorite ? "Remove from favorites" : "Add to favorites"}
         onClick={() => onFavoriteClick(animal._id)}
         className="absolute right-4 top-4 rounded-full bg-[var(--heart-card-bg)] p-2 hover:bg-[var(--heart-button-bg-interactive)] focus-visible:bg-[var(--heart-button-bg-interactive)]"
       >
