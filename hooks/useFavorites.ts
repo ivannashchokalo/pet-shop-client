@@ -1,4 +1,3 @@
-import { getMe } from "@/lib/api/client/auth";
 import {
   addToFavorites,
   removeFromFavorites,
@@ -19,25 +18,23 @@ export default function useFavorites() {
 
   const addMutation = useMutation({
     mutationFn: addToFavorites,
-    onSuccess: async () => {
+    onSuccess: async ({ user }) => {
       queryClient.invalidateQueries({ queryKey: ["favorites"] });
       queryClient.invalidateQueries({ queryKey: ["animals"] });
       queryClient.invalidateQueries({ queryKey: ["favoriteAnimals"] });
 
-      const updatedUser = await getMe();
-      setUser(updatedUser);
+      setUser(user);
     },
   });
 
   const removeMutation = useMutation({
     mutationFn: removeFromFavorites,
-    onSuccess: async () => {
+    onSuccess: async ({ user }) => {
       queryClient.invalidateQueries({ queryKey: ["favorites"] });
       queryClient.invalidateQueries({ queryKey: ["animals"] });
       queryClient.invalidateQueries({ queryKey: ["favoriteAnimals"] });
 
-      const updatedUser = await getMe();
-      setUser(updatedUser);
+      setUser(user);
     },
   });
 

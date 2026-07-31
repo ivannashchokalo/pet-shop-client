@@ -22,7 +22,7 @@ interface FavoritesResponse {
 
 interface UpdateFavoritesResponse {
   message: string;
-  favorites: AnimalId[];
+  user: User;
 }
 
 interface ChangePasswordResponse {

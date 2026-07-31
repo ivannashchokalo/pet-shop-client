@@ -15,6 +15,7 @@ export const serverFetchAnimals = async (
   maxPrice: string,
 ) => {
   const cookieStore = await cookies();
+
   const { data } = await nextServer.get<FetchAnimalsRequest>("/animals", {
     params: {
       page,
@@ -36,14 +37,11 @@ export const serverFetchAnimals = async (
 };
 
 export const serverFetchAnimalById = async (id: AnimalId) => {
-  const { data } = await nextServer.get<Animal>(`/animals/${id}`);
-  return data;
-};
+  const cookieStore = await cookies();
 
-export const serverFetchFilters = async (type: string) => {
-  const { data } = await nextServer.get("/animals/filters", {
-    params: {
-      type,
+  const { data } = await nextServer.get<Animal>(`/animals/${id}`, {
+    headers: {
+      Cookie: cookieStore.toString(),
     },
   });
   return data;

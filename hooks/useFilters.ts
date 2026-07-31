@@ -1,6 +1,6 @@
 "use client";
 
-import { fetchFilters } from "@/lib/api/client/animalsClient";
+import { fetchFilters } from "@/lib/api/shared/filters";
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "next/navigation";
 

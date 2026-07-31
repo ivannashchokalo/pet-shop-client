@@ -8,10 +8,6 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Settings | Pet Shop",
   description: "Manage your account settings, name, and password.",
-  robots: {
-    index: false,
-    follow: false,
-  },
 };
 
 export default function Settings() {

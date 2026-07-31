@@ -10,9 +10,9 @@ import AnimalsByCategoryClient from "./AnimalsByCategoryClient";
 import {
   serverFetchAnimalById,
   serverFetchAnimals,
-  serverFetchFilters,
 } from "@/lib/api/server/animalsServer";
 import { DEFAULT_PET } from "@/constants/images";
+import { fetchFilters } from "@/lib/api/shared/filters";
 
 interface Props {
   params: Promise<{
@@ -130,7 +130,7 @@ export default async function AnimalsByCategory({
 
     await queryClient.prefetchQuery({
       queryKey: ["filters", type],
-      queryFn: () => serverFetchFilters(type),
+      queryFn: () => fetchFilters(type),
     });
 
     return (

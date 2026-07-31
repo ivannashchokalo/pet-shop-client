@@ -12,10 +12,6 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "My Profile | Pet Shop",
   description: "View your profile information and reservation history.",
-  robots: {
-    index: false,
-    follow: false,
-  },
 };
 
 export default async function ProfilePage() {

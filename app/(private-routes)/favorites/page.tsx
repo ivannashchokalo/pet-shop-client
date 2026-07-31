@@ -12,10 +12,6 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Favorite Animals | Pet Shop",
   description: "View and manage your favorite animals.",
-  robots: {
-    index: false,
-    follow: false,
-  },
 };
 
 export default async function FavoritesAnimals() {

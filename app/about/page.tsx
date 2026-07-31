@@ -67,7 +67,7 @@ export default function About() {
               <div className="relative h-[330px] w-[330px] ml-auto shrink-0 md:ml-0 xl:order-0 xl:h-[500px] xl:w-[500px]">
                 <Image
                   src="/dog-and-cat.webp"
-                  alt="parrot"
+                  alt="Dog and cat together"
                   fill
                   className="object-cover"
                 />
@@ -141,6 +141,7 @@ export default function About() {
           <div className="relative mt-auto">
             <div className="h-[280px] w-[400px] overflow-hidden rounded-[20px] md:h-[490px] md:w-[690px] xl:h-[525px] xl:w-[740px]">
               <iframe
+                title="Office location"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2607.2218873840015!2d16.603672076483978!3d49.196350171380004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47129450805f19a3%3A0x1f5f10890bc212d!2zxIxlc2vDoSAxMiwgNjAyIDAwIEJybm8tc3TFmWVk!5e0!3m2!1suk!2scz!4v1781526001973!5m2!1suk!2scz"
                 loading="lazy"
                 className="w-full h-full"
