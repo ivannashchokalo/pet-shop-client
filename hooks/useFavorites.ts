@@ -19,12 +19,7 @@ export default function useFavorites() {
   const addMutation = useMutation({
     mutationFn: addToFavorites,
     onSuccess: async ({ user }) => {
-      console.log("updated user", user);
       setUser(user);
-      console.log(useAuthStore.getState().user);
-
-      // queryClient.invalidateQueries({ queryKey: ["favorites"] });
-      // queryClient.invalidateQueries({ queryKey: ["animals"] });
       queryClient.invalidateQueries({ queryKey: ["favoriteAnimals"] });
     },
   });
@@ -33,9 +28,6 @@ export default function useFavorites() {
     mutationFn: removeFromFavorites,
     onSuccess: async ({ user }) => {
       setUser(user);
-
-      // queryClient.invalidateQueries({ queryKey: ["favorites"] });
-      // queryClient.invalidateQueries({ queryKey: ["animals"] });
       queryClient.invalidateQueries({ queryKey: ["favoriteAnimals"] });
     },
   });
