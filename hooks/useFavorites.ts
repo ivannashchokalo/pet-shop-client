@@ -19,22 +19,22 @@ export default function useFavorites() {
   const addMutation = useMutation({
     mutationFn: addToFavorites,
     onSuccess: async ({ user }) => {
+      setUser(user);
+
       queryClient.invalidateQueries({ queryKey: ["favorites"] });
       queryClient.invalidateQueries({ queryKey: ["animals"] });
       queryClient.invalidateQueries({ queryKey: ["favoriteAnimals"] });
-
-      setUser(user);
     },
   });
 
   const removeMutation = useMutation({
     mutationFn: removeFromFavorites,
     onSuccess: async ({ user }) => {
+      setUser(user);
+
       queryClient.invalidateQueries({ queryKey: ["favorites"] });
       queryClient.invalidateQueries({ queryKey: ["animals"] });
       queryClient.invalidateQueries({ queryKey: ["favoriteAnimals"] });
-
-      setUser(user);
     },
   });
 
