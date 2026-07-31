@@ -41,7 +41,6 @@ export default function SortTypeSelect({
     const params = new URLSearchParams(searchParams);
 
     if (option) {
-      params.set("sortBy", option.value);
       onChange(option.value);
     } else {
       params.delete("sortBy");
