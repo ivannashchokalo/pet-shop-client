@@ -18,17 +18,67 @@ export default function useFavorites() {
 
   const addMutation = useMutation({
     mutationFn: addToFavorites,
-    onSuccess: async ({ user }) => {
+
+    onMutate: (animalId) => {
+      const previousUser = useAuthStore.getState().user;
+
+      if (!previousUser) {
+        return { previousUser: null };
+      }
+
+      setUser({
+        ...previousUser,
+        favorites: [...previousUser.favorites, animalId],
+      });
+
+      return { previousUser };
+    },
+
+    onError: (_, __, context) => {
+      if (context?.previousUser) {
+        setUser(context.previousUser);
+      }
+    },
+
+    onSuccess: ({ user }) => {
       setUser(user);
-      queryClient.invalidateQueries({ queryKey: ["favoriteAnimals"] });
+
+      queryClient.invalidateQueries({
+        queryKey: ["favoriteAnimals"],
+      });
     },
   });
 
   const removeMutation = useMutation({
     mutationFn: removeFromFavorites,
-    onSuccess: async ({ user }) => {
+
+    onMutate: (animalId) => {
+      const previousUser = useAuthStore.getState().user;
+
+      if (!previousUser) {
+        return { previousUser: null };
+      }
+
+      setUser({
+        ...previousUser,
+        favorites: previousUser.favorites.filter((id) => id !== animalId),
+      });
+
+      return { previousUser };
+    },
+
+    onError: (_, __, context) => {
+      if (context?.previousUser) {
+        setUser(context.previousUser);
+      }
+    },
+
+    onSuccess: ({ user }) => {
       setUser(user);
-      queryClient.invalidateQueries({ queryKey: ["favoriteAnimals"] });
+
+      queryClient.invalidateQueries({
+        queryKey: ["favoriteAnimals"],
+      });
     },
   });
 
