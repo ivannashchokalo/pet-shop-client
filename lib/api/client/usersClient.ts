@@ -16,10 +16,6 @@ type FetchFavoriteAnimalsParams = {
   pageParam?: number;
 };
 
-interface FavoritesResponse {
-  favorites: AnimalId[];
-}
-
 interface UpdateFavoritesResponse {
   message: string;
   user: User;
@@ -28,11 +24,6 @@ interface UpdateFavoritesResponse {
 interface ChangePasswordResponse {
   message: string;
 }
-
-export const fetchFavorites = async () => {
-  const { data } = await nextServer.get<FavoritesResponse>("users/favorites");
-  return data.favorites;
-};
 
 export const addToFavorites = async (animalId: AnimalId) => {
   const { data } = await nextServer.patch<UpdateFavoritesResponse>(

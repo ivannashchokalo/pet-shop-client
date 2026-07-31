@@ -40,21 +40,3 @@ export async function DELETE(req: NextRequest) {
     );
   }
 }
-
-export async function GET() {
-  const cookieStore = await cookies();
-  try {
-    const { data } = await api.get("/users/favorites", {
-      headers: {
-        Cookie: cookieStore.toString(),
-      },
-    });
-    return NextResponse.json(data);
-  } catch (error) {
-    const err = error as ApiError;
-    return NextResponse.json(
-      { error: err.response?.data.message },
-      { status: err.status },
-    );
-  }
-}
