@@ -6,13 +6,20 @@ import { createPortal } from "react-dom";
 import ContentCard from "../ContentCard/ContentCard";
 import Icon from "../Icon/Icon";
 import IconButton from "../IconButton/IconButton";
+import clsx from "clsx";
 
 interface ModalProps {
   children: React.ReactNode;
   onClose?: () => void;
   redirectPath?: string;
+  className?: string;
 }
-export default function Modal({ children, onClose, redirectPath }: ModalProps) {
+export default function Modal({
+  children,
+  onClose,
+  redirectPath,
+  className,
+}: ModalProps) {
   const router = useRouter();
 
   const close = useCallback(() => {
@@ -54,9 +61,11 @@ export default function Modal({ children, onClose, redirectPath }: ModalProps) {
   return createPortal(
     <div
       onClick={handleBackdropClick}
-      className="fixed inset-0 z-[999] overflow-y-auto bg-[rgba(46,47,66,0.4)] p-4"
+      className="fixed top-0 left-0 z-[999] flex h-full w-full items-center justify-center overflow-y-auto bg-[rgba(46,47,66,0.4)]"
     >
-      <ContentCard className="relative mx-auto my-4 w-[350px]">
+      <ContentCard
+        className={clsx("relative mx-auto my-4 w-[350px]", className)}
+      >
         <IconButton
           type="button"
           onClick={handleModalClose}
