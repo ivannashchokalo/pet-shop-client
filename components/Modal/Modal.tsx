@@ -54,9 +54,9 @@ export default function Modal({ children, onClose, redirectPath }: ModalProps) {
   return createPortal(
     <div
       onClick={handleBackdropClick}
-      className="fixed inset-0 z-[999] flex justify-center pt-10 bg-[rgba(46,47,66,0.4)]"
+      className="fixed inset-0 z-[999] overflow-y-auto bg-[rgba(46,47,66,0.4)] p-4"
     >
-      <ContentCard className="relative w-[350px]">
+      <ContentCard className="relative mx-auto my-4 w-[350px]">
         <IconButton
           type="button"
           onClick={handleModalClose}
