@@ -9,7 +9,7 @@ interface CategoryCardProps {
   icon: string;
   iconWidth: number;
   iconHeight: number;
-  href?: string;
+  href: string;
   cardClassName?: string;
   contentClassName?: string;
   titleClassName?: string;
@@ -68,13 +68,9 @@ export default function CategoryCard({
         cardClassName,
       )}
     >
-      {href ? (
-        <Link href={href} className={clsx(contentClass, contentClassName)}>
-          {content}
-        </Link>
-      ) : (
-        <div className={clsx(contentClass, contentClassName)}>{content}</div>
-      )}
+      <Link href={href} className={clsx(contentClass, contentClassName)}>
+        {content}
+      </Link>
     </li>
   );
 }

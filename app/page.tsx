@@ -125,6 +125,7 @@ export default async function Home() {
                 icon="dog"
                 iconWidth={160}
                 iconHeight={82}
+                href="/animals/dog"
                 iconClassName={iconClass}
                 titleClassName={cardTitleClass}
               />
@@ -135,6 +136,7 @@ export default async function Home() {
                 icon="cat"
                 iconWidth={154}
                 iconHeight={89}
+                href="/animals/cat"
                 iconClassName={iconClass}
                 titleClassName={cardTitleClass}
               />
@@ -145,6 +147,7 @@ export default async function Home() {
                 icon="hamster"
                 iconWidth={144}
                 iconHeight={80}
+                href="/animals/rodent"
                 iconClassName={iconClass}
                 titleClassName={cardTitleClass}
               />
@@ -155,6 +158,7 @@ export default async function Home() {
                 icon="parrot"
                 iconWidth={106}
                 iconHeight={95}
+                href="/animals/bird"
                 iconClassName={iconClass}
                 titleClassName={cardTitleClass}
               />
