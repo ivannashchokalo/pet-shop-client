@@ -12,14 +12,8 @@ interface ModalProps {
   children: React.ReactNode;
   onClose?: () => void;
   redirectPath?: string;
-  className?: string;
 }
-export default function Modal({
-  children,
-  onClose,
-  redirectPath,
-  className,
-}: ModalProps) {
+export default function Modal({ children, onClose, redirectPath }: ModalProps) {
   const router = useRouter();
 
   const close = useCallback(() => {
@@ -61,11 +55,9 @@ export default function Modal({
   return createPortal(
     <div
       onClick={handleBackdropClick}
-      className="fixed top-0 left-0 z-[999] flex h-full w-full items-center justify-center overflow-y-auto bg-[rgba(46,47,66,0.4)]"
+      className="fixed top-0 left-0 z-[999] flex h-full w-full items-start justify-center py-8 overflow-y-auto bg-[rgba(46,47,66,0.4)] xl:items-center"
     >
-      <ContentCard
-        className={clsx("relative mx-auto my-4 w-[350px]", className)}
-      >
+      <ContentCard className="relative w-[350px]">
         <IconButton
           type="button"
           onClick={handleModalClose}

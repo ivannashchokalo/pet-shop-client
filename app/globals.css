@@ -129,3 +129,10 @@ button {
 .delay-500 {
   animation-delay: 0.5s;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--text-main);
+  -webkit-box-shadow: 0 0 0px 1000px var(--contetn-card-bg) inset;
+}

@@ -137,7 +137,7 @@ export default function AnimalReservationForm({
       enableReinitialize // Enable Formik to update initial values after the authenticated user is loaded
     >
       {({ errors, touched }) => (
-        <Form className="flex flex-col items-center gap-4 mx-auto">
+        <Form className="flex flex-col items-center minh-[600px] gap-4 mx-auto">
           <h2 className="text-center font-bold text-[24px] text-[#85a3c9] xl:text-[28px]">
             Pet reservation form
           </h2>
@@ -202,7 +202,7 @@ export default function AnimalReservationForm({
               id="message"
               name="message"
               placeholder="Additional message"
-              className="w-full resize-none h-[100px] rounded-[20px] border border-[#a2a2a2] bg-transparent px-4 py-3 text-[#151c26] placeholder:text-[#a2a2a2] focus:border-[#aad2f2] focus:outline-none md:w-[350px]"
+              className="w-full resize-none h-[100px] rounded-[20px] border border-[#a2a2a2] bg-transparent px-4 py-3 text-[var(--text-main)] placeholder:text-[#a2a2a2] focus:border-[#aad2f2] focus:outline-none md:w-[350px]"
             />
           </div>
 

@@ -7,7 +7,7 @@ interface ReserveModalProps {
 export default async function ReserveModal({ params }: ReserveModalProps) {
   const { id } = await params;
   return (
-    <Modal className="h-[680px]">
+    <Modal>
       <AnimalReservationForm animalId={id} />
     </Modal>
   );
